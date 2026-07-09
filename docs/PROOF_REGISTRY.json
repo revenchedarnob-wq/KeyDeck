@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-07-09T21:16:00Z",
+  "repository": "revenchedarnob-wq/KeyDeck",
+  "source_commit": "520474836551f15f3386f79ff0fe7fcd13904898",
+  "baseline": "v0.35.0-RECONSTRUCTED",
+  "evidence_boundary": {
+    "exact_physical_ancestor": "v0.21.0 / Proof 0.24",
+    "post_v0_21_claim": "reconstructed and re-proven; no byte-identical historical recovery claim"
+  },
+  "latest_verified_proof": "0.38",
+  "next_gate": "0.39 Secret-Safe Production Visual Bootstrap and First-Run Desktop Launch",
+  "proofs": [
+    {
+      "proof": "0.1",
+      "status": "PASS",
+      "scenario_count": null,
+      "source_report_path": "docs/KeyDeck-Proof-0.1-report.json",
+      "evidence_class": "historical_verified_report_present",
+      "note": "Scenario count not rederived during automation bootstrap."
+    },
+    {
+      "proof": "0.2",
+      "status": "PASS",
+      "scenario_count": null,
+      "source_report_path": "docs/KeyDeck-Proof-0.2-report.json",
+      "evidence_class": "historical_verified_report_present",
+      "note": "Scenario count not rederived during automation bootstrap."
+    },
+    {
+      "proof": "0.3",
+      "status": "PASS",
+      "scenario_count": null,
+      "source_report_path": "docs/KeyDeck-Proof-0.3-report.json",
+      "evidence_class": "historical_verified_report_present",
+      "note": "Scenario count not rederived during automation bootstrap."
+    },
+    {
+      "proof": "0.4",
+      "status": "PASS",
+      "scenario_count": null,
+      "source_report_path": "docs/KeyDeck-Proof-0.4-report.json",
+      "evidence_class": "historical_verified_report_present",
+      "note": "Scenario count not rederived during automation bootstrap."
+    },
+    {
+      "proof": "0.5",
+      "status": "PASS",
+      "scenario_count": null,
+      "source_report_path": "docs/KeyDeck-Proof-0.5-report.json",
+      "evidence_class": "historical_verified_report_present",
+      "note": "Scenario count not rederived during automation bootstrap."
+    },
+    {
+      "proof": "0.6",
+      "status": "PASS",
+      "scenario_count": null,
+      "source_report_path": "docs/KeyDeck-Proof-0.6-policy-report.json",
+      "evidence_class": "historical_verified_report_present",
+      "note": "Scenario count not rederived during automation bootstrap."
+    },
+    {
+      "proof": "0.7",
+      "status": "PASS",
+      "scenario_count": null,
+      "source_report_path": "docs/KeyDeck-Proof-0.7-policy-report.json",
+      "evidence_class": "historical_verified_report_present",
+      "note": "Scenario count not rederived during automation bootstrap."
+    },
+    {
+      "proof": "0.8",
+      "status": "PASS",
+      "scenario_count": null,
+      "source_report_path": "docs/KeyDeck-Proof-0.8-policy-report.json",
+      "evidence_class": "historical_verified_report_present",
+      "note": "Scenario count not rederived during automation bootstrap."
+    },
+    {
+      "proof": "0.9",
+      "status": "PASS",
+      "scenario_count": 4,
+      "report_sha256": "d198768cb23d22009514d6284ac1256f750bd38f26bbfcdcdd932abe7a5ac47f",
+      "source_report_path": "docs/KeyDeck-Proof-0.9-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.10",
+      "status": "PASS",
+      "scenario_count": 7,
+      "report_sha256": "6d3796f7d41ef8dcb69dc798dfc29a3c63570e4d3a366572f31b2de3e223a405",
+      "source_report_path": "docs/KeyDeck-Proof-0.10-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.11",
+      "status": "PASS",
+      "scenario_count": 5,
+      "report_sha256": "a95b6873bd834e1393419cce9c05a5c73442a55ce5d37a729df03f21aaf9f450",
+      "source_report_path": "docs/KeyDeck-Proof-0.11-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.12",
+      "status": "PASS",
+      "scenario_count": 7,
+      "report_sha256": "d84179b81a6c01367abfa923da0a279dd473eb80b36a033a13ae2aa9bb717a14",
+      "source_report_path": "docs/KeyDeck-Proof-0.12-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.13",
+      "status": "PASS",
+      "scenario_count": 11,
+      "report_sha256": "5420a1e48c3d451b540a838522f4b4d14c72ea6f3fc356fd9498c6429daf7b57",
+      "source_report_path": "docs/KeyDeck-Proof-0.13-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.14",
+      "status": "PASS",
+      "scenario_count": 0,
+      "report_sha256": "ded8246f5248bbc3484f43bdeffae3d988ca0e8b2e29edc28f538369e151e6e5",
+      "source_report_path": "docs/KeyDeck-Proof-0.14-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.15",
+      "status": "PASS",
+      "scenario_count": 15,
+      "report_sha256": "5de02aabd17f1798f4f86f052a1319542c627c1e5867009c3327bf89c30d52ed",
+      "source_report_path": "docs/KeyDeck-Proof-0.15-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.16",
+      "status": "PASS",
+      "scenario_count": 17,
+      "report_sha256": "56ee1ac53c6218391ee92faf77b781786fd5b84907c63d0f105651bb207e8506",
+      "source_report_path": "docs/KeyDeck-Proof-0.16-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.17",
+      "status": "PASS",
+      "scenario_count": 22,
+      "report_sha256": "b61212604234fc8b442d427569e6956af7431b788b946053310aefb863928940",
+      "source_report_path": "docs/KeyDeck-Proof-0.17-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.18",
+      "status": "PASS",
+      "scenario_count": 28,
+      "report_sha256": "530820417a0f74f840b55a1df826ec05181a4f38f0325d3c4d5d39ff2650674d",
+      "source_report_path": "docs/KeyDeck-Proof-0.18-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.19",
+      "status": "PASS",
+      "scenario_count": 7,
+      "report_sha256": "bc2df17d0dee46795d0fe2e630ea396cef0092c476a87f1adfe31d263c7275ea",
+      "source_report_path": "docs/KeyDeck-Proof-0.19-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.20",
+      "status": "PASS",
+      "scenario_count": 7,
+      "report_sha256": "58373be1239c9ee7ef35c38abf1ad05c1227a86210c33baa21f6e1c752b57af4",
+      "source_report_path": "docs/KeyDeck-Proof-0.20-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.21",
+      "status": "PASS",
+      "scenario_count": 8,
+      "report_sha256": "281d2e9c3f151fc40d4e126b7bf82612ea393718af5dea9dfb508463f153057c",
+      "source_report_path": "docs/KeyDeck-Proof-0.21-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.22",
+      "status": "PASS",
+      "scenario_count": 8,
+      "report_sha256": "d4bc4eb657b4de7459c65e83868d84677c61e39fb9f0dc393234f761a67b94b6",
+      "source_report_path": "docs/KeyDeck-Proof-0.22-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.23",
+      "status": "PASS",
+      "scenario_count": 8,
+      "report_sha256": "bd4ec6af3aa16b6c632a06491dfad741c5a52288907369f117e5c39eb11a6b09",
+      "source_report_path": "docs/KeyDeck-Proof-0.23-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.24",
+      "status": "PASS",
+      "scenario_count": 10,
+      "report_sha256": "f377a458df7058c8f07bd72fe495249109fee8cc4e1cd7138efefdef2a051970",
+      "source_report_path": "docs/KeyDeck-Proof-0.24-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.25",
+      "status": "PASS",
+      "scenario_count": 10,
+      "report_sha256": "046874ebfa92205fb4782f397ffda5f4446998d06ac24ab201687144c8e88ecc",
+      "source_report_path": "docs/KeyDeck-Proof-0.25-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.26",
+      "status": "PASS",
+      "scenario_count": 10,
+      "report_sha256": "450018434d3eb70820559f18f39099135adf6b8baa234becc41411381ac23dab",
+      "source_report_path": "docs/KeyDeck-Proof-0.26-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.27",
+      "status": "PASS",
+      "scenario_count": 10,
+      "report_sha256": "99e55ec95c5965e7e5656561bcf5addadce972b1ef5dcce9a9d544d906962a2d",
+      "source_report_path": "docs/KeyDeck-Proof-0.27-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.28",
+      "status": "PASS",
+      "scenario_count": 10,
+      "report_sha256": "63efcfe857123566b73b345d2cdb8d03c61a6814e85142bc0ebd3e98a80fad02",
+      "source_report_path": "docs/KeyDeck-Proof-0.28-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.29",
+      "status": "PASS",
+      "scenario_count": 10,
+      "report_sha256": "2a2f38ffe2f119e003360209162336a3181684ff855e9241d82fc06103b2a243",
+      "source_report_path": "docs/KeyDeck-Proof-0.29-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.30",
+      "status": "PASS",
+      "scenario_count": 10,
+      "report_sha256": "3713e64582c74ee4422c8d38804a8f721f936838892d03e202ec313d75c859f2",
+      "source_report_path": "docs/KeyDeck-Proof-0.30-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.31",
+      "status": "PASS",
+      "scenario_count": 14,
+      "report_sha256": "a7618ce0edb795fef5675da16000b1b06657ad598df62f966d59062af1600dd7",
+      "source_report_path": "docs/KeyDeck-Proof-0.31-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.32",
+      "status": "PASS",
+      "scenario_count": 12,
+      "report_sha256": "f137a40fc391f0eac3e78505ac650f202a651718a7cb66b03c7bfec86e4ddd97",
+      "source_report_path": "docs/KeyDeck-Proof-0.32-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.33",
+      "status": "PASS",
+      "scenario_count": 12,
+      "report_sha256": "aa56465acdb625c4f8bc29198d63cdb1a61479a72a1eae594dc4219f1e881e5d",
+      "source_report_path": "docs/KeyDeck-Proof-0.33-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.34",
+      "status": "PASS",
+      "scenario_count": 32,
+      "report_sha256": "7da5641479fb294405403a1caf8252ed1402247d1756fb53b44869b94abab533",
+      "source_report_path": "docs/KeyDeck-Proof-0.34-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.35",
+      "status": "PASS",
+      "scenario_count": 16,
+      "report_sha256": "ad37766a0d14fa55e143479690903238b9b9b127597b11449f4b4a322cfde8c3",
+      "source_report_path": "docs/KeyDeck-Proof-0.35-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.36",
+      "status": "PASS",
+      "scenario_count": 20,
+      "report_sha256": "84f30eaeb341f507ba23ae32d4618524e356b4cc08f5d7200f976df61f6f0847",
+      "source_report_path": "docs/KeyDeck-Proof-0.36-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.37",
+      "status": "PASS",
+      "scenario_count": 21,
+      "report_sha256": "11a5e19e747ab323b958eb6d8ceacd04f5f4a63b022a2bfe74a52cd568732424",
+      "source_report_path": "docs/KeyDeck-Proof-0.37-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    },
+    {
+      "proof": "0.38",
+      "status": "PASS",
+      "scenario_count": 21,
+      "report_sha256": "8b41a896bdd74deb7ec252ff5b73f3bef00bf29dfdc2db3c6df1468f650bf09c",
+      "source_report_path": "docs/KeyDeck-Proof-0.38-report.json",
+      "evidence_class": "validated_v0.35_reconstructed_report"
+    }
+  ]
+}
