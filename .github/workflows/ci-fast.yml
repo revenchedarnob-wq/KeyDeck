@@ -3,7 +3,7 @@ on:
   pull_request:
   push:
     branches: [ main ]
-workflow_dispatch:
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
@@ -14,6 +14,9 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
+      - name: Secret scan
+        shell: pwsh
+        run: ./scripts/ci/secret-scan.ps1
       - name: Fast validation
         shell: pwsh
         run: ./scripts/ci/fast.ps1
