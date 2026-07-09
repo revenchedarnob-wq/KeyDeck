@@ -1,0 +1,33 @@
+﻿name: CI Fast
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'automation/**'
+      - 'work/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fast:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Run fast CI
+        shell: pwsh
+        run: .\scripts\ci\fast.ps1
+      - name: Upload receipts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-fast-receipts
+          path: receipts/
+          if-no-files-found: ignore

@@ -1,0 +1,48 @@
+﻿name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release version, for example v0.36.0
+        required: true
+        type: string
+      publish:
+        description: Publish GitHub release assets
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Validate and package
+        shell: pwsh
+        run: |
+          if ('${{ inputs.publish }}' -eq 'true') {
+            .\scripts\release\release.ps1 -Version '${{ inputs.version }}' -Publish
+          } else {
+            .\scripts\release\release.ps1 -Version '${{ inputs.version }}' -DryRun -AllowBranch
+          }
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Upload release staging diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-diagnostics
+          path: |
+            receipts/
+            release-staging/
+          if-no-files-found: ignore

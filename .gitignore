@@ -2,3 +2,9 @@ KeyDeck-GitHub-Upload-Work/
 *.tmp
 *.log
 .DS_Store
+local-only/
+logs/
+receipts/
+release-staging/
+*.local.json
+*.local.log
