@@ -27,3 +27,13 @@ Validation was run on `automation/time-saver-bootstrap-20260710` in `A:\KeyDeck-
 ## Receipts
 
 Local receipts are written under `receipts/`, which is intentionally ignored by Git.
+## GitHub Actions result
+
+PR #2 was opened at `https://github.com/revenchedarnob-wq/KeyDeck/pull/2`.
+
+GitHub-hosted Windows CI reached Go successfully. The automation scripts ran through secret scan, required-file checks, `go version`, and `go env`. The failure is in the repository test suite:
+
+- `internal/corehost.TestCredentialCreatedOnceAndReused` failed because the credential file mode on Windows hosted runner was reported as `-rw-rw-rw-`.
+- `internal/corehost.TestLeaseOwnershipLossForcesHostFailClosed` failed because the host did not fail closed after lease ownership loss.
+
+This is documented as a pre-existing Windows test/product blocker rather than an automation script regression. Fast/deep CI should not be treated as passing until this blocker is reviewed or fixed.
