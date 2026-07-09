@@ -1,0 +1,74 @@
+{
+  "proof": "0.12-integrated-recovery-coordinator-exactly-once-canonical-commit",
+  "passed": true,
+  "claims": [
+    "completed destructive tool work is reconciled without replay and remains exactly once across repeated restarts",
+    "ambiguous non-repeatable work remains blocked across repeated restarts while idempotent work remains safely retryable",
+    "completed engine results survive both pre-commit and post-canonical-save crash windows and commit to canonical state exactly once",
+    "durable external threads become resume_required while interrupted non-resumable engines become input_required",
+    "task, session, engine ledger, Tool Journal, Activity Timeline, artifacts and Proof Receipt reconcile through one coordinator",
+    "recovery decisions and final proof identity are durable timeline evidence"
+  ],
+  "scenarios": [
+    {
+      "name": "completed_destructive_work_exactly_once",
+      "passed": true,
+      "detail": {
+        "repeat_task_event_delta": 0,
+        "repeat_timeline_event_delta": 0,
+        "step_status": "completed"
+      }
+    },
+    {
+      "name": "ambiguous_work_remains_blocked",
+      "passed": true,
+      "detail": {
+        "needs_input": "tool operation outcome is ambiguous; replay is forbidden",
+        "step_status": "ambiguous",
+        "task_status": "input_required"
+      }
+    },
+    {
+      "name": "idempotent_work_retryable",
+      "passed": true,
+      "detail": {
+        "step_status": "started"
+      }
+    },
+    {
+      "name": "engine_result_two_crash_windows_exactly_once",
+      "passed": true,
+      "detail": {
+        "assistant_message_count": 2,
+        "post_save_marker_count": 1,
+        "pre_commit_marker_count": 1
+      }
+    },
+    {
+      "name": "durable_external_thread_resume_required",
+      "passed": true,
+      "detail": {
+        "repeat_timeline_delta": 0
+      }
+    },
+    {
+      "name": "nonresumable_engine_input_required",
+      "passed": true,
+      "detail": {
+        "needs_input": "engine execution exec-nonresumable cannot be resumed safely",
+        "repeat_task_event_delta": 0,
+        "task_status": "input_required"
+      }
+    },
+    {
+      "name": "integrated_recovery_unit_and_proof_receipt_exactly_once",
+      "passed": true,
+      "detail": {
+        "proof_event_count": 1,
+        "receipt_count": 1,
+        "receipt_id": "receipt-2da803bf4f81f2846efb",
+        "timeline_events": 16
+      }
+    }
+  ]
+}

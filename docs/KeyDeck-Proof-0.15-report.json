@@ -1,0 +1,233 @@
+{
+  "proof": "0.15-real-provider-conformance-framework",
+  "passed": true,
+  "evidence_id": "proof-0.15-fixture-provider-r1",
+  "evidence_sha256": "113c0c287421e11d8821a3a92b7fd5fbc239dc21b8a2039346afd370423e8344",
+  "raw_capture_sha256": "5da2d7c1f499314823407b211c85c26b37fb7b080cda9ec92a1b30c0436915ef",
+  "claims": [
+    "provider conformance evidence is exact by provider, API base/version, model and model revision",
+    "evidence is dated, expires, requires revalidation and is cryptographically bound to raw capture provenance",
+    "tampered evidence is rejected before policy activation",
+    "exact pre-output key failures may authorize replay on a replacement key only when captured evidence matches",
+    "provider-wide busy/outage and ambiguous transport preserve backup keys",
+    "mid-stream key exhaustion may authorize semantic continuation but never original request replay",
+    "abrupt partial streams remain ambiguous",
+    "cache and usage semantics are captured as provider evidence instead of universal assumptions",
+    "unknown provider identity/version/behavior fails closed",
+    "only pre-output evidence can compile into the existing API-key-pool classifier"
+  ],
+  "scenarios": [
+    {
+      "name": "durable_evidence_round_trip",
+      "passed": true,
+      "detail": {
+        "hash_stable": true,
+        "load_error": "",
+        "save_error": ""
+      }
+    },
+    {
+      "name": "tampered_evidence_rejected",
+      "passed": true,
+      "detail": "provider conformance evidence hash mismatch"
+    },
+    {
+      "name": "exact_decision_key_exhausted_pre_output",
+      "passed": true,
+      "detail": {
+        "trusted": true,
+        "class": "key_exhausted",
+        "allow_original_replay": true,
+        "allow_key_rotation": true,
+        "allow_semantic_continuation": false,
+        "require_input": false,
+        "require_revalidation": false,
+        "evidence_id": "proof-0.15-fixture-provider-r1",
+        "evidence_sha256": "113c0c287421e11d8821a3a92b7fd5fbc239dc21b8a2039346afd370423e8344",
+        "reason": "exact provider evidence match"
+      }
+    },
+    {
+      "name": "exact_decision_invalid_credential_pre_output",
+      "passed": true,
+      "detail": {
+        "trusted": true,
+        "class": "invalid_key",
+        "allow_original_replay": true,
+        "allow_key_rotation": true,
+        "allow_semantic_continuation": false,
+        "require_input": false,
+        "require_revalidation": false,
+        "evidence_id": "proof-0.15-fixture-provider-r1",
+        "evidence_sha256": "113c0c287421e11d8821a3a92b7fd5fbc239dc21b8a2039346afd370423e8344",
+        "reason": "exact provider evidence match"
+      }
+    },
+    {
+      "name": "exact_decision_key_rate_limit_pre_output",
+      "passed": true,
+      "detail": {
+        "trusted": true,
+        "class": "key_rate_limited",
+        "allow_original_replay": true,
+        "allow_key_rotation": true,
+        "allow_semantic_continuation": false,
+        "require_input": false,
+        "require_revalidation": false,
+        "evidence_id": "proof-0.15-fixture-provider-r1",
+        "evidence_sha256": "113c0c287421e11d8821a3a92b7fd5fbc239dc21b8a2039346afd370423e8344",
+        "reason": "exact provider evidence match"
+      }
+    },
+    {
+      "name": "exact_decision_provider_busy_pre_output",
+      "passed": true,
+      "detail": {
+        "trusted": true,
+        "class": "provider_busy",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": false,
+        "require_revalidation": false,
+        "evidence_id": "proof-0.15-fixture-provider-r1",
+        "evidence_sha256": "113c0c287421e11d8821a3a92b7fd5fbc239dc21b8a2039346afd370423e8344",
+        "reason": "exact provider evidence match"
+      }
+    },
+    {
+      "name": "exact_decision_provider_outage_pre_output",
+      "passed": true,
+      "detail": {
+        "trusted": true,
+        "class": "provider_busy",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": false,
+        "require_revalidation": false,
+        "evidence_id": "proof-0.15-fixture-provider-r1",
+        "evidence_sha256": "113c0c287421e11d8821a3a92b7fd5fbc239dc21b8a2039346afd370423e8344",
+        "reason": "exact provider evidence match"
+      }
+    },
+    {
+      "name": "exact_decision_ambiguous_transport",
+      "passed": true,
+      "detail": {
+        "trusted": true,
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true,
+        "require_revalidation": false,
+        "evidence_id": "proof-0.15-fixture-provider-r1",
+        "evidence_sha256": "113c0c287421e11d8821a3a92b7fd5fbc239dc21b8a2039346afd370423e8344",
+        "reason": "exact provider evidence match"
+      }
+    },
+    {
+      "name": "exact_decision_key_exhausted_mid_stream",
+      "passed": true,
+      "detail": {
+        "trusted": true,
+        "class": "key_exhausted",
+        "allow_original_replay": false,
+        "allow_key_rotation": true,
+        "allow_semantic_continuation": true,
+        "require_input": false,
+        "require_revalidation": false,
+        "evidence_id": "proof-0.15-fixture-provider-r1",
+        "evidence_sha256": "113c0c287421e11d8821a3a92b7fd5fbc239dc21b8a2039346afd370423e8344",
+        "reason": "exact provider evidence match"
+      }
+    },
+    {
+      "name": "exact_decision_abrupt_eof_mid_stream",
+      "passed": true,
+      "detail": {
+        "trusted": true,
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true,
+        "require_revalidation": false,
+        "evidence_id": "proof-0.15-fixture-provider-r1",
+        "evidence_sha256": "113c0c287421e11d8821a3a92b7fd5fbc239dc21b8a2039346afd370423e8344",
+        "reason": "exact provider evidence match"
+      }
+    },
+    {
+      "name": "unknown_behavior_fails_closed",
+      "passed": true,
+      "detail": {
+        "trusted": false,
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true,
+        "require_revalidation": false,
+        "reason": "provider identity matched but failure behavior was not observed"
+      }
+    },
+    {
+      "name": "identity_version_mismatch_fails_closed",
+      "passed": true,
+      "detail": {
+        "trusted": false,
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true,
+        "require_revalidation": false,
+        "reason": "no exact provider/model/version evidence"
+      }
+    },
+    {
+      "name": "expired_evidence_requires_revalidation",
+      "passed": true,
+      "detail": {
+        "trusted": false,
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true,
+        "require_revalidation": true,
+        "reason": "exact evidence expired; revalidation required"
+      }
+    },
+    {
+      "name": "cache_billing_usage_semantics_captured",
+      "passed": true,
+      "detail": {
+        "billing_meaning": "fixture reports usage across success, exact error and mid-stream events; real-provider charge meaning remains provider-specific evidence",
+        "error_usage": {
+          "input_tokens": 4000,
+          "output_tokens": 120,
+          "cache_creation_input_tokens": 2000
+        },
+        "mid_stream_usage_seen": true,
+        "success_usage": {
+          "input_tokens": 12000,
+          "output_tokens": 800,
+          "cache_creation_input_tokens": 50000,
+          "cache_read_input_tokens": 6000
+        }
+      }
+    },
+    {
+      "name": "evidence_drives_existing_pool_classifier",
+      "passed": true,
+      "detail": {
+        "error": "",
+        "profile_rules": 6,
+        "selected_key": "key-2"
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+id: architecture-negative
+name: Unrelated architecture should not trigger
+inputs:
+  prompt: "Do unrelated architecture brainstorming."
+expected:
+  should_trigger: false
+  output_contains:
+    - "architecture brainstorming"

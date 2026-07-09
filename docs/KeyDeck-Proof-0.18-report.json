@@ -1,0 +1,254 @@
+{
+  "proof": "0.18-bounded-paired-scope-capture-inconclusive-safe-handling",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "paired_capture_sha256_matches_windows_gate",
+      "passed": true,
+      "detail": "ee2ebaa92ab8bf97661a1a594939ede3f0109442b28190f5f21080a9fdbf81b8"
+    },
+    {
+      "name": "prior_real_capture_hashes_remain_unchanged",
+      "passed": true,
+      "detail": {
+        "invalid_capture_sha256": "b27b21c13925937cc50b0c75641a46c6e2cbeb24dfdf0bccf3b03d7262c800e3",
+        "usage_capture_sha256": "f1b07af5a186f96709151bc70f541c2b097d9469c25281f726a9bfc44a1532f3"
+      }
+    },
+    {
+      "name": "real_paired_capture_schema_and_bounded_sequence_validate",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exact_aerolink_target_preserved",
+      "passed": true,
+      "detail": {
+        "provider": "Aerolink",
+        "api_base": "https://capi.aerolink.lat",
+        "endpoint": "/v1/messages",
+        "api_format": "Anthropic Messages",
+        "anthropic_version": "2023-06-01",
+        "model": "claude-opus-4-8"
+      }
+    },
+    {
+      "name": "paired_gate_used_two_requests_zero_retries_max_tokens_one_and_persisted_no_secrets",
+      "passed": true,
+      "detail": {
+        "limited_exact_402_match": true,
+        "replacement_attempted": true,
+        "replacement_succeeded": false,
+        "request_shape_identical": true,
+        "total_request_count": 2,
+        "total_retry_count": 0,
+        "secrets_persisted": false
+      }
+    },
+    {
+      "name": "credential_a_reproduced_exact_known_402_before_backup_was_used",
+      "passed": true,
+      "detail": {
+        "body_sha256": "d3ab716be4468ad1fa15396e5ab20fcd475d553d003d8f4f562327e9b8a97dc4",
+        "status_code": 402
+      }
+    },
+    {
+      "name": "credential_b_was_attempted_once_but_produced_ambiguous_timeout_without_http_response",
+      "passed": true,
+      "detail": {
+        "elapsed_ms": 20021,
+        "status_code": 0,
+        "timeout_seconds": 20,
+        "transport_error": "Exception calling \"Send\" with \"2\" argument(s): \"The request was canceled due to the configured HttpClient.Timeout of 20 seconds elapsing.\""
+      }
+    },
+    {
+      "name": "paired_capture_correctly_did_not_claim_pass",
+      "passed": true,
+      "detail": {
+        "capture_passed": false,
+        "replacement_succeeded": false
+      }
+    },
+    {
+      "name": "request_shape_remained_identical_across_credentials",
+      "passed": true,
+      "detail": "f4c230cdca73fcdbab1878b67bcf297011d7f1c19195af41fada91f9881f3c51"
+    },
+    {
+      "name": "inconclusive_pair_normalizes_to_sha256_sealed_evidence",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "paired_evidence_binds_raw_capture_provenance",
+      "passed": true,
+      "detail": {
+        "capture_id": "aerolink-real-paired-scope-capture",
+        "source_kind": "real-provider-bounded-paired-capture",
+        "source_ref": "Proof 0.18 Aerolink paired-scope Windows gate",
+        "captured_by": "KeyDeck Proof 0.18",
+        "raw_capture_sha256": "ee2ebaa92ab8bf97661a1a594939ede3f0109442b28190f5f21080a9fdbf81b8"
+      }
+    },
+    {
+      "name": "replacement_transport_is_classified_as_timeout_not_http_failure",
+      "passed": true,
+      "detail": {
+        "outcome": "no_http_response",
+        "transport_kind": "timeout"
+      }
+    },
+    {
+      "name": "scope_remains_unproven_after_replacement_timeout",
+      "passed": true,
+      "detail": "unproven_inconclusive_replacement_transport_failure"
+    },
+    {
+      "name": "paired_timeout_cannot_authorize_replay_rotation_or_semantic_continuation",
+      "passed": true,
+      "detail": {
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true
+      }
+    },
+    {
+      "name": "durable_paired_evidence_round_trip_preserves_identity",
+      "passed": true,
+      "detail": {
+        "hash_stable": true,
+        "load_error": "",
+        "save_error": ""
+      }
+    },
+    {
+      "name": "expired_paired_evidence_requires_revalidation",
+      "passed": true,
+      "detail": "provider conformance evidence expired"
+    },
+    {
+      "name": "tampered_paired_evidence_is_rejected",
+      "passed": true,
+      "detail": "provider conformance evidence hash mismatch"
+    },
+    {
+      "name": "prior_invalid_key_capture_still_validates",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "prior_usage_window_capture_still_validates",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "prior_invalid_key_fragment_still_normalizes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "prior_usage_window_fragment_still_normalizes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "prior_401_and_402_fragments_still_coexist",
+      "passed": true,
+      "detail": {
+        "invalid_add_error": "",
+        "usage_add_error": ""
+      }
+    },
+    {
+      "name": "prior_exact_401_behavior_still_allows_invalid_key_rotation",
+      "passed": true,
+      "detail": {
+        "trusted": true,
+        "class": "invalid_key",
+        "allow_original_replay": true,
+        "allow_key_rotation": true,
+        "allow_semantic_continuation": false,
+        "require_input": false,
+        "require_revalidation": false,
+        "evidence_id": "aerolink-invalid-key-2026-07-07",
+        "evidence_sha256": "794a62c6d40ba1eb6fb47a8526ea95c4ce7768bb129b59f3a8c0b36886ddc2b4",
+        "reason": "exact real-provider capture fragment match"
+      }
+    },
+    {
+      "name": "prior_exact_402_behavior_remains_trusted_but_conservative",
+      "passed": true,
+      "detail": {
+        "trusted": true,
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true,
+        "require_revalidation": false,
+        "evidence_id": "aerolink-included-usage-window-limit-2026-07-07",
+        "evidence_sha256": "da65966cf99da86922668dc3457c027d2307d6218a5da64dd2a20398a4694b19",
+        "reason": "exact real-provider capture fragment match"
+      }
+    },
+    {
+      "name": "replacement_timeout_fails_closed_before_any_fragment_match",
+      "passed": true,
+      "detail": {
+        "trusted": false,
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true,
+        "require_revalidation": false,
+        "reason": "transport failure is ambiguous"
+      }
+    },
+    {
+      "name": "timeout_does_not_overclaim_key_account_or_provider_scope",
+      "passed": true,
+      "detail": "unproven_inconclusive_replacement_transport_failure"
+    },
+    {
+      "name": "limitations_preserved_for_future_revalidation",
+      "passed": true,
+      "detail": [
+        "This paired capture proves behavior only for the exact Aerolink endpoint/model request shape and capture time.",
+        "A successful replacement credential proves the exact 402 was not provider-wide at that moment; it does not prove every key under the same account has an independent allowance.",
+        "The replacement request may consume the minimal max_tokens=1 request.",
+        "Each credential is used at most once and neither credential is written to the evidence file.",
+        "Do not rerun automatically if either response is unexpected."
+      ]
+    },
+    {
+      "name": "source_evidence_contains_no_user_path_or_persisted_credential",
+      "passed": true,
+      "detail": {
+        "secrets_persisted": false,
+        "user_path_present": false
+      }
+    }
+  ],
+  "paired_capture_sha256": "ee2ebaa92ab8bf97661a1a594939ede3f0109442b28190f5f21080a9fdbf81b8",
+  "evidence_id": "aerolink-paired-scope-inconclusive-2026-07-07",
+  "evidence_sha256": "94f854fb229722e31cc20448948f1f3caad45344474435ca4712920375c1cc3e",
+  "limited_response_sha256": "d3ab716be4468ad1fa15396e5ab20fcd475d553d003d8f4f562327e9b8a97dc4",
+  "replacement_outcome": "no_http_response",
+  "replacement_transport_kind": "timeout",
+  "scope_conclusion": "unproven_inconclusive_replacement_transport_failure",
+  "policy_status": "replacement transport timeout is ambiguous; scope remains unproven and automatic replay/rotation stay forbidden",
+  "limitations": [
+    "This paired capture proves behavior only for the exact Aerolink endpoint/model request shape and capture time.",
+    "A successful replacement credential proves the exact 402 was not provider-wide at that moment; it does not prove every key under the same account has an independent allowance.",
+    "The replacement request may consume the minimal max_tokens=1 request.",
+    "Each credential is used at most once and neither credential is written to the evidence file.",
+    "Do not rerun automatically if either response is unexpected."
+  ],
+  "next_gate": "Do not rerun the same paired test automatically. Preserve the exact 402 as scope-unknown and the replacement timeout as ambiguous. Continue local product work; only repeat a real paired scope capture later under a separately justified bounded gate when transport conditions or provider evidence make it high value."
+}

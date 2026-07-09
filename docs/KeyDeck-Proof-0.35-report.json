@@ -1,0 +1,159 @@
+{
+  "proof": "0.35-production-core-host-authenticated-loopback-control-plane",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "install_credential_generated_once_and_reused_after_restart",
+      "passed": true,
+      "detail": {
+        "install_id_bytes": 16,
+        "mode": "-rw-------",
+        "token_bytes": 32
+      }
+    },
+    {
+      "name": "loopback_only_binding_rejects_non_loopback_before_listen",
+      "passed": true,
+      "detail": {
+        "error": "invalid core host configuration: listen address must be explicit loopback IP"
+      }
+    },
+    {
+      "name": "unauthenticated_health_is_generic_and_v1_auth_blocks_before_backend_access",
+      "passed": true,
+      "detail": {
+        "backend_calls_delta": 0,
+        "health_status": 200,
+        "unauthorized_status": 401
+      }
+    },
+    {
+      "name": "wrong_token_denied_and_correct_token_authorized",
+      "passed": true,
+      "detail": {
+        "backend_calls_delta": 1,
+        "correct_status": 200,
+        "wrong_status": 401
+      }
+    },
+    {
+      "name": "authenticated_identity_attestation_requires_exact_build_api_install_instance",
+      "passed": true,
+      "detail": {
+        "attested": true,
+        "instance_matches": true,
+        "wrong_build_error": "core host identity mismatch"
+      }
+    },
+    {
+      "name": "authenticated_task_creation_uses_canonical_task_manager_and_timeline",
+      "passed": true,
+      "detail": {
+        "status": 201,
+        "task_sequence": 1,
+        "timeline_events": 1
+      }
+    },
+    {
+      "name": "idempotent_duplicate_reuses_durable_result_without_duplicate_state",
+      "passed": true,
+      "detail": {
+        "request_records": 1,
+        "reused": true,
+        "timeline_events": 1
+      }
+    },
+    {
+      "name": "idempotency_key_conflict_rejected_without_mutation",
+      "passed": true,
+      "detail": {
+        "request_records": 1,
+        "status": 409,
+        "timeline_events": 1
+      }
+    },
+    {
+      "name": "bounded_strict_json_and_pending_only_task_contract_block_invalid_mutation",
+      "passed": true,
+      "detail": {
+        "content_type_status": 415,
+        "huge_status": 413,
+        "prepassed_status": 400,
+        "state_unchanged": true,
+        "unknown_status": 400
+      }
+    },
+    {
+      "name": "timeline_pagination_and_status_project_canonical_state",
+      "passed": true,
+      "detail": {
+        "page_sizes": [
+          1,
+          1
+        ],
+        "request_records": 2,
+        "task_count": 2,
+        "timeline_events": 2
+      }
+    },
+    {
+      "name": "active_single_owner_blocked_and_stale_lease_reclaimed",
+      "passed": true,
+      "detail": {
+        "active_owner_error": "KeyDeck core is already running",
+        "stale_reclaimed": true
+      }
+    },
+    {
+      "name": "lease_ownership_loss_forces_host_fail_closed",
+      "passed": true,
+      "detail": {
+        "close_error": "lease ownership changed",
+        "fatal_error": "core lease refresh failed: lease ownership changed",
+        "foreign_lease_preserved": true,
+        "server_closed": true
+      }
+    },
+    {
+      "name": "crash_window_existing_canonical_task_reconciles_into_request_journal",
+      "passed": true,
+      "detail": {
+        "reconciled": true,
+        "request_records": 1,
+        "status": 201
+      }
+    },
+    {
+      "name": "restart_reopens_canonical_state_and_reuses_completed_command",
+      "passed": true,
+      "detail": {
+        "command_reused": true,
+        "credential_reused": true,
+        "request_records": 2,
+        "task_count": 2,
+        "timeline_events": 2
+      }
+    },
+    {
+      "name": "credential_absent_from_runtime_canonical_stores_responses_and_receipt",
+      "passed": true,
+      "detail": {
+        "leak_detected": false,
+        "receipt_error": ""
+      }
+    },
+    {
+      "name": "proof_receipt_binds_core_host_runtime_task_timeline_and_request_journal",
+      "passed": true,
+      "detail": {
+        "artifacts": 4,
+        "error": "",
+        "receipt_present": true
+      }
+    }
+  ],
+  "build_id": "keydeck-proof35-core-host",
+  "api_version": "v1",
+  "next_gate": "Proof 0.36 — desktop presentation shell consumes only the authenticated core-host contract"
+}

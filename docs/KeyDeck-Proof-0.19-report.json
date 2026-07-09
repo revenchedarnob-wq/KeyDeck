@@ -1,0 +1,85 @@
+{
+  "proof": "0.19-real-mcp-tool-execution-durable-tool-journal-bridge",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "disallowed_tool_blocked_before_server_execution",
+      "passed": true,
+      "detail": "MCP tool is not allowed by KeyDeck permissions"
+    },
+    {
+      "name": "real_mcp_initialize_list_and_call_succeeded_over_stdio",
+      "passed": true,
+      "detail": {
+        "error": "",
+        "result": "counter=1",
+        "rpc_counts": {
+          "initialize": 1,
+          "notifications/initialized": 1,
+          "tools/call": 1,
+          "tools/list": 1
+        }
+      }
+    },
+    {
+      "name": "completed_nonrepeatable_mcp_operation_reused_after_restart_without_replay",
+      "passed": true,
+      "detail": {
+        "counter": 1,
+        "error": "",
+        "reused": true,
+        "tool_calls": 1
+      }
+    },
+    {
+      "name": "ambiguous_nonrepeatable_mcp_operation_remained_blocked_after_restart",
+      "passed": true,
+      "detail": {
+        "append_count": 1,
+        "first_error": "unexpected EOF",
+        "restart_error": "tool operation outcome is ambiguous; replay is forbidden",
+        "tool_calls": 1
+      }
+    },
+    {
+      "name": "idempotent_mcp_operation_retried_safely_after_restart",
+      "passed": true,
+      "detail": {
+        "first_error": "unexpected EOF",
+        "result": "put alpha=one",
+        "second_error": "",
+        "tool_calls": 2
+      }
+    },
+    {
+      "name": "mcp_lifecycle_events_entered_universal_activity_timeline",
+      "passed": true,
+      "detail": {
+        "mcp_tool_ambiguous": 1,
+        "mcp_tool_completed": 2,
+        "mcp_tool_result_reused": 1,
+        "mcp_tool_retryable_failure": 1,
+        "mcp_tool_started": 3
+      }
+    },
+    {
+      "name": "proof_receipt_references_mcp_tool_evidence_and_artifact_hash_exactly_once",
+      "passed": true,
+      "detail": {
+        "created_once": true,
+        "error": "",
+        "receipt_id": "receipt-d625b9d5e12cfe0be174",
+        "timeline_refs": 8
+      }
+    }
+  ],
+  "protocol_version": "2025-11-25",
+  "transport": "stdio-newline-delimited-json-rpc",
+  "tool_journal_operations": 3,
+  "timeline_events": 8,
+  "receipt_id": "receipt-d625b9d5e12cfe0be174",
+  "receipt_timeline_refs": 8,
+  "final_server_state_sha256": "283560db3c282da23656d9e95b872839e16b011f3a2093765538fbe4226fd49a",
+  "next_gate": "Harden the MCP bridge with explicit permission profiles, bounded frame tests, cancellation, and a production adapter seam. Then connect one real local MCP server before broad SaaS integrations."
+}

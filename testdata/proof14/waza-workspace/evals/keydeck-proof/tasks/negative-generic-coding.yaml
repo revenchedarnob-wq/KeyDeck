@@ -1,0 +1,8 @@
+id: generic-coding-negative
+name: Generic coding should not trigger
+inputs:
+  prompt: "Help with generic coding."
+expected:
+  should_trigger: false
+  output_contains:
+    - "generic coding"

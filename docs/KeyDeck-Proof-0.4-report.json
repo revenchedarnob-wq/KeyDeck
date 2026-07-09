@@ -1,0 +1,225 @@
+{
+  "codex_handoff": {
+    "passport": {
+      "session_id": "session-proof-04",
+      "project_root": "C:\\Projects\\KeyDeck",
+      "goal": "Preserve one chat while switching engines",
+      "from_engine": "api-pool",
+      "to_engine": "codex",
+      "handoff_reason": "manual model switch",
+      "transcript": [
+        {
+          "at": "2026-07-06T15:02:34.365741971Z",
+          "role": "user",
+          "text": "Inspect the gateway"
+        },
+        {
+          "at": "2026-07-06T15:02:34.3657974Z",
+          "role": "assistant",
+          "engine": "api-pool",
+          "text": "I found the financially ambiguous retry path."
+        },
+        {
+          "at": "2026-07-06T15:02:34.366629455Z",
+          "role": "user",
+          "text": "Continue and fix it"
+        }
+      ],
+      "decisions": [
+        {
+          "at": "2026-07-06T15:02:34.365811401Z",
+          "summary": "Never replay an ambiguous upstream outcome automatically.",
+          "source": "api-pool"
+        }
+      ],
+      "completed_actions": null,
+      "pending_tasks": [
+        "Implement safe classifier"
+      ],
+      "relevant_files": [
+        "internal/gateway/server_windows.go"
+      ]
+    },
+    "result": {
+      "Text": "I continued from the API analysis and updated the retry classifier.",
+      "Decisions": null,
+      "CompletedActions": [
+        "Updated retry classifier"
+      ],
+      "PendingTasks": [
+        "Run failure lab"
+      ],
+      "RelevantFiles": null,
+      "Checkpoint": "checkpoint-codex-1"
+    }
+  },
+  "final_state": {
+    "version": 1,
+    "session_id": "session-proof-04",
+    "project_root": "C:\\Projects\\KeyDeck",
+    "goal": "Preserve one chat while switching engines",
+    "active_engine": "api-pool",
+    "transcript": [
+      {
+        "at": "2026-07-06T15:02:34.365741971Z",
+        "role": "user",
+        "text": "Inspect the gateway"
+      },
+      {
+        "at": "2026-07-06T15:02:34.3657974Z",
+        "role": "assistant",
+        "engine": "api-pool",
+        "text": "I found the financially ambiguous retry path."
+      },
+      {
+        "at": "2026-07-06T15:02:34.366629455Z",
+        "role": "user",
+        "text": "Continue and fix it"
+      },
+      {
+        "at": "2026-07-06T15:02:34.366642484Z",
+        "role": "assistant",
+        "engine": "codex",
+        "text": "I continued from the API analysis and updated the retry classifier."
+      },
+      {
+        "at": "2026-07-06T15:02:34.366643436Z",
+        "role": "user",
+        "text": "Review Codex's change"
+      },
+      {
+        "at": "2026-07-06T15:02:34.366647913Z",
+        "role": "assistant",
+        "engine": "api-pool",
+        "text": "I can see the Codex checkpoint and will review the change."
+      }
+    ],
+    "decisions": [
+      {
+        "at": "2026-07-06T15:02:34.365811401Z",
+        "summary": "Never replay an ambiguous upstream outcome automatically.",
+        "source": "api-pool"
+      }
+    ],
+    "completed_actions": [
+      {
+        "at": "2026-07-06T15:02:34.366642805Z",
+        "summary": "Updated retry classifier",
+        "source": "codex"
+      }
+    ],
+    "pending_tasks": [
+      "Run failure lab"
+    ],
+    "relevant_files": [
+      "internal/gateway/server_windows.go"
+    ],
+    "checkpoint": "checkpoint-codex-1",
+    "updated_at": "2026-07-06T15:02:34.366020892Z"
+  },
+  "first_run": {
+    "passport": {
+      "session_id": "session-proof-04",
+      "project_root": "C:\\Projects\\KeyDeck",
+      "goal": "Preserve one chat while switching engines",
+      "from_engine": "api-pool",
+      "to_engine": "api-pool",
+      "handoff_reason": "initial analysis",
+      "transcript": [
+        {
+          "at": "2026-07-06T15:02:34.365741971Z",
+          "role": "user",
+          "text": "Inspect the gateway"
+        }
+      ],
+      "decisions": null,
+      "completed_actions": null,
+      "pending_tasks": null,
+      "relevant_files": null
+    },
+    "result": {
+      "Text": "I found the financially ambiguous retry path.",
+      "Decisions": [
+        "Never replay an ambiguous upstream outcome automatically."
+      ],
+      "CompletedActions": null,
+      "PendingTasks": [
+        "Implement safe classifier"
+      ],
+      "RelevantFiles": [
+        "internal/gateway/server_windows.go"
+      ],
+      "Checkpoint": ""
+    }
+  },
+  "passed": true,
+  "proof": "0.4-canonical-session-engine-switching",
+  "switch_back": {
+    "passport": {
+      "session_id": "session-proof-04",
+      "project_root": "C:\\Projects\\KeyDeck",
+      "goal": "Preserve one chat while switching engines",
+      "from_engine": "codex",
+      "to_engine": "api-pool",
+      "handoff_reason": "manual switch back",
+      "transcript": [
+        {
+          "at": "2026-07-06T15:02:34.365741971Z",
+          "role": "user",
+          "text": "Inspect the gateway"
+        },
+        {
+          "at": "2026-07-06T15:02:34.3657974Z",
+          "role": "assistant",
+          "engine": "api-pool",
+          "text": "I found the financially ambiguous retry path."
+        },
+        {
+          "at": "2026-07-06T15:02:34.366629455Z",
+          "role": "user",
+          "text": "Continue and fix it"
+        },
+        {
+          "at": "2026-07-06T15:02:34.366642484Z",
+          "role": "assistant",
+          "engine": "codex",
+          "text": "I continued from the API analysis and updated the retry classifier."
+        },
+        {
+          "at": "2026-07-06T15:02:34.366643436Z",
+          "role": "user",
+          "text": "Review Codex's change"
+        }
+      ],
+      "decisions": [
+        {
+          "at": "2026-07-06T15:02:34.365811401Z",
+          "summary": "Never replay an ambiguous upstream outcome automatically.",
+          "source": "api-pool"
+        }
+      ],
+      "completed_actions": [
+        {
+          "at": "2026-07-06T15:02:34.366642805Z",
+          "summary": "Updated retry classifier",
+          "source": "codex"
+        }
+      ],
+      "pending_tasks": [
+        "Run failure lab"
+      ],
+      "relevant_files": [
+        "internal/gateway/server_windows.go"
+      ],
+      "checkpoint": "checkpoint-codex-1"
+    },
+    "result": {
+      "Text": "I can see the Codex checkpoint and will review the change.",
+      "Decisions": null,
+      "CompletedActions": null,
+      "PendingTasks": null,
+      "RelevantFiles": null,
+      "Checkpoint": ""
+    }
+  }
+}

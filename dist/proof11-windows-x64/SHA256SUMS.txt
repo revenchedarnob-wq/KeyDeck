@@ -1,0 +1,1 @@
+0360aa964dce1f7d669c74126504bd7e37b64e78d47b3bb859b255a862f032dd  dist/proof11-windows-x64/KeyDeck-Proof-0.11.exe

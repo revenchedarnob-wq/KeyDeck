@@ -1,0 +1,91 @@
+{
+  "proof": "0.33-integrated-route-bound-reconciliation-and-canonical-recovery-reconstructed",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "restored_handoff_package_safety_rejects_tamper_before_engine_execution",
+      "passed": true,
+      "detail": "invalid handoff package"
+    },
+    {
+      "name": "durable_route_bound_handoff_execution_reuses_completed_result_after_restart",
+      "passed": true,
+      "detail": {
+        "restart_starts": 0,
+        "result": "runtime-result-exec-6d6997f766cba07aa561"
+      }
+    },
+    {
+      "name": "deterministic_routing_selects_only_qualified_evidence_ranked_engine",
+      "passed": true,
+      "detail": "route-3d2c8be23d91741252d1"
+    },
+    {
+      "name": "safe_route_bound_mid_answer_continuation_preserves_one_visible_response",
+      "passed": true,
+      "detail": "continuation-dd9a6b837b93f8e2ad4d"
+    },
+    {
+      "name": "provider_wide_busy_continuation_is_denied_before_target_engine_execution",
+      "passed": true,
+      "detail": "provider-wide busy continuation cannot target the same provider"
+    },
+    {
+      "name": "reconciliation_supports_single_verified_agreement_disagreement_needs_review_and_resolved_states",
+      "passed": true,
+      "detail": {
+        "agreement": "agreement",
+        "disagreement": "disagreement",
+        "needs_review": "needs_review",
+        "resolved": "resolved",
+        "single": "single_verified"
+      }
+    },
+    {
+      "name": "two_matching_engines_cannot_majority_override_one_conflicting_candidate",
+      "passed": true,
+      "detail": "assessment-91cd7630ea4f8059940b"
+    },
+    {
+      "name": "stale_task_or_handoff_package_candidate_is_rejected_before_persistence",
+      "passed": true,
+      "detail": {
+        "package": "candidate collection: current state validation failed: current handoff package identity mismatch",
+        "task": "candidate collection: current state validation failed: current task identity or sequence mismatch"
+      }
+    },
+    {
+      "name": "duplicate_candidate_is_reused_after_restart_without_rerunning_producer",
+      "passed": true,
+      "detail": "candidate-3dff3ff5a1f271ce5de1"
+    },
+    {
+      "name": "secret_like_candidate_evidence_is_blocked_before_persistence",
+      "passed": true,
+      "detail": "candidate collection: current state validation failed: candidate result payload contains forbidden secret-like data"
+    },
+    {
+      "name": "unresolved_candidates_cannot_mutate_canonical_state_and_resolved_result_commits_exactly_once",
+      "passed": true,
+      "detail": {
+        "canonical_messages": 1,
+        "commit": "commit-414b9863a8cb5724e8db"
+      }
+    },
+    {
+      "name": "proof_receipt_provenance_binds_disagreement_resolution_decisive_evidence_and_reconciliation_state",
+      "passed": true,
+      "detail": {
+        "receipt": "receipt-7fc1891892441b087d1a",
+        "resolution": "resolution-80618effee0f900a0c0a",
+        "state": "resolved"
+      }
+    }
+  ],
+  "assessment_id": "assessment-394289205e0c60de13f4",
+  "resolution_id": "resolution-80618effee0f900a0c0a",
+  "selected_candidate_id": "candidate-9e87651770a002c3910e",
+  "receipt_id": "receipt-7fc1891892441b087d1a",
+  "next_gate": "Proof 0.34 — Production Candidate Collection Coordinator integration"
+}

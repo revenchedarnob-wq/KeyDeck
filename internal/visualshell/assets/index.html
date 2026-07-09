@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KeyDeck</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell" aria-labelledby="app-title">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">LOCAL AI CONTROL PLANE</p>
+        <h1 id="app-title">KeyDeck</h1>
+      </div>
+      <div class="connection-wrap">
+        <span id="connection-pill" class="pill neutral">Connecting…</span>
+        <button id="reconnect-button" class="ghost" type="button">Reconnect</button>
+      </div>
+    </header>
+
+    <section id="error-banner" class="error-banner hidden" role="alert"></section>
+
+    <section class="stats" aria-label="Core status">
+      <article><span class="stat-label">Tasks</span><strong id="task-count">—</strong></article>
+      <article><span class="stat-label">Timeline</span><strong id="timeline-count">—</strong></article>
+      <article><span class="stat-label">Requests</span><strong id="request-count">—</strong></article>
+      <article><span class="stat-label">Build</span><strong id="build-id" class="small-value">—</strong></article>
+    </section>
+
+    <section class="grid">
+      <article class="panel compose-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">NEW WORK</p>
+            <h2>Create canonical task</h2>
+          </div>
+        </div>
+        <form id="task-form" autocomplete="off">
+          <label>Task ID<input id="task-id" name="task_id" maxlength="128" required placeholder="task-design-homepage"></label>
+          <label>Session ID<input id="session-id" name="session_id" maxlength="128" required placeholder="session-main"></label>
+          <label>Goal<textarea id="goal" name="goal" maxlength="4096" required placeholder="Describe the outcome KeyDeck should protect and complete."></textarea></label>
+          <label>Acceptance check<input id="acceptance-check" name="acceptance_check" maxlength="1024" required placeholder="The finished result satisfies…"></label>
+          <button id="create-button" class="primary" type="submit">Create task</button>
+        </form>
+      </article>
+
+      <article class="panel task-panel">
+        <div class="panel-heading row-heading">
+          <div><p class="eyebrow">CANONICAL STATE</p><h2>Tasks</h2></div>
+          <button id="refresh-button" class="ghost" type="button">Refresh</button>
+        </div>
+        <div id="tasks-empty" class="empty">No canonical tasks yet.</div>
+        <div id="tasks-list" class="task-list" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="panel timeline-panel">
+      <div class="panel-heading"><p class="eyebrow">UNIVERSAL ACTIVITY</p><h2>Timeline</h2></div>
+      <div id="timeline-empty" class="empty">No activity yet.</div>
+      <ol id="timeline-list" class="timeline" aria-live="polite"></ol>
+    </section>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>

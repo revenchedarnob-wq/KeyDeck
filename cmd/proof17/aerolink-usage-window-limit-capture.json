@@ -1,0 +1,52 @@
+{
+  "proof_component": "aerolink-real-exhaustion-capture",
+  "schema_version": 1,
+  "captured_at_utc": "2026-07-07T13:52:28.9535746Z",
+  "passed": true,
+  "target": {
+    "provider": "Aerolink",
+    "api_base": "https://capi.aerolink.lat",
+    "endpoint": "/v1/messages",
+    "api_format": "Anthropic Messages",
+    "anthropic_version": "2023-06-01",
+    "model": "claude-opus-4-8"
+  },
+  "request": {
+    "method": "POST",
+    "request_count": 1,
+    "retry_count": 0,
+    "max_tokens": 1,
+    "key_kind": "real_already_exhausted_key",
+    "real_api_key_used": true,
+    "secret_persisted": false,
+    "body_sha256": "f4c230cdca73fcdbab1878b67bcf297011d7f1c19195af41fada91f9881f3c51"
+  },
+  "response": {
+    "status_code": 402,
+    "reason_phrase": "Payment Required",
+    "headers": [
+      "Content-Length: 165",
+      "Content-Type: application/json",
+      "Date: Tue, 07 Jul 2026 13:52:07 GMT",
+      "req-arrive-time: 1783432327578",
+      "req-cost-time: 206",
+      "resp-start-time: 1783432327785",
+      "Server: istio-envoy",
+      "x-envoy-upstream-service-time: 206"
+    ],
+    "body_utf8": "{\"error\":\"5-hour included-usage limit reached. You have used the $10.00 allowance for this window. Wait for the 5-hour reset, add balance, or upgrade to continue.\"}\n",
+    "body_sha256": "d3ab716be4468ad1fa15396e5ab20fcd475d553d003d8f4f562327e9b8a97dc4"
+  },
+  "transport": {
+    "elapsed_ms": 395,
+    "timeout_seconds": 20,
+    "automatic_retries": 0,
+    "transport_error": null
+  },
+  "limitations": [
+    "This capture sends exactly one request and performs zero retries.",
+    "The provided API key is never written to the evidence file.",
+    "Use only a key already known to be fully exhausted; a non-exhausted key may consume a minimal request.",
+    "This capture proves only the returned behavior for the exact Aerolink endpoint/model request shape."
+  ]
+}

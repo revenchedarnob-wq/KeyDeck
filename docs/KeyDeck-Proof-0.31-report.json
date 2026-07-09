@@ -1,0 +1,84 @@
+{
+  "proof": "0.31-evidence-bound-candidate-collection-and-reconciliation-assessment-reconstructed",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "exact_current_task_handoff_route_runtime_and_engine_binding_is_validated_before_candidate_persistence",
+      "passed": true,
+      "detail": "candidate-ef9d01daf9769f773a5b"
+    },
+    {
+      "name": "duplicate_execution_result_identity_reuses_one_candidate_without_engine_rerun",
+      "passed": true,
+      "detail": 1
+    },
+    {
+      "name": "conflicting_duplicate_execution_result_binding_is_rejected",
+      "passed": true,
+      "detail": "candidate collection: execution/result identity conflict"
+    },
+    {
+      "name": "stale_task_sequence_is_rejected_before_candidate_persistence",
+      "passed": true,
+      "detail": "candidate collection: current state validation failed: current task identity or sequence mismatch"
+    },
+    {
+      "name": "stale_or_tampered_handoff_package_is_rejected_before_persistence",
+      "passed": true,
+      "detail": "candidate collection: current state validation failed: current handoff package identity mismatch"
+    },
+    {
+      "name": "stale_route_decision_is_rejected_before_candidate_persistence",
+      "passed": true,
+      "detail": "candidate collection: current state validation failed: current route decision invalid: invalid route plan"
+    },
+    {
+      "name": "runtime_result_identity_mismatch_is_rejected_before_persistence",
+      "passed": true,
+      "detail": "candidate collection: current state validation failed: engine result identity SHA mismatch"
+    },
+    {
+      "name": "secret_like_candidate_evidence_is_blocked_before_durable_collection",
+      "passed": true,
+      "detail": "candidate collection: current state validation failed: candidate result payload contains forbidden secret-like data"
+    },
+    {
+      "name": "candidate_collection_replays_after_restart_without_reexecuting_producer",
+      "passed": true,
+      "detail": "candidate-4772a79fc844ea997d29"
+    },
+    {
+      "name": "one_verified_candidate_becomes_single_verified",
+      "passed": true,
+      "detail": "assessment-27fb080f0254e6d05533"
+    },
+    {
+      "name": "exact_cross_engine_output_agreement_is_recorded_without_judge_model_preference",
+      "passed": true,
+      "detail": "assessment-49dc10ef111193e75a98"
+    },
+    {
+      "name": "conflicting_verified_candidates_become_unresolved_disagreement",
+      "passed": true,
+      "detail": "assessment-ee4e6e0014fb12aa788f"
+    },
+    {
+      "name": "two_matching_candidates_do_not_establish_truth_over_one_conflicting_candidate",
+      "passed": true,
+      "detail": {
+        "candidates": 3,
+        "state": "disagreement"
+      }
+    },
+    {
+      "name": "candidate_without_verified_runtime_evidence_requires_review",
+      "passed": true,
+      "detail": "assessment-754dd6d593c785ab1c1c"
+    }
+  ],
+  "candidate_id": "candidate-ef9d01daf9769f773a5b",
+  "assessment_id": "assessment-1c397d7b135068fd5be4",
+  "candidate_set_sha256": "416fdc3b69a2f15bb952c42cd21be9f94f8c2633ddc0fe4d2a4c10f65add4631",
+  "next_gate": "Proof 0.32 — Explicit Review Resolution and Selected-Only Canonical Recovery (reconstructed)"
+}

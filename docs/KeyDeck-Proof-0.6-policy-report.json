@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "proof": "0.6-automatic-api-pool-to-codex",
+  "scenarios": [
+    {
+      "name": "all-keys-exhausted",
+      "passed": true,
+      "fallback_runs": 1,
+      "calls": {
+        "key-1": 1,
+        "key-2": 1,
+        "key-3": 1
+      },
+      "transcript_size": 2,
+      "active_engine": "codex"
+    },
+    {
+      "name": "provider-busy",
+      "passed": true,
+      "error": "provider is globally busy",
+      "fallback_runs": 0,
+      "calls": {
+        "key-1": 1,
+        "key-2": 0
+      },
+      "transcript_size": 1,
+      "active_engine": "api-pool"
+    },
+    {
+      "name": "ambiguous-502",
+      "passed": true,
+      "error": "ambiguous provider failure; automatic replay is forbidden",
+      "fallback_runs": 0,
+      "calls": {
+        "key-1": 1,
+        "key-2": 0
+      },
+      "transcript_size": 1,
+      "active_engine": "api-pool"
+    }
+  ]
+}

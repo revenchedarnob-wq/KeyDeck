@@ -1,0 +1,93 @@
+{
+  "proof": "0.20-mcp-bridge-hardening",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "permission_profiles_block_before_adapter_invocation",
+      "passed": true,
+      "detail": {
+        "adapter_calls": 3,
+        "errors": [
+          "MCP tool is not allowed by KeyDeck permissions",
+          "MCP tool is not allowed by KeyDeck permissions"
+        ],
+        "read_block_no_call": true,
+        "safe_block_no_call": true
+      }
+    },
+    {
+      "name": "oversized_mcp_frame_rejected_at_configured_bound",
+      "passed": true,
+      "detail": "read MCP response: MCP frame exceeds configured limit"
+    },
+    {
+      "name": "cancelled_nonrepeatable_tool_remains_ambiguous_and_blocked",
+      "passed": true,
+      "detail": {
+        "cancel_error": "context deadline exceeded",
+        "effects": 1,
+        "journal_state": "started",
+        "restart_error": "tool operation outcome is ambiguous; replay is forbidden",
+        "tool_calls": 1
+      }
+    },
+    {
+      "name": "explicit_adapter_seam_executes_without_command_client",
+      "passed": true,
+      "detail": {
+        "calls": 1,
+        "error": "",
+        "result": "stub:readonly.echo:seam"
+      }
+    },
+    {
+      "name": "separate_local_mcp_server_process_handled_real_wire_calls",
+      "passed": true,
+      "detail": {
+        "rpc_counts": {
+          "initialize": 4,
+          "notifications/initialized": 4,
+          "tools/call": 4,
+          "tools/list": 4
+        },
+        "tool_calls": {
+          "admin.delete": 1,
+          "readonly.echo": 1,
+          "safe.write": 1,
+          "slow.commit": 1
+        }
+      }
+    },
+    {
+      "name": "hardening_events_entered_durable_timeline",
+      "passed": true,
+      "detail": {
+        "mcp_tool_cancelled_ambiguous": 1,
+        "mcp_tool_completed": 3,
+        "mcp_tool_started": 4
+      }
+    },
+    {
+      "name": "proof_receipt_binds_hardening_evidence_exactly_once",
+      "passed": true,
+      "detail": {
+        "artifact_sha256": "41b81131b6e7dd57174f62ce725d797257849f8b35bac0b13389e643bea3aa3c",
+        "created_once": true,
+        "error": "",
+        "receipt_id": "receipt-6cea757f9c6c9c6f64b5"
+      }
+    }
+  ],
+  "permission_profiles": [
+    "read_only",
+    "safe_edit",
+    "full_control"
+  ],
+  "frame_limit_bytes": 512,
+  "cancellation_disposition": "non-repeatable cancellation remains ambiguous and blocked",
+  "adapter_seam": "mcpbridge.Adapter",
+  "local_server_process": "independent proof20 MCP stdio server process",
+  "final_server_state_sha256": "41b81131b6e7dd57174f62ce725d797257849f8b35bac0b13389e643bea3aa3c",
+  "next_gate": "Connect the hardened bridge to one external third-party local MCP server when an immutable package is available, then add Secret Broker scoping and schema-aware tool permissions before broad SaaS integrations."
+}

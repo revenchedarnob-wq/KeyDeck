@@ -1,0 +1,2 @@
+bc608e22362126608b360fef1cd0c99ce90b2843a3f308bc42ea8a13cbff364c  dist/proof08-windows-x64/proof08-real.exe
+4eeedb536929e7fbb8e94cf9b30115810c4adea0cc2355e082f06b4513b9a440  dist/proof08-windows-x64/proof08-policy.exe

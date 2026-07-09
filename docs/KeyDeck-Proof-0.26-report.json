@@ -1,0 +1,130 @@
+{
+  "proof": "0.26-production-context-scout-compiler-reconstructed",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "local_source_fingerprint_ignores_env_and_tracks_relevant_source",
+      "passed": true,
+      "detail": {
+        "after_env": "8fec5f55ff3311a06d720b7d6ecd5ffb511062db693ba2d04f60ab5dc579023d",
+        "after_source": "0faea55fa2b19e16ed7b64f6d0c94bbd84f4c633f40c26fd6a0bec39daae114b",
+        "initial": "8fec5f55ff3311a06d720b7d6ecd5ffb511062db693ba2d04f60ab5dc579023d"
+      }
+    },
+    {
+      "name": "cache_and_packet_identity_bind_exact_provider_schema_project_objective_budgets_and_fingerprint",
+      "passed": true,
+      "detail": {
+        "cache_key": "1396beb0257854906f4087f6849b41e4a8b49d378ce38732f4bdc15ce151729b",
+        "packet_id": "packet-2cf329eeeaf83914fe58",
+        "variant_keys_distinct": true
+      }
+    },
+    {
+      "name": "fresh_verified_packet_reuses_after_restart_with_zero_provider_calls",
+      "passed": true,
+      "detail": {
+        "factory_builds_after": 5,
+        "factory_builds_before": 5,
+        "provider_calls": 0,
+        "reused": true
+      }
+    },
+    {
+      "name": "fresh_verified_packet_reuses_while_provider_disabled",
+      "passed": true,
+      "detail": {
+        "error": "\u003cnil\u003e",
+        "reused": true
+      }
+    },
+    {
+      "name": "relevant_source_change_invalidates_old_packet_fingerprint",
+      "passed": true,
+      "detail": {
+        "new": "6deaaec071d479ec361ce58e8fe3911754c3d2662e3fbf42e6d8c38610f882d0",
+        "old": "8fec5f55ff3311a06d720b7d6ecd5ffb511062db693ba2d04f60ab5dc579023d",
+        "old_packet_fresh": false
+      }
+    },
+    {
+      "name": "disabled_provider_blocks_stale_rebuild_before_execution_and_persistence",
+      "passed": true,
+      "detail": {
+        "builds_after": 5,
+        "builds_before": 5,
+        "calls_after": 5,
+        "calls_before": 5,
+        "error": "MCP execution blocked: server is disabled",
+        "store_after": 1,
+        "store_before": 1
+      }
+    },
+    {
+      "name": "reenabled_provider_rebuilds_fresh_packet_with_fresh_operation_identities",
+      "passed": true,
+      "detail": {
+        "first_packet": "packet-2cf329eeeaf83914fe58",
+        "fresh_operation_ids": [
+          "context:06db8bcacaeae4b3bbb1:01:index_repository:30b5d9a8e57c",
+          "context:06db8bcacaeae4b3bbb1:02:get_architecture:20406df19514",
+          "context:06db8bcacaeae4b3bbb1:03:search_graph:35e9df0b0158",
+          "context:06db8bcacaeae4b3bbb1:04:trace_path:8c7aab2af03a",
+          "context:06db8bcacaeae4b3bbb1:05:trace_path:f73ea43672a1"
+        ],
+        "rebuilt_packet": "packet-6a773f9d31320e9f98f4"
+      }
+    },
+    {
+      "name": "context_hygiene_enforces_budgets_containment_uniqueness_secret_exclusion_and_receipts",
+      "passed": true,
+      "detail": {
+        "duplicate_probe": "context packet failed hygiene validation: duplicate source snippet",
+        "hygiene": {
+          "rendered_chars": 1256,
+          "source_snippet_count": 2,
+          "structural_receipts": 5,
+          "omitted_evidence_count": 3
+        },
+        "paths_contained": true,
+        "secret_free": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "packet_focuses_exact_target_files_and_records_omitted_lower_ranked_evidence",
+      "passed": true,
+      "detail": {
+        "omitted": 3,
+        "snippet_paths": [
+          "internal/cache.go",
+          "internal/router.go"
+        ]
+      }
+    },
+    {
+      "name": "proof_receipt_binds_packet_store_and_exact_provider_identity_with_no_raw_secret",
+      "passed": true,
+      "detail": {
+        "provider_artifact_bound": true,
+        "provider_source_bound": true,
+        "provisional_receipt": "receipt-ee78fb99e0e4b5b4f947",
+        "secret_present": false
+      }
+    }
+  ],
+  "server_id": "mcp-062d326d516d32529c43f486",
+  "identity_sha256": "062d326d516d32529c43f486a47a5f4ab6478389ef5ce113436feef8c4de00e8",
+  "runtime_sha256": "4c885ecd3b27498ca460b9ba36d2444a5812be381c6a452dbb08a23da2e23431",
+  "schema_sha256": "03eb9d76d286252cd6c1251a1da9ba9265d4c0e723241e9f43919b414bc05559",
+  "first_packet_id": "packet-2cf329eeeaf83914fe58",
+  "rebuilt_packet_id": "packet-6a773f9d31320e9f98f4",
+  "first_fingerprint": "8fec5f55ff3311a06d720b7d6ecd5ffb511062db693ba2d04f60ab5dc579023d",
+  "rebuilt_fingerprint": "6deaaec071d479ec361ce58e8fe3911754c3d2662e3fbf42e6d8c38610f882d0",
+  "cache_key": "1396beb0257854906f4087f6849b41e4a8b49d378ce38732f4bdc15ce151729b",
+  "context_store_sha256": "c5b9b3dc4b50edc3ecb446174db2116cd56d464be9d2b0b51c4d6eaf7ddc9cc2",
+  "timeline_sha256": "b77f2eae6c969fde37fdb483bbe53a2da711d47580f95a272c5e921a166a4724",
+  "receipt_id": "receipt-9bbd7b2ad9adfbbd4c9d",
+  "next_gate": "Proof 0.27 — Canonical Project Brain + Context Inspection Contract"
+}

@@ -1,0 +1,68 @@
+{
+  "proof": "0.30-deterministic-route-selection-and-route-bound-continuation-reconstructed",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "candidate_order_does_not_change_deterministic_route_identity",
+      "passed": true,
+      "detail": "route-057cea48cdaed787b77d"
+    },
+    {
+      "name": "only_capability_qualified_engines_enter_route_selection",
+      "passed": true,
+      "detail": "engine-a"
+    },
+    {
+      "name": "unhealthy_unavailable_and_explicitly_excluded_routes_are_filtered_before_ranking",
+      "passed": true,
+      "detail": "engine-b"
+    },
+    {
+      "name": "no_qualified_route_fails_closed",
+      "passed": true,
+      "detail": "no qualified route"
+    },
+    {
+      "name": "route_identity_binds_exact_task_session_handoff_candidate_set_and_selected_engine",
+      "passed": true,
+      "detail": {
+        "package": "handoff-92f06037efe1ac2f8571",
+        "route": "route-a9d37e06ec003f7ccb74"
+      }
+    },
+    {
+      "name": "tampered_route_plan_is_rejected",
+      "passed": true,
+      "detail": "tampered-engine"
+    },
+    {
+      "name": "stale_route_is_blocked_before_adapter_invocation",
+      "passed": true,
+      "detail": {
+        "error": "invalid route plan",
+        "starts": 0
+      }
+    },
+    {
+      "name": "key_exhaustion_may_continue_the_same_response_to_an_eligible_different_route",
+      "passed": true,
+      "detail": "continuation-558ea907de346ed02ec7"
+    },
+    {
+      "name": "provider_wide_busy_denies_same_provider_continuation",
+      "passed": true,
+      "detail": "provider-wide busy continuation cannot target the same provider"
+    },
+    {
+      "name": "timeline_and_proof_receipt_bind_exact_route_evidence",
+      "passed": true,
+      "detail": "receipt-52d84af7f8323c9c0fe2"
+    }
+  ],
+  "route_id": "route-057cea48cdaed787b77d",
+  "route_sha256": "057cea48cdaed787b77d14a36413584c9a89d5b534ce620b746d65c5438fccd1",
+  "continuation_id": "continuation-558ea907de346ed02ec7",
+  "receipt_id": "receipt-52d84af7f8323c9c0fe2",
+  "next_gate": "Proof 0.31 — Evidence-Bound Candidate Collection and Reconciliation Assessment (reconstructed)"
+}

@@ -1,0 +1,103 @@
+{
+  "proof": "0.21-mcp-secret-broker-schema-authorization",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "scoped_secret_reference_resolves_only_at_adapter_boundary",
+      "passed": true,
+      "detail": {
+        "adapter_calls": 1,
+        "plans": 1,
+        "resolutions": 1,
+        "server_verified_hash": true
+      }
+    },
+    {
+      "name": "permission_denial_precedes_secret_planning_and_adapter",
+      "passed": true,
+      "detail": {
+        "adapter_calls_delta": 0,
+        "error": "MCP tool is not allowed by KeyDeck permissions",
+        "plan_delta": 0,
+        "resolution_delta": 0
+      }
+    },
+    {
+      "name": "schema_denial_precedes_secret_planning_and_adapter",
+      "passed": true,
+      "detail": {
+        "adapter_calls_delta": 0,
+        "error": "MCP tool arguments do not satisfy KeyDeck schema policy: field \"resource\" must be string",
+        "plan_delta": 0,
+        "resolution_delta": 0
+      }
+    },
+    {
+      "name": "secret_scope_denial_precedes_journal_resolution_and_adapter",
+      "passed": true,
+      "detail": {
+        "adapter_calls_delta": 0,
+        "error": "secret scope is not allowed for tool: tool \"secure.fetch\" scope \"provider.admin\"",
+        "journal_record_created": false,
+        "resolution_delta": 0
+      }
+    },
+    {
+      "name": "completed_secret_operation_reused_without_secret_resolution",
+      "passed": true,
+      "detail": {
+        "adapter_calls_delta": 0,
+        "resolution_delta": 0,
+        "reused": true
+      }
+    },
+    {
+      "name": "sensitive_tool_error_redacted_before_return_journal_and_timeline",
+      "passed": true,
+      "detail": {
+        "contains_redaction_marker": true,
+        "journal_error": "MCP tool returned error: upstream rejected credential [REDACTED_SECRET]",
+        "returned_error": "MCP tool returned error: upstream rejected credential [REDACTED_SECRET]"
+      }
+    },
+    {
+      "name": "raw_secret_absent_from_persisted_runtime_surfaces",
+      "passed": true,
+      "detail": {
+        "checked_files": [
+          "/tmp/keydeck-proof21/tool-journal.jsonl",
+          "/tmp/keydeck-proof21/timeline.jsonl",
+          "/tmp/keydeck-proof21/task-events.jsonl",
+          "/tmp/keydeck-proof21/server-state.json"
+        ],
+        "leaks": [],
+        "server_state_sha256": "f57820100db2470936313598dacfe819c6652a703f8b27385c7ad8873ca2a49a"
+      }
+    },
+    {
+      "name": "redacted_proof_receipt_stored_exactly_once",
+      "passed": true,
+      "detail": {
+        "complete_progress": true,
+        "contains_redaction_marker": true,
+        "created_once": true,
+        "error": "",
+        "receipt_id": "receipt-46ad1ed6e1f5a30272bb"
+      }
+    }
+  ],
+  "secret_reference_key": "$secret_ref",
+  "preflight_order": [
+    "permission",
+    "argument_schema",
+    "secret_scope_plan",
+    "tool_journal",
+    "secret_resolution",
+    "adapter"
+  ],
+  "raw_secret_persistence": "forbidden",
+  "adapter_boundary": "secret values exist only in memory after journal execute decision and are passed only to mcpbridge.Adapter",
+  "final_server_state_sha256": "f57820100db2470936313598dacfe819c6652a703f8b27385c7ad8873ca2a49a",
+  "next_gate": "Proof 0.22 — connect one immutable third-party local MCP server through the hardened bridge and Secret Broker, preserving KeyDeck-owned permissions and replay safety."
+}

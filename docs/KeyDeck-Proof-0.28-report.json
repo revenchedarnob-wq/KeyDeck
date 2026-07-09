@@ -1,0 +1,75 @@
+{
+  "proof": "0.28-production-handoff-package-assembly-reconstructed",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "task_aware_objective_uses_goal_sorted_outcomes_only_pending_checks_and_forbidden_scope",
+      "passed": true,
+      "detail": {
+        "outcomes": [
+          "bind exact context",
+          "preserve canonical state"
+        ],
+        "pending": 2
+      }
+    },
+    {
+      "name": "passed_checks_remain_sealed_as_task_context_without_becoming_pending_work",
+      "passed": true,
+      "detail": {
+        "passed": 2,
+        "pending": 2
+      }
+    },
+    {
+      "name": "one_package_seals_task_context_mcp_brain_inspection_passport_capabilities_and_engine_request",
+      "passed": true,
+      "detail": {
+        "inspection": "6bf7ae748ae12f1a7bc966fc4c0898da92492b4f7f20aa1aadf66c0c7940e612",
+        "omitted": 2
+      }
+    },
+    {
+      "name": "package_identity_is_canonical_and_tamper_evident",
+      "passed": true,
+      "detail": "b257d717ada692f38ac28f0883672ff1c0a91544babe6c24ba4944880a496ccc"
+    },
+    {
+      "name": "stale_task_sequence_is_rejected_before_engine_use",
+      "passed": true
+    },
+    {
+      "name": "stale_context_packet_id_is_rejected_before_engine_use",
+      "passed": true
+    },
+    {
+      "name": "stale_project_brain_revision_is_rejected_before_engine_use",
+      "passed": true
+    },
+    {
+      "name": "forbidden_exact_secret_like_context_is_rejected_before_engine_use",
+      "passed": true,
+      "detail": "handoff package contains forbidden exact value"
+    },
+    {
+      "name": "engine_runtime_request_is_bound_to_same_task_session_passport_capabilities_and_context_prompt",
+      "passed": true,
+      "detail": "8cbd7697fd749ca3d5a1d8dd3a6e8332ad7c31c39c0b85a97ef9abbfaf5db772"
+    },
+    {
+      "name": "proof_receipt_binds_exact_handoff_package_artifact",
+      "passed": true,
+      "detail": "receipt-90913d83c4335f69fdb6"
+    }
+  ],
+  "package_id": "handoff-b257d717ada692f38ac2",
+  "package_sha256": "b257d717ada692f38ac28f0883672ff1c0a91544babe6c24ba4944880a496ccc",
+  "packet_id": "packet-010feb76f6ebe6230e84",
+  "packet_sha256": "5868a4cc92ea7ff19163b09cf8f8666f4dd35e64f1cef4fb4712b1666da304cb",
+  "task_sequence": 3,
+  "project_brain_revision_sha256": "d1f50db27e66599745cb0776865afbd06f8410b1a46a21ea566727b394d27c2e",
+  "engine_request_sha256": "8cbd7697fd749ca3d5a1d8dd3a6e8332ad7c31c39c0b85a97ef9abbfaf5db772",
+  "receipt_id": "receipt-90913d83c4335f69fdb6",
+  "next_gate": "Proof 0.29 — Handoff Package Persistence, Replay-Safe Engine Execution, and Restart Reconciliation"
+}

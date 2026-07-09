@@ -1,0 +1,8 @@
+id: verify-evidence
+name: Verify proof evidence
+inputs:
+  prompt: "Verify proof evidence for this acceptance check."
+expected:
+  should_trigger: true
+  output_contains:
+    - "proof evidence"

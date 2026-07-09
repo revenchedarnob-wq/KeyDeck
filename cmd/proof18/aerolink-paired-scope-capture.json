@@ -1,0 +1,86 @@
+{
+  "proof_component": "aerolink-real-paired-scope-capture",
+  "schema_version": 1,
+  "captured_at_utc": "2026-07-07T14:23:39.7114733Z",
+  "passed": false,
+  "target": {
+    "provider": "Aerolink",
+    "api_base": "https://capi.aerolink.lat",
+    "endpoint": "/v1/messages",
+    "api_format": "Anthropic Messages",
+    "anthropic_version": "2023-06-01",
+    "model": "claude-opus-4-8"
+  },
+  "ordering": "limited_then_replacement",
+  "expected_limited_behavior": {
+    "status_code": 402,
+    "body_sha256": "d3ab716be4468ad1fa15396e5ab20fcd475d553d003d8f4f562327e9b8a97dc4"
+  },
+  "limited_credential": {
+    "key_kind": "real_already_limited_pool_member",
+    "request_count": 1,
+    "retry_count": 0,
+    "max_tokens": 1,
+    "secret_persisted": false,
+    "body_sha256": "f4c230cdca73fcdbab1878b67bcf297011d7f1c19195af41fada91f9881f3c51",
+    "response": {
+      "status_code": 402,
+      "reason_phrase": "Payment Required",
+      "headers": [
+        "Content-Length: 165",
+        "Content-Type: application/json",
+        "Date: Tue, 07 Jul 2026 14:22:23 GMT",
+        "req-arrive-time: 1783434143001",
+        "req-cost-time: 190",
+        "resp-start-time: 1783434143191",
+        "Server: istio-envoy",
+        "x-envoy-upstream-service-time: 190"
+      ],
+      "body_utf8": "{\"error\":\"5-hour included-usage limit reached. You have used the $10.00 allowance for this window. Wait for the 5-hour reset, add balance, or upgrade to continue.\"}\n",
+      "body_sha256": "d3ab716be4468ad1fa15396e5ab20fcd475d553d003d8f4f562327e9b8a97dc4"
+    },
+    "transport": {
+      "elapsed_ms": 386,
+      "timeout_seconds": 20,
+      "automatic_retries": 0,
+      "transport_error": null
+    }
+  },
+  "replacement_credential": {
+    "key_kind": "real_known_usable_replacement_pool_member",
+    "request_count": 1,
+    "retry_count": 0,
+    "max_tokens": 1,
+    "secret_persisted": false,
+    "body_sha256": "f4c230cdca73fcdbab1878b67bcf297011d7f1c19195af41fada91f9881f3c51",
+    "response": {
+      "status_code": 0,
+      "reason_phrase": "",
+      "headers": [],
+      "body_utf8": "",
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "transport": {
+      "elapsed_ms": 20021,
+      "timeout_seconds": 20,
+      "automatic_retries": 0,
+      "transport_error": "Exception calling \"Send\" with \"2\" argument(s): \"The request was canceled due to the configured HttpClient.Timeout of 20 seconds elapsing.\""
+    }
+  },
+  "checks": {
+    "limited_exact_402_match": true,
+    "replacement_attempted": true,
+    "replacement_succeeded": false,
+    "request_shape_identical": true,
+    "total_request_count": 2,
+    "total_retry_count": 0,
+    "secrets_persisted": false
+  },
+  "limitations": [
+    "This paired capture proves behavior only for the exact Aerolink endpoint/model request shape and capture time.",
+    "A successful replacement credential proves the exact 402 was not provider-wide at that moment; it does not prove every key under the same account has an independent allowance.",
+    "The replacement request may consume the minimal max_tokens=1 request.",
+    "Each credential is used at most once and neither credential is written to the evidence file.",
+    "Do not rerun automatically if either response is unexpected."
+  ]
+}

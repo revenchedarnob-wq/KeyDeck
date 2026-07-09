@@ -1,0 +1,113 @@
+{
+  "proof": "0.8-context-compiler-policy",
+  "passed": true,
+  "packet": {
+    "version": 1,
+    "created_at": "2026-07-07T00:49:11.900915049Z",
+    "objective": "A request from tenant B can receive tenant A's fallback policy after the active tenant changes, especially when both requests use the same route. Diagnose the exact root cause, identify the call path that makes the leak possible, and identify the two source files that must change to fix the isolation bug.",
+    "project_root": "/tmp/keydeck-proof-08-policy-3052099732/repo",
+    "project_id": "proof08",
+    "keywords": [
+      "tenant",
+      "fallback",
+      "policy",
+      "active",
+      "route",
+      "leak",
+      "isolation"
+    ],
+    "git": {
+      "head": "cdadf18c72d1f0285cdebb06fab027c11b7b0bba"
+    },
+    "structural_provider": "fake-codebase-memory",
+    "structural_version": "proof-fixture",
+    "structural_evidence": [
+      {
+        "tool": "index_repository",
+        "arguments": "{\"repo_path\":\"/tmp/keydeck-proof-08-policy-3052099732/repo\"}",
+        "output": "{\"project\":\"proof08\"}",
+        "truncated": false,
+        "successful": true
+      },
+      {
+        "tool": "get_architecture",
+        "arguments": "{\"project\":\"proof08\"}",
+        "output": "{\"languages\":[\"Go\"],\"files\":[{\"file_path\":\"internal/routing/engine.go\"},{\"file_path\":\"internal/policy/cache.go\"}]}",
+        "truncated": false,
+        "successful": true
+      },
+      {
+        "tool": "search_graph",
+        "arguments": "{\"limit\":12,\"name_pattern\":\".*(tenant|Tenant|TENANT|fallback|Fallback|FALLBACK|policy|Policy|POLICY|active|Active|ACTIVE|route|Route|ROUTE|leak|Leak|LEAK).*\",\"project\":\"proof08\"}",
+        "output": "{\"results\":[{\"name\":\"Resolve\",\"file_path\":\"internal/routing/engine.go\"},{\"name\":\"GetOrLoad\",\"file_path\":\"internal/policy/cache.go\"},{\"name\":\"HandleRequest\",\"file_path\":\"internal/app/server.go\"}]}",
+        "truncated": false,
+        "successful": true
+      },
+      {
+        "tool": "trace_path",
+        "arguments": "{\"depth\":3,\"direction\":\"both\",\"function_name\":\"Resolve\",\"project\":\"proof08\"}",
+        "output": "{\"path\":[\"HandleRequest\",\"Resolve\",\"GetOrLoad\"],\"files\":[{\"file_path\":\"internal/app/server.go\"}]}",
+        "truncated": false,
+        "successful": true
+      },
+      {
+        "tool": "trace_path",
+        "arguments": "{\"depth\":3,\"direction\":\"both\",\"function_name\":\"GetOrLoad\",\"project\":\"proof08\"}",
+        "output": "{\"path\":[\"HandleRequest\",\"Resolve\",\"GetOrLoad\"],\"files\":[{\"file_path\":\"internal/app/server.go\"}]}",
+        "truncated": false,
+        "successful": true
+      }
+    ],
+    "structural_index_succeeded": true,
+    "structural_search_succeeded": true,
+    "source_snippets": [
+      {
+        "path": "internal/routing/engine.go",
+        "start_line": 1,
+        "end_line": 22,
+        "score": 37,
+        "content": "   1 | package routing\n   2 | \n   3 | import (\n   4 |     \"example.local/tenantleak/internal/model\"\n   5 |     \"example.local/tenantleak/internal/policy\"\n   6 |     \"example.local/tenantleak/internal/tenant\"\n   7 | )\n   8 | \n   9 | type Engine struct {\n  10 |     active *tenant.Active\n  11 |     cache *policy.Cache\n  12 |     store *policy.Store\n  13 | }\n  14 | \n  15 | func NewEngine(active *tenant.Active, cache *policy.Cache, store *policy.Store) *Engine {\n  16 |     return \u0026Engine{active: active, cache: cache, store: store}\n  17 | }\n  18 | \n  19 | func (e *Engine) Resolve(req model.Request) (model.Policy, error) {\n  20 |     tenantID := e.active.CurrentID()\n  21 |     return e.cache.GetOrLoad(req.Route, func() (model.Policy, error) {\n  22 |         return e.store.LoadFallback(tenantID, req.Route)"
+      },
+      {
+        "path": "internal/app/server.go",
+        "start_line": 1,
+        "end_line": 13,
+        "score": 34,
+        "content": "   1 | package app\n   2 | \n   3 | import (\n   4 |     \"example.local/tenantleak/internal/model\"\n   5 |     \"example.local/tenantleak/internal/routing\"\n   6 | )\n   7 | \n   8 | type Server struct { router *routing.Engine }\n   9 | func NewServer(router *routing.Engine) *Server { return \u0026Server{router: router} }\n  10 | func (s *Server) HandleRequest(req model.Request) (model.Policy, error) {\n  11 |     return s.router.Resolve(req)\n  12 | }\n  13 | "
+      },
+      {
+        "path": "internal/policy/cache.go",
+        "start_line": 1,
+        "end_line": 19,
+        "score": 28,
+        "content": "   1 | package policy\n   2 | \n   3 | import (\n   4 |     \"sync\"\n   5 |     \"example.local/tenantleak/internal/model\"\n   6 | )\n   7 | \n   8 | type Cache struct {\n   9 |     mu sync.RWMutex\n  10 |     byRoute map[string]model.Policy\n  11 | }\n  12 | \n  13 | func NewCache() *Cache {\n  14 |     return \u0026Cache{byRoute: map[string]model.Policy{}}\n  15 | }\n  16 | \n  17 | func (c *Cache) GetOrLoad(route string, loader func() (model.Policy, error)) (model.Policy, error) {\n  18 |     c.mu.RLock()\n  19 |     cached, ok := c.byRoute[route]"
+      },
+      {
+        "path": "cmd/server/main.go",
+        "start_line": 1,
+        "end_line": 15,
+        "score": 17,
+        "content": "   1 | package main\n   2 | \n   3 | import (\n   4 |     \"example.local/tenantleak/internal/app\"\n   5 |     \"example.local/tenantleak/internal/policy\"\n   6 |     \"example.local/tenantleak/internal/routing\"\n   7 |     \"example.local/tenantleak/internal/tenant\"\n   8 | )\n   9 | \n  10 | func main() {\n  11 |     active := \u0026tenant.Active{}\n  12 |     router := routing.NewEngine(active, policy.NewCache(), \u0026policy.Store{})\n  13 |     _ = app.NewServer(router)\n  14 | }\n  15 | "
+      },
+      {
+        "path": "internal/policy/store.go",
+        "start_line": 1,
+        "end_line": 10,
+        "score": 13,
+        "content": "   1 | package policy\n   2 | \n   3 | import \"example.local/tenantleak/internal/model\"\n   4 | \n   5 | type Store struct{}\n   6 | \n   7 | func (s *Store) LoadFallback(tenantID, route string) (model.Policy, error) {\n   8 |     return model.Policy{TenantID: tenantID, Route: route, Source: \"fallback\"}, nil\n   9 | }\n  10 | "
+      },
+      {
+        "path": "internal/decoys/decoy000/service.go",
+        "start_line": 1,
+        "end_line": 12,
+        "score": 12,
+        "content": "   1 | package decoy000\n   2 | \n   3 | // Service000 is unrelated infrastructure noise. It uses tenant, route, cache,\n   4 | // policy and fallback vocabulary so text-only repository discovery has to work.\n   5 | type Service000 struct { values map[string]string }\n   6 | \n   7 | func (s *Service000) RefreshTenantRoutePolicy(tenantID, route string) string {\n   8 |     key := tenantID + \":\" + route\n   9 |     if v, ok := s.values[key]; ok { return v }\n  10 |     return \"fallback-observer-000\"\n  11 | }\n  12 | "
+      }
+    ],
+    "omitted_evidence_count": 241,
+    "rendered_chars": 4896
+  },
+  "contains_routing": true,
+  "contains_cache": true,
+  "contains_call_path": true
+}

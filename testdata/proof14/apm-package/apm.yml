@@ -1,0 +1,10 @@
+name: keydeck-proof14-agentenv
+version: 0.1.0
+description: Proof fixture for KeyDeck APM + Waza proving ground
+author: KeyDeck
+
+dependencies:
+  apm: []
+  mcp: []
+includes: auto
+scripts: {}

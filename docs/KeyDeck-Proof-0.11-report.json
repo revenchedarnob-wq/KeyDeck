@@ -1,0 +1,64 @@
+{
+  "proof": "0.11-universal-activity-timeline-proof-receipts",
+  "passed": true,
+  "claims": [
+    "task, engine, tool, artifact and proof events share one durable append-only timeline identity",
+    "timeline event IDs survive restart without duplication and preserve canonical ordering",
+    "human-readable Proof Receipts are generated from acceptance evidence, timeline references and artifact hashes",
+    "secret-like evidence is rejected before receipt creation",
+    "receipt inputs and proof receipt identity survive restart exactly once"
+  ],
+  "scenarios": [
+    {
+      "name": "secret_like_evidence_rejected",
+      "passed": true,
+      "detail": {
+        "error": "proof receipt input contains secret-like material"
+      }
+    },
+    {
+      "name": "timeline_restart_dedup_and_order",
+      "passed": true,
+      "detail": {
+        "canonical_order": true,
+        "duplicate_appends": 0,
+        "event_count": 8
+      }
+    },
+    {
+      "name": "human_readable_evidence_receipt",
+      "passed": true,
+      "detail": {
+        "artifact_sha256": "9c9cecd5251e34608390191633af9824d27788010bf7a0c33ff23fede13b863b",
+        "input_digest": "352b1d3a11506003e862e03eca0ed987f4e32c9c0b2d1a034d0276846c19da3b",
+        "receipt_id": "receipt-352b1d3a11506003e862",
+        "timeline_refs": 9
+      }
+    },
+    {
+      "name": "receipt_restart_exactly_once",
+      "passed": true,
+      "detail": {
+        "proof_event_appended_again": false,
+        "receipt_appended_again": false,
+        "receipt_count": 1,
+        "receipt_id": "receipt-352b1d3a11506003e862"
+      }
+    },
+    {
+      "name": "single_cross_domain_canonical_timeline",
+      "passed": true,
+      "detail": {
+        "canonical_order": true,
+        "domains": [
+          "artifact",
+          "engine",
+          "proof",
+          "task",
+          "tool"
+        ],
+        "event_count": 10
+      }
+    }
+  ]
+}

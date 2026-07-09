@@ -1,0 +1,89 @@
+{
+  "proof_component": "microsoft-apm-real-prototype",
+  "tool": {
+    "name": "Microsoft Agent Package Manager",
+    "version": "0.24.0"
+  },
+  "mode": "real local path dependency; offline sandbox",
+  "passed": true,
+  "checks": {
+    "initial_clean_audit": {
+      "passed": true,
+      "summary": {
+        "total": 9,
+        "passed": 9,
+        "failed": 0
+      }
+    },
+    "drift_detection": {
+      "passed": true,
+      "audit_exit_code": 1,
+      "drift": [
+        {
+          "path": ".agents/skills/keydeck-proof/SKILL.md",
+          "kind": "modified",
+          "package": "../package",
+          "inline_diff": ""
+        }
+      ]
+    },
+    "frozen_restore": {
+      "passed": true,
+      "summary": {
+        "total": 9,
+        "passed": 9,
+        "failed": 0
+      }
+    },
+    "second_clean_install": {
+      "passed": true,
+      "summary": {
+        "total": 9,
+        "passed": 9,
+        "failed": 0
+      }
+    },
+    "deployed_hashes_reproducible": {
+      "passed": true,
+      "hashes": {
+        ".agents/skills/keydeck-proof/SKILL.md": "sha256:fa0fef96ba7729258fcdfa5aaaf8f68e74d13c323fb3c64be3c5f40d43681b4a",
+        ".codex/agents/keydeck-reviewer.toml": "sha256:9e6d190fe4e5e3591bc77f9be82a3f6bdff4a1fbed7856b306f65a9096063575"
+      }
+    },
+    "plugin_bundle_created": {
+      "passed": true,
+      "sha256": "90454ef4807da5c7e2bcfa63a53013156746f083b3df202a5169fc0dc1edce2d"
+    }
+  },
+  "coverage": {
+    "source_primitives": [
+      ".apm/agents/keydeck-reviewer.agent.md",
+      ".apm/hooks/proof14-hooks.json",
+      ".apm/instructions/keydeck-safety.instructions.md",
+      ".apm/prompts/keydeck-review.prompt.md",
+      ".apm/skills/keydeck-proof/SKILL.md"
+    ],
+    "primitive_types": [
+      "instructions",
+      "agents",
+      "prompts",
+      "skills",
+      "hooks"
+    ],
+    "source_primitive_file_count": 5,
+    "generated_deployed_files": [
+      ".agents/skills/keydeck-proof/SKILL.md",
+      ".codex/agents/keydeck-reviewer.toml",
+      ".codex/hooks.json"
+    ],
+    "generated_deployed_file_count": 3,
+    "lockfile_present": true,
+    "mcp_dependencies_declared": true,
+    "mcp_dependency_count": 0
+  },
+  "limitations": [
+    "remote Git ref pin resolution was not tested because the execution sandbox had no outbound DNS; local path dependency exercised real APM resolution, lockfile, deployment, audit, drift, and frozen restore",
+    "imperative local bundle install produced target-specific orphan drift and was not selected as the primary KeyDeck dependency flow",
+    "the hook fixture intentionally contained no active Codex event entries, so APM emitted a warning and skipped hook deployment for that target"
+  ]
+}

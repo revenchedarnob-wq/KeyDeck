@@ -1,0 +1,118 @@
+{
+  "proof": "0.24-durable-local-runtime-bindings-mcp-server-manager",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "portable_registration_and_discovery_survive_without_local_binding",
+      "passed": true,
+      "detail": {
+        "binding_present": false,
+        "discovery_present": true,
+        "server_id": "mcp-2249d10f545df5e1a371589e"
+      }
+    },
+    {
+      "name": "machine_local_binding_preserves_canonical_server_id_and_blocks_silent_mutation",
+      "passed": true,
+      "detail": {
+        "bound": true,
+        "canonical_server_id": "mcp-2249d10f545df5e1a371589e",
+        "silent_mutation_error": "MCP local runtime binding conflicts with existing binding; explicit rebind required"
+      }
+    },
+    {
+      "name": "permission_approvals_are_explicit_schema_bound_and_default_deny",
+      "passed": true,
+      "detail": {
+        "approval_sha256": "9441b6c1ae3b4ce07926a740d9bb8728248f435ff61b55e2436ff5a576b23623",
+        "read_allowed": true,
+        "unknown_tool_error": "MCP permission approval references unknown tool: unknown_tool",
+        "write_allowed": false,
+        "wrong_schema_error": "MCP permission approval schema does not match trusted discovery"
+      }
+    },
+    {
+      "name": "real_pinned_third_party_runtime_health_check_succeeds",
+      "passed": true,
+      "detail": {
+        "detail_code": "initialize_and_tools_list_ok",
+        "error": "",
+        "status": "healthy",
+        "tool_count": 14
+      }
+    },
+    {
+      "name": "single_manager_view_combines_portable_and_machine_local_state",
+      "passed": true,
+      "detail": {
+        "approved_tools": [
+          "read_text_file"
+        ],
+        "enabled": true,
+        "health": "healthy",
+        "ready": true
+      }
+    },
+    {
+      "name": "enable_disable_state_is_durable_across_restart",
+      "passed": true,
+      "detail": {
+        "disabled_after_restart": true,
+        "ready_after_restart": false
+      }
+    },
+    {
+      "name": "missing_local_runtime_becomes_unavailable_without_deleting_portable_state",
+      "passed": true,
+      "detail": {
+        "detail_code": "runtime_missing",
+        "discovery_preserved": true,
+        "registration_preserved": true,
+        "status": "unavailable"
+      }
+    },
+    {
+      "name": "explicit_repair_rebind_restores_health_without_changing_canonical_identity",
+      "passed": true,
+      "detail": {
+        "ready": true,
+        "repaired": true,
+        "server_id": "mcp-2249d10f545df5e1a371589e",
+        "status": "healthy"
+      }
+    },
+    {
+      "name": "restart_safe_manager_state_contains_no_raw_secret_persistence",
+      "passed": true,
+      "detail": {
+        "event_count": 10,
+        "ready": true,
+        "secret_absent": true
+      }
+    },
+    {
+      "name": "proof_receipt_binds_portable_registry_and_local_manager_artifacts",
+      "passed": true,
+      "detail": {
+        "created_once": true,
+        "error": "",
+        "manager_sha256": "66fb61fdd5c3756d782362cce2ef4caf6b0317d3f3052da0bf8b68d321e2c1f6",
+        "progress_complete": true,
+        "receipt_id": "receipt-a7427fcf9e5e9984c7d4",
+        "registry_sha256": "14ad7aebf598b265b57629e7b35b41b9ffd5b3130c71eab01a3cde436f2b27c4"
+      }
+    }
+  ],
+  "server_id": "mcp-2249d10f545df5e1a371589e",
+  "identity_sha256": "2249d10f545df5e1a371589efb2da91030a0eb6a3b8f866c29e33f5679ca76a6",
+  "runtime_sha256": "f5e3fafdf42658bb1f65f96018a68df2a0bfd4d5a771ce8c48a6b66cbd27cbc6",
+  "schema_sha256": "31b3d4e6042e08e91514e42eaddab25ec963664e63dd87081c25577cc48f185f",
+  "registry_sha256": "14ad7aebf598b265b57629e7b35b41b9ffd5b3130c71eab01a3cde436f2b27c4",
+  "manager_sha256": "66fb61fdd5c3756d782362cce2ef4caf6b0317d3f3052da0bf8b68d321e2c1f6",
+  "healthy_binding_sha256": "a1977294e696c41b3827e1d156ba6f77b8a9c6675824190049b501bec370d25a",
+  "broken_binding_sha256": "5ed3cec84fae8acc92ec5e84450cb7aed4c00e209368da5bd165d0e1bcf26433",
+  "manager_event_count": 10,
+  "receipt_id": "receipt-a7427fcf9e5e9984c7d4",
+  "next_gate": "Proof 0.25 — connect the durable MCP server manager to execution routing so only enabled, healthy, explicitly approved tools can reach the existing Bridge/Tool Journal, then resume codebase-memory-mcp v0.8.1 retrieval when immutable executable access is available."
+}

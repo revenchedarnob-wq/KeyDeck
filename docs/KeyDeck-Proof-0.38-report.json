@@ -1,0 +1,167 @@
+{
+  "proof": "0.38-production-desktop-supervisor",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "wrong_child_binary_digest_is_rejected_before_launch",
+      "passed": true,
+      "evidence": {
+        "blocked_before_launch": true
+      }
+    },
+    {
+      "name": "foreign_or_stale_existing_core_runtime_blocks_all_child_launch",
+      "passed": true,
+      "evidence": {
+        "child_launches": 0
+      }
+    },
+    {
+      "name": "verified_private_child_copies_survive_source_mutation",
+      "passed": true,
+      "evidence": {
+        "running_after_source_mutation": true
+      }
+    },
+    {
+      "name": "private_execution_copies_keep_exact_verified_identity_inside_supervisor_runtime",
+      "passed": true,
+      "evidence": {
+        "exact_private_identity": true
+      }
+    },
+    {
+      "name": "core_launches_before_renderer_and_renderer_waits_for_authenticated_core",
+      "passed": true,
+      "evidence": {
+        "launch_order": "core_then_renderer",
+        "renderer_prelaunch_core_attest": true
+      }
+    },
+    {
+      "name": "core_runtime_is_bound_to_exact_supervisor_owner_pid_build_and_api",
+      "passed": true,
+      "evidence": {
+        "owner_pid_build_api_bound": true
+      }
+    },
+    {
+      "name": "renderer_is_http_attested_before_in_memory_open",
+      "passed": true,
+      "evidence": {
+        "attested_before_open": true
+      }
+    },
+    {
+      "name": "child_command_lines_and_environment_exclude_core_and_renderer_secrets",
+      "passed": true,
+      "evidence": {
+        "secret_free_process_metadata": true
+      }
+    },
+    {
+      "name": "both_children_receive_only_the_same_non_secret_supervisor_owner_binding",
+      "passed": true,
+      "evidence": {
+        "single_shared_owner_binding": true
+      }
+    },
+    {
+      "name": "supervisor_durable_state_excludes_core_credential_and_renderer_launch_secret",
+      "passed": true,
+      "evidence": {
+        "durable_secret_free": true
+      }
+    },
+    {
+      "name": "second_active_supervisor_is_blocked_before_child_launch",
+      "passed": true,
+      "evidence": {
+        "second_launches": 0
+      }
+    },
+    {
+      "name": "renderer_crash_restarts_only_renderer_and_rotates_launch_secret",
+      "passed": true,
+      "evidence": {
+        "core_reused": true,
+        "secret_rotated": true
+      }
+    },
+    {
+      "name": "renderer_restart_reattests_same_exact_core_before_relaunch",
+      "passed": true,
+      "evidence": {
+        "core_attestations": 2,
+        "core_launches": 1,
+        "renderer_launches": 2
+      }
+    },
+    {
+      "name": "clean_shutdown_stops_renderer_before_core_and_removes_runtime",
+      "passed": true,
+      "evidence": {
+        "runtime_removed": true,
+        "shutdown_order": "renderer_then_core"
+      }
+    },
+    {
+      "name": "expired_supervisor_lease_is_reclaimed_without_reusing_foreign_children",
+      "passed": true,
+      "evidence": {
+        "stale_lease_reclaimed": true
+      }
+    },
+    {
+      "name": "repeated_renderer_crashes_hit_bounded_restart_limit_without_storm",
+      "passed": true,
+      "evidence": {
+        "bounded": true,
+        "core_launches": 1,
+        "renderer_launches": 3
+      }
+    },
+    {
+      "name": "core_runtime_identity_drift_is_fatal_and_shuts_owned_children",
+      "passed": true,
+      "evidence": {
+        "fatal_identity_drift": true
+      }
+    },
+    {
+      "name": "unexpected_core_exit_is_fatal_and_never_blindly_restarted",
+      "passed": true,
+      "evidence": {
+        "core_launches": 1,
+        "fatal_child_exit": true
+      }
+    },
+    {
+      "name": "supervisor_lease_ownership_loss_is_fatal_and_preserves_foreign_lease",
+      "passed": true,
+      "evidence": {
+        "fatal_refresh_failure": true,
+        "foreign_lease_preserved": true
+      }
+    },
+    {
+      "name": "tampered_private_renderer_binary_is_blocked_before_restart_launch",
+      "passed": true,
+      "evidence": {
+        "renderer_launches": 1,
+        "tamper_blocked": true
+      }
+    },
+    {
+      "name": "supervisor_pipe_closure_causes_graceful_core_shutdown_and_runtime_cleanup",
+      "passed": true,
+      "evidence": {
+        "runtime_removed_after_pipe_close": true
+      }
+    }
+  ],
+  "build_id": "keydeck-proof38-production-desktop-supervisor",
+  "api_version": "v1",
+  "next_gate": "Proof 0.39 — signed production bundle, first-run bootstrap and repair-safe desktop launch"
+}

@@ -1,0 +1,105 @@
+{
+  "proof": "0.25-manager-gated-mcp-execution-routing-reconstructed",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "manager_states_block_before_adapter_construction",
+      "passed": true,
+      "detail": {
+        "disabled": "MCP execution blocked: server is disabled",
+        "unavailable": "MCP execution blocked: local runtime is unavailable",
+        "unbound": "MCP execution blocked: server has no local runtime binding",
+        "unhealthy": "MCP execution blocked: local runtime is not healthy"
+      }
+    },
+    {
+      "name": "unapproved_and_insufficient_profile_block_before_adapter_construction",
+      "passed": true,
+      "detail": {
+        "profile": "MCP execution blocked: active permission profile is insufficient",
+        "unapproved": "MCP execution blocked: tool is not explicitly approved"
+      }
+    },
+    {
+      "name": "approved_route_executes_real_pinned_third_party_tool",
+      "passed": true,
+      "detail": {
+        "error": "\u003cnil\u003e",
+        "result": "Proof 0.25 routed execution fixture\n"
+      }
+    },
+    {
+      "name": "schema_denial_precedes_secret_plan_journal_and_adapter",
+      "passed": true,
+      "detail": {
+        "calls": 0,
+        "error": "MCP tool arguments do not satisfy KeyDeck schema policy: field \"resource\" must be string",
+        "plans": 0,
+        "resolutions": 0
+      }
+    },
+    {
+      "name": "secret_scope_denial_stops_after_value_free_plan_before_journal_resolution_and_adapter",
+      "passed": true,
+      "detail": {
+        "calls": 0,
+        "error": "secret scope is not allowed for tool: tool \"read_text_file\" scope \"provider.read\"",
+        "plans": 1,
+        "resolutions": 0
+      }
+    },
+    {
+      "name": "approved_execution_preserves_schema_secret_broker_tool_journal_adapter_order",
+      "passed": true,
+      "detail": {
+        "calls": 1,
+        "journal_state": "completed",
+        "plans": 1,
+        "resolutions": 1
+      }
+    },
+    {
+      "name": "completed_operation_reuses_after_restart_without_secret_or_adapter_replay",
+      "passed": true,
+      "detail": {
+        "adapter_calls": 1,
+        "resolutions_after": 1,
+        "resolutions_before": 1,
+        "reused": true
+      }
+    },
+    {
+      "name": "ambiguous_non_repeatable_operation_remains_blocked_after_restart",
+      "passed": true,
+      "detail": {
+        "adapter_calls": 0,
+        "error": "tool operation outcome is ambiguous; replay is forbidden"
+      }
+    },
+    {
+      "name": "restart_route_preserves_canonical_server_and_current_schema",
+      "passed": true,
+      "detail": {
+        "ready": true,
+        "schema": "31b3d4e6042e08e91514e42eaddab25ec963664e63dd87081c25577cc48f185f",
+        "server_id": "mcp-2249d10f545df5e1a371589e"
+      }
+    },
+    {
+      "name": "proof_receipt_binds_manager_registry_journal_timeline_and_package_without_raw_secret",
+      "passed": true,
+      "detail": {
+        "artifact_count": 6,
+        "receipt_id": "receipt-14fdd452ea0c5baf81ab",
+        "secret_present": false
+      }
+    }
+  ],
+  "server_id": "mcp-2249d10f545df5e1a371589e",
+  "identity_sha256": "2249d10f545df5e1a371589efb2da91030a0eb6a3b8f866c29e33f5679ca76a6",
+  "runtime_sha256": "f5e3fafdf42658bb1f65f96018a68df2a0bfd4d5a771ce8c48a6b66cbd27cbc6",
+  "schema_sha256": "31b3d4e6042e08e91514e42eaddab25ec963664e63dd87081c25577cc48f185f",
+  "receipt_id": "receipt-14fdd452ea0c5baf81ab",
+  "next_gate": "Proof 0.26 — Production Context Scout/Compiler"
+}

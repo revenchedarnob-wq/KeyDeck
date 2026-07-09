@@ -1,0 +1,59 @@
+{
+  "error": "",
+  "eventStream": [
+    {
+      "at": "2026-07-06T14:55:56.21613509Z",
+      "kind": "request_attempt",
+      "key_id": "key-1",
+      "attempt": 1
+    },
+    {
+      "at": "2026-07-06T14:55:56.220509335Z",
+      "kind": "key_state_changed",
+      "key_id": "key-1",
+      "failure_class": "key_exhausted",
+      "detail": "safe failover allowed by explicit key-scoped evidence"
+    },
+    {
+      "at": "2026-07-06T14:55:56.220510066Z",
+      "kind": "request_attempt",
+      "key_id": "key-2",
+      "attempt": 2
+    },
+    {
+      "at": "2026-07-06T14:55:56.220861316Z",
+      "kind": "key_state_changed",
+      "key_id": "key-2",
+      "failure_class": "key_exhausted",
+      "detail": "safe failover allowed by explicit key-scoped evidence"
+    },
+    {
+      "at": "2026-07-06T14:55:56.220861546Z",
+      "kind": "request_attempt",
+      "key_id": "key-3",
+      "attempt": 3
+    },
+    {
+      "at": "2026-07-06T14:55:56.221288636Z",
+      "kind": "request_succeeded",
+      "key_id": "key-3"
+    }
+  ],
+  "finalKey": "key-3",
+  "keyStates": [
+    {
+      "id": "key-1",
+      "state": "exhausted"
+    },
+    {
+      "id": "key-2",
+      "state": "exhausted"
+    },
+    {
+      "id": "key-3",
+      "state": "active"
+    }
+  ],
+  "passed": true,
+  "proof": "0.1-elastic-api-pool"
+}

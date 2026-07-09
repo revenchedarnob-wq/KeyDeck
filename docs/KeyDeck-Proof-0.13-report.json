@@ -1,0 +1,101 @@
+{
+  "proof": "0.13-engine-neutral-runtime-contract",
+  "passed": true,
+  "claims": [
+    "replaceable engines obey one durable start, continue, resume, cancel, capabilities and health boundary",
+    "capability and health failures block before engine work begins",
+    "durable runtime bindings, failures, cancellation and recovery dispositions survive restart without unsafe replay",
+    "completed engine output enters the existing recovery ledger before canonical state and commits exactly once through the Recovery Coordinator",
+    "durable external work resumes through a stored binding while interrupted non-resumable work becomes input_required",
+    "engines remain workers and never own canonical KeyDeck session state"
+  ],
+  "scenarios": [
+    {
+      "name": "capability_gate_blocks_before_execution",
+      "passed": true,
+      "detail": {
+        "adapter_calls": 0,
+        "disposition": "failed"
+      }
+    },
+    {
+      "name": "health_gate_blocks_before_execution",
+      "passed": true,
+      "detail": {
+        "adapter_calls": 0,
+        "disposition": "failed"
+      }
+    },
+    {
+      "name": "continue_operation_dispatches_through_common_contract",
+      "passed": true,
+      "detail": {
+        "continue_calls": 1,
+        "start_calls": 0
+      }
+    },
+    {
+      "name": "failed_runtime_survives_restart_without_replay",
+      "passed": true,
+      "detail": {
+        "first_calls": 1,
+        "restart_calls": 0
+      }
+    },
+    {
+      "name": "durable_binding_survives_restart_and_resumes",
+      "passed": true,
+      "detail": {
+        "binding": "thread-proof13",
+        "final_disposition": "completed",
+        "resume_calls": 1
+      }
+    },
+    {
+      "name": "cancellation_survives_restart",
+      "passed": true,
+      "detail": {
+        "cancel_calls": 1,
+        "resume_calls_after_cancel": 0
+      }
+    },
+    {
+      "name": "interrupted_nonresumable_becomes_input_required",
+      "passed": true,
+      "detail": {
+        "adapter_calls": 0,
+        "disposition": "input_required"
+      }
+    },
+    {
+      "name": "engine_result_does_not_own_canonical_state",
+      "passed": true,
+      "detail": {
+        "assistant_messages_before_recovery": 0
+      }
+    },
+    {
+      "name": "persisted_result_reconciles_after_runtime_crash_without_replay",
+      "passed": true,
+      "detail": {
+        "adapter_calls": 0,
+        "disposition": "completed"
+      }
+    },
+    {
+      "name": "completed_results_commit_exactly_once_through_recovery_coordinator",
+      "passed": true,
+      "detail": {
+        "assistant_messages": 4,
+        "commit_markers": 4
+      }
+    },
+    {
+      "name": "integrated_runtime_proof_receipt_exactly_once",
+      "passed": true,
+      "detail": {
+        "receipt_id": "receipt-7e69d6f5c8c19660fc48"
+      }
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "browser_qa": {
+    "chromium_version": "144.0.7559.96",
+    "console_errors": 0,
+    "direct_localhost_navigation": "blocked by execution-environment administrator policy",
+    "evidence_sha256": "9a348c50f420798a4d16d63a4616f80a35bda063f71fb1ba5907a9b383a2ed31",
+    "mode": "exact embedded assets rendered; harness fetch bridge to real KeyDeck visual renderer API",
+    "screenshot_sha256": "60b7ac597fbf931f08ab8b8df5a2e014e15ef6a724c9b6d062fa06b1a4be16d2",
+    "task_create_rendered": true
+  },
+  "deferred_external_gate": "exact pinned codebase-memory-mcp v0.8.1 executable swap-in validation",
+  "evidence_boundary": {
+    "ancestor_source_sha256": "ab9d8909cd5169f0b01fcfb727f246533dfb854c1ea4b3f2efe6182c48e7d6d6",
+    "exact_physical_ancestor": "v0.21.0 / Proof 0.24",
+    "lost_historical_byte_identity_claimed": false,
+    "reconstructed_and_reproven": "Proofs 0.25-0.37"
+  },
+  "proofs": {
+    "0.10": {
+      "report_sha256": "6d3796f7d41ef8dcb69dc798dfc29a3c63570e4d3a366572f31b2de3e223a405",
+      "scenario_count": 7,
+      "status": "passed"
+    },
+    "0.11": {
+      "report_sha256": "f6bd7725c18010a511ac6ade84c9308a49b81db27fe20be3e121bd6b2814c782",
+      "scenario_count": 5,
+      "status": "passed"
+    },
+    "0.12": {
+      "report_sha256": "6f2aae199e6010bde3fa598c293599c3a63982018b7cb48396279f87c8485007",
+      "scenario_count": 7,
+      "status": "passed"
+    },
+    "0.13": {
+      "report_sha256": "70608d19de2a6c397a69af082f832b22e42d9f776ae633277f5f5dfc75aec200",
+      "scenario_count": 11,
+      "status": "passed"
+    },
+    "0.14": {
+      "report_sha256": "ded8246f5248bbc3484f43bdeffae3d988ca0e8b2e29edc28f538369e151e6e5",
+      "scenario_count": 0,
+      "status": "passed"
+    },
+    "0.15": {
+      "report_sha256": "5de02aabd17f1798f4f86f052a1319542c627c1e5867009c3327bf89c30d52ed",
+      "scenario_count": 15,
+      "status": "passed"
+    },
+    "0.16": {
+      "report_sha256": "56ee1ac53c6218391ee92faf77b781786fd5b84907c63d0f105651bb207e8506",
+      "scenario_count": 17,
+      "status": "passed"
+    },
+    "0.17": {
+      "report_sha256": "b61212604234fc8b442d427569e6956af7431b788b946053310aefb863928940",
+      "scenario_count": 22,
+      "status": "passed"
+    },
+    "0.18": {
+      "report_sha256": "530820417a0f74f840b55a1df826ec05181a4f38f0325d3c4d5d39ff2650674d",
+      "scenario_count": 28,
+      "status": "passed"
+    },
+    "0.19": {
+      "report_sha256": "ba37fc1ef3b876cc64d0adc657bda22f855087d6e0b341c8a978b9d845002f0a",
+      "scenario_count": 7,
+      "status": "passed"
+    },
+    "0.20": {
+      "report_sha256": "05c45eec697822c5e9c7cdaa79dd97d97d7d62ff6e546808c4a9ba55e3d077a6",
+      "scenario_count": 7,
+      "status": "passed"
+    },
+    "0.21": {
+      "report_sha256": "db3077daf84ce5b31fc493946feca85a1bc2b6503d49e59130237ef88d614401",
+      "scenario_count": 8,
+      "status": "passed"
+    },
+    "0.22": {
+      "report_sha256": "f263c17951088df48718bdb3ccd6752cfea7b4dcbac178a2c95628de6c8b4788",
+      "scenario_count": 8,
+      "status": "passed"
+    },
+    "0.23": {
+      "report_sha256": "75c405498b23c99434a53b1332f4a917b8aa66d9549e7829742a3e1e47ebc788",
+      "scenario_count": 8,
+      "status": "passed"
+    },
+    "0.24": {
+      "report_sha256": "0a3e44fc97df752782a99916225f21003ec868058013b6856ba38490e6f90f9c",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.25": {
+      "report_sha256": "42b24078ba132a6397f5eb89b4e0d269861d182186bec55f64607cb463f736a7",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.26": {
+      "report_sha256": "58a6fa664865430e211020fd4075a5f1bf4b9121dd4d65eadb55f640683f5545",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.27": {
+      "report_sha256": "597e6deb1b693d0c35ae793050afa6d3c2c21ca69ad8e397fcb8973bf20f0198",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.28": {
+      "report_sha256": "ed65ba4cfdb1ec57f91abcfce65f4cea8ecd64c07b152af00aa4a85a45cff240",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.29": {
+      "report_sha256": "2b9613dcf8f6e1ba31ddd0e978f8bc8b6b295222a0c96e935079b53befe8f668",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.30": {
+      "report_sha256": "14149443ef1b274e7958aba81587b0f528bc47c0616cdaf0aa6fd642a4e638b1",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.31": {
+      "report_sha256": "a7618ce0edb795fef5675da16000b1b06657ad598df62f966d59062af1600dd7",
+      "scenario_count": 14,
+      "status": "passed"
+    },
+    "0.32": {
+      "report_sha256": "f137a40fc391f0eac3e78505ac650f202a651718a7cb66b03c7bfec86e4ddd97",
+      "scenario_count": 12,
+      "status": "passed"
+    },
+    "0.33": {
+      "report_sha256": "e7c14761d20d4b89b5e3785cd20f10deecd77dfcfe696727c24bd24598dabd1c",
+      "scenario_count": 12,
+      "status": "passed"
+    },
+    "0.34": {
+      "report_sha256": "7da5641479fb294405403a1caf8252ed1402247d1756fb53b44869b94abab533",
+      "scenario_count": 32,
+      "status": "PASS"
+    },
+    "0.35": {
+      "report_sha256": "ad37766a0d14fa55e143479690903238b9b9b127597b11449f4b4a322cfde8c3",
+      "scenario_count": 16,
+      "status": "passed"
+    },
+    "0.36": {
+      "report_sha256": "84f30eaeb341f507ba23ae32d4618524e356b4cc08f5d7200f976df61f6f0847",
+      "scenario_count": 20,
+      "status": "passed"
+    },
+    "0.37": {
+      "report_sha256": "11a5e19e747ab323b958eb6d8ceacd04f5f4a63b022a2bfe74a52cd568732424",
+      "scenario_count": 21,
+      "status": "passed"
+    },
+    "0.9": {
+      "report_sha256": "c6bc3a717c007d71fe389369f7cbd632de8ca03268962c6056bbf18bfbcaa936",
+      "scenario_count": 4,
+      "status": "passed"
+    }
+  },
+  "release": "v0.34.0-RECONSTRUCTED",
+  "release_gates": {
+    "clean_source_validation": "pending_final_release_gate",
+    "deterministic_packages": "pending_final_release_gate",
+    "exact_pinned_mcp_runtime_replay_0_22_to_0_25": "passed",
+    "focused_race_checks": "passed",
+    "full_regression_0_9_to_0_37": "passed",
+    "go_test_all": "passed",
+    "go_vet_all": "passed",
+    "proof_0_35_replay_byte_identical": true,
+    "proof_0_36_replay_byte_identical": true,
+    "proof_0_37_frozen_report_sha256": "11a5e19e747ab323b958eb6d8ceacd04f5f4a63b022a2bfe74a52cd568732424",
+    "proof_0_37_repeated_byte_identical": true,
+    "real_chromium_visual_qa": "passed_with_documented_environment_navigation_limit",
+    "source_binary_leak_scans": "pending_final_release_gate",
+    "visualshell_presentation_repeated_20": "passed",
+    "windows_reproducibility": "pending_final_release_gate"
+  }
+}

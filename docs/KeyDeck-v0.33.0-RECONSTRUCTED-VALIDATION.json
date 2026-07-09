@@ -1,0 +1,174 @@
+{
+  "deferred_external_gate": "exact pinned codebase-memory-mcp v0.8.1 executable swap-in validation",
+  "evidence_boundary": {
+    "ancestor_source_sha256": "ab9d8909cd5169f0b01fcfb727f246533dfb854c1ea4b3f2efe6182c48e7d6d6",
+    "exact_physical_ancestor": "v0.21.0 / Proof 0.24",
+    "lost_historical_byte_identity_claimed": false,
+    "reconstructed_and_reproven": "Proofs 0.25-0.36"
+  },
+  "proofs": {
+    "0.10": {
+      "report_sha256": "6d3796f7d41ef8dcb69dc798dfc29a3c63570e4d3a366572f31b2de3e223a405",
+      "scenario_count": 7,
+      "status": "passed"
+    },
+    "0.11": {
+      "report_sha256": "1965b69c907612a160034f632fc91b3a152d33200a936629949d4627ff574b67",
+      "scenario_count": 5,
+      "status": "passed"
+    },
+    "0.12": {
+      "report_sha256": "29f9638e763572d17621d2b38ddb5489b509446d06975225965b329b54393dde",
+      "scenario_count": 7,
+      "status": "passed"
+    },
+    "0.13": {
+      "report_sha256": "f3fbee702ddead136a18c043ef8dd8d2b367efa996e97c8554ca78b9d9beb7d7",
+      "scenario_count": 11,
+      "status": "passed"
+    },
+    "0.14": {
+      "report_sha256": "ded8246f5248bbc3484f43bdeffae3d988ca0e8b2e29edc28f538369e151e6e5",
+      "scenario_count": 0,
+      "status": "passed"
+    },
+    "0.15": {
+      "report_sha256": "5de02aabd17f1798f4f86f052a1319542c627c1e5867009c3327bf89c30d52ed",
+      "scenario_count": 15,
+      "status": "passed"
+    },
+    "0.16": {
+      "report_sha256": "56ee1ac53c6218391ee92faf77b781786fd5b84907c63d0f105651bb207e8506",
+      "scenario_count": 17,
+      "status": "passed"
+    },
+    "0.17": {
+      "report_sha256": "b61212604234fc8b442d427569e6956af7431b788b946053310aefb863928940",
+      "scenario_count": 22,
+      "status": "passed"
+    },
+    "0.18": {
+      "report_sha256": "530820417a0f74f840b55a1df826ec05181a4f38f0325d3c4d5d39ff2650674d",
+      "scenario_count": 28,
+      "status": "passed"
+    },
+    "0.19": {
+      "report_sha256": "8b32f4d9583deb1462704579a4c9b2165db8398f87a3cad9b436c05f2c89646e",
+      "scenario_count": 7,
+      "status": "passed"
+    },
+    "0.20": {
+      "report_sha256": "3518e28bfa4453609483a8879fa0401658ca92a538ff503fee459630a3f8628c",
+      "scenario_count": 7,
+      "status": "passed"
+    },
+    "0.21": {
+      "report_sha256": "3b308f0eb2b8b7bbbc95ce07305ac6aac8ad09115957c2ed2fbbb8815551dd72",
+      "scenario_count": 8,
+      "status": "passed"
+    },
+    "0.22": {
+      "report_sha256": "445ba47e477c618782a86af9d24041a4eb1774c48cc446ef2f286cc8e3454284",
+      "scenario_count": 8,
+      "status": "passed"
+    },
+    "0.23": {
+      "report_sha256": "b05a622ebde247d434dd5987e0abb1245fe117c03e869870e96d7d4805ca0310",
+      "scenario_count": 8,
+      "status": "passed"
+    },
+    "0.24": {
+      "report_sha256": "d3498d44de57694430bdf3dff16228800f459226cf2f234354e1d217fe4cd479",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.25": {
+      "report_sha256": "a10af8a114eecb08f36ed2c0f68c377c3f4962f3b1c698e59e6fd28b91fb53a5",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.26": {
+      "report_sha256": "bab108d5511445f9ab2a28281affafbaca80746516cff29e2897acd79d2e21fc",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.27": {
+      "report_sha256": "d6a237543d9ff16d312c36344596e0841b6f8dfdcb8e61dfbce2c99d6df22177",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.28": {
+      "report_sha256": "6bb0e5a69b3cef197eec5af1a269ffb66992bdcebfd5a00277e5db74f74b549d",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.29": {
+      "report_sha256": "12432302db8682bb0addef55be2ceede6729c6f31fd43345f206054a2115872c",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.30": {
+      "report_sha256": "fa6ab583cbd3183b9188a80687552efe312deac79138e67b2ea77221e52f786d",
+      "scenario_count": 10,
+      "status": "passed"
+    },
+    "0.31": {
+      "report_sha256": "a7618ce0edb795fef5675da16000b1b06657ad598df62f966d59062af1600dd7",
+      "scenario_count": 14,
+      "status": "passed"
+    },
+    "0.32": {
+      "report_sha256": "f137a40fc391f0eac3e78505ac650f202a651718a7cb66b03c7bfec86e4ddd97",
+      "scenario_count": 12,
+      "status": "passed"
+    },
+    "0.33": {
+      "report_sha256": "bc510a8da550dc69c8f24142d9a3407e26c9d2a573057c44712019e9ea34058c",
+      "scenario_count": 12,
+      "status": "passed"
+    },
+    "0.34": {
+      "report_sha256": "7da5641479fb294405403a1caf8252ed1402247d1756fb53b44869b94abab533",
+      "scenario_count": 32,
+      "status": "PASS"
+    },
+    "0.35": {
+      "report_sha256": "ad37766a0d14fa55e143479690903238b9b9b127597b11449f4b4a322cfde8c3",
+      "scenario_count": 16,
+      "status": "passed"
+    },
+    "0.36": {
+      "report_sha256": "84f30eaeb341f507ba23ae32d4618524e356b4cc08f5d7200f976df61f6f0847",
+      "scenario_count": 20,
+      "status": "passed"
+    },
+    "0.9": {
+      "report_sha256": "3dbed72c8684b698f1daf12e409138a967767ec39218553c3bab27ee521e93d7",
+      "scenario_count": 4,
+      "status": "passed"
+    }
+  },
+  "release": "v0.33.0-RECONSTRUCTED",
+  "release_gates": {
+    "atomic_projection_concurrency": "passed",
+    "clean_source_validation": "passed",
+    "corehost_presentation_repeated": "passed",
+    "deterministic_packages": "passed",
+    "exact_pinned_mcp_runtime_replay_0_22_to_0_25": "passed",
+    "focused_race_checks": "passed",
+    "full_regression_0_9_to_0_36": "passed",
+    "go_test_all": "passed",
+    "go_vet_all": "passed",
+    "proof_0_35_frozen_report_sha256": "ad37766a0d14fa55e143479690903238b9b9b127597b11449f4b4a322cfde8c3",
+    "proof_0_35_replay_byte_identical": true,
+    "proof_0_36_frozen_report_sha256": "84f30eaeb341f507ba23ae32d4618524e356b4cc08f5d7200f976df61f6f0847",
+    "proof_0_36_replay_byte_identical": true,
+    "source_binary_leak_scans": "passed",
+    "windows_binaries": {
+      "KeyDeck-Proof-0.36.exe": "3f278b0f578b3c2ee4cfdefb06d32345c61908df7440768ce054c0fca37c4a28",
+      "keydeck-core.exe": "44d3752af76e206b63d2b2472e95319e483664cc99d20b65ca02f56a357af765",
+      "keydeck-desktop-shell.exe": "c7a9a96f391706af5f1db805a13c6fe4cfd5c5638a8671d039dd5d44d16b7ae5"
+    },
+    "windows_reproducibility": "passed"
+  }
+}

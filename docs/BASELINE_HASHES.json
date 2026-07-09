@@ -1,0 +1,17 @@
+[
+  {
+    "file": "Aerolink-KeyDeck-3.2.0-Source(1).zip",
+    "sha256": "4f3a195619e13c958c09f70be861816eed598e142cc887fd806b74c6ea711a69",
+    "size_bytes": 85891
+  },
+  {
+    "file": "Aerolink-KeyDeck-3.2.0-Release(1).zip",
+    "sha256": "bd8e9bae912852253e89c1a6965bad9614f77cc6c3c9fe31e1f13476ee3a3862",
+    "size_bytes": 15935824
+  },
+  {
+    "file": "Aerolink-KeyDeck-Setup-v3.2.0(1).exe",
+    "sha256": "c01db1f725f3861bedabf2d1c5ff57e4584978ab635fb69bd21d36cfd179bfaf",
+    "size_bytes": 21592576
+  }
+]

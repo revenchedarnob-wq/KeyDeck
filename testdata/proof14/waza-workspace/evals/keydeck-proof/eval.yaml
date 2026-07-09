@@ -1,0 +1,32 @@
+name: keydeck-proof-validator-eval
+description: Offline deterministic evaluation for the KeyDeck proof skill
+skill: keydeck-proof
+schemaVersion: "1.0"
+version: "1.0"
+
+config:
+  trials_per_task: 5
+  timeout_seconds: 30
+  parallel: false
+  executor: mock
+  model: mock
+
+metrics:
+  - name: accuracy
+    weight: 1.0
+    threshold: 1.0
+
+graders:
+  - type: text
+    name: echoes_expected_prompt
+    config:
+      regex_match:
+        - "(?i)(evidence|milestone|generic coding|architecture brainstorming)"
+  - type: code
+    name: has_output
+    config:
+      assertions:
+        - "len(output) > 20"
+
+tasks:
+  - "tasks/*.yaml"

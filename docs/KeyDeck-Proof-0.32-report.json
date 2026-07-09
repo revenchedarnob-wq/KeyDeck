@@ -1,0 +1,80 @@
+{
+  "proof": "0.32-explicit-review-resolution-and-selected-only-canonical-recovery-reconstructed",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "conflicting_candidates_remain_unresolved_and_cannot_commit",
+      "passed": true,
+      "detail": "assessment-eb7a5296c7ac745c3733"
+    },
+    {
+      "name": "unresolved_candidates_cannot_mutate_canonical_state",
+      "passed": true,
+      "detail": "candidate collection: explicit resolution required"
+    },
+    {
+      "name": "disagreement_produces_ui_neutral_explicit_review_contract",
+      "passed": true,
+      "detail": [
+        "exact_decisive_evidence_or_explicit_reviewer_resolution"
+      ]
+    },
+    {
+      "name": "review_resolution_without_decisive_evidence_is_rejected",
+      "passed": true,
+      "detail": "candidate collection: decisive evidence is required"
+    },
+    {
+      "name": "review_cannot_select_candidate_outside_assessed_set",
+      "passed": true,
+      "detail": "candidate collection: selected candidate is not in assessment"
+    },
+    {
+      "name": "explicit_evidence_backed_resolution_selects_exact_candidate",
+      "passed": true,
+      "detail": "resolution-010085d9e2c87b276877"
+    },
+    {
+      "name": "reviewer_resolution_survives_restart_with_same_identity",
+      "passed": true,
+      "detail": "resolution-010085d9e2c87b276877"
+    },
+    {
+      "name": "only_explicitly_resolved_candidate_enters_recovery_coordinator",
+      "passed": true,
+      "detail": {
+        "selected": "result-engine-a-1",
+        "unselected": ""
+      }
+    },
+    {
+      "name": "repeated_commit_reuses_same_canonical_result_without_duplication",
+      "passed": true,
+      "detail": "commit-1b90262208ca3238b3af"
+    },
+    {
+      "name": "direct_raw_engine_result_recovery_path_fails_closed",
+      "passed": true,
+      "detail": "candidate collection: direct raw engine-result recovery is forbidden"
+    },
+    {
+      "name": "receipt_evidence_binds_collection_assessment_resolution_preparation_operation_and_canonical_commit",
+      "passed": true,
+      "detail": "recovery-operation-1507e14d00e9f0089955"
+    },
+    {
+      "name": "late_candidate_invalidates_stale_assessment_before_review_or_commit",
+      "passed": true,
+      "detail": {
+        "assessment": "assessment-7b49abced188baa726af",
+        "review_error": "candidate collection: assessment candidate set is stale"
+      }
+    }
+  ],
+  "assessment_id": "assessment-eb7a5296c7ac745c3733",
+  "resolution_id": "resolution-010085d9e2c87b276877",
+  "selected_candidate_id": "candidate-7f61899799ad9e3bbcb4",
+  "recovery_commit_id": "commit-1b90262208ca3238b3af",
+  "next_gate": "Proof 0.33 — Integrated Route-Bound Reconciliation and Canonical Recovery (reconstructed)"
+}

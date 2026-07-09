@@ -1,0 +1,69 @@
+{
+  "proof": "0.14-apm-waza-proving-ground",
+  "status": "passed",
+  "passed": true,
+  "decision": "ADOPT_APM_AND_WAZA_WITH_SCOPED_OWNERSHIP_AND_LIMITATIONS",
+  "components": [
+    {
+      "name": "microsoft_apm_real_prototype",
+      "passed": true,
+      "detail": {
+        "drift_detection": true,
+        "frozen_restore": true,
+        "generated_deployed_files": 3,
+        "lockfile": true,
+        "primitive_types": [
+          "instructions",
+          "agents",
+          "prompts",
+          "skills",
+          "hooks"
+        ],
+        "reproducible_deployment": true,
+        "source_primitive_files": 5,
+        "version": "0.24.0"
+      }
+    },
+    {
+      "name": "microsoft_waza_real_prototype",
+      "passed": true,
+      "detail": {
+        "adversarial_catalog": true,
+        "binary_sha256": "ff7fe521d4f876de29d018a00fe282746109d8b788a6e9a9f288dbd8a3470364",
+        "regression_gate": true,
+        "snapshot_replay": true,
+        "snapshots": 20,
+        "source_evidence_sha256": "595c381fe97c063e633aafe45f029702a91d10162d65df0faa0041255e849baf",
+        "tasks": 4,
+        "token_budget_gate": true,
+        "trials": 20,
+        "version": "0.38.0"
+      }
+    }
+  ],
+  "measured_engineering_savings": [
+    "APM replaced custom prototype work for declarative primitive deployment, lockfile creation, audit, drift detection, frozen restore and reproducible deployment checks",
+    "Waza replaced custom prototype work for skill validation, trigger-spec coverage, token-budget checks, deterministic evaluation, snapshot capture/replay, regression gating and adversarial catalog discovery",
+    "Together they remove enough generic Agent Environment and evaluation plumbing to defer a large custom KeyDeck Skill Compiler and custom skill-evaluation stack"
+  ],
+  "adoption_rules": [
+    "Adopt APM as the preferred declarative Agent Environment prototype, not as KeyDeck canonical state or runtime orchestration",
+    "Adopt Waza as a development-time skill/agent proving ground, not as a production runtime dependency",
+    "Keep executable community extensions in Extism/WebAssembly and tools in MCP; APM packages declarative agent content",
+    "Require later focused conformance before relying on remote Git pin resolution or non-empty MCP dependency resolution",
+    "Treat live-model quality comparison as an optional later Waza evaluation; this proof intentionally isolated infrastructure with the mock executor"
+  ],
+  "ownership_boundary": [
+    "APM may own declarative Agent Environment packaging, deployment metadata, lockfiles and drift detection only",
+    "Waza may own development-time skill and agent evaluation infrastructure only",
+    "KeyDeck retains canonical state, runtime safety, recovery, tool replay safety, permissions orchestration and financial policy"
+  ],
+  "limitations": [
+    "remote Git ref pin resolution was not tested because the execution sandbox had no outbound DNS; local path dependency exercised real APM resolution, lockfile, deployment, audit, drift, and frozen restore",
+    "imperative local bundle install produced target-specific orphan drift and was not selected as the primary KeyDeck dependency flow",
+    "the hook fixture intentionally contained no active Codex event entries, so APM emitted a warning and skipped hook deployment for that target",
+    "This proof uses Waza mock execution to isolate skill/evaluation infrastructure from model quality and billing.",
+    "It does not prove live multi-model quality; real-model comparison remains a later optional development evaluation.",
+    "The runner downloads only the exact pinned Microsoft v0.38.0 Windows x64 binary and verifies the official SHA-256 before execution."
+  ]
+}

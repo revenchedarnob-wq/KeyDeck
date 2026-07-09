@@ -1,0 +1,198 @@
+{
+  "proof": "0.16-first-real-provider-evidence-capture",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "raw_capture_sha256_matches_windows_gate",
+      "passed": true,
+      "detail": "b27b21c13925937cc50b0c75641a46c6e2cbeb24dfdf0bccf3b03d7262c800e3"
+    },
+    {
+      "name": "real_capture_schema_and_body_hash_validate",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "capture_used_one_invalid_key_request_zero_retries",
+      "passed": true,
+      "detail": {
+        "automatic_retries": 0,
+        "max_tokens": 1,
+        "real_api_key_used": false,
+        "request_count": 1,
+        "retry_count": 0
+      }
+    },
+    {
+      "name": "exact_aerolink_target_preserved",
+      "passed": true,
+      "detail": {
+        "provider": "Aerolink",
+        "api_base": "https://capi.aerolink.lat",
+        "endpoint": "/v1/messages",
+        "api_format": "Anthropic Messages",
+        "anthropic_version": "2023-06-01",
+        "model": "claude-opus-4-8"
+      }
+    },
+    {
+      "name": "exact_401_invalid_token_response_preserved",
+      "passed": true,
+      "detail": {
+        "body_sha256": "6fb94d69ebe670927f7223646cff659217301ac3173998e1875842fa1584bf76",
+        "status_code": 401
+      }
+    },
+    {
+      "name": "real_capture_normalizes_to_scoped_fragment",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "normalized_fragment_binds_raw_capture_provenance",
+      "passed": true,
+      "detail": {
+        "capture_id": "aerolink-real-invalid-key-capture",
+        "source_kind": "real-provider-one-request-capture",
+        "source_ref": "Proof 0.16 Aerolink invalid-key Windows gate",
+        "captured_by": "KeyDeck Proof 0.16",
+        "raw_capture_sha256": "b27b21c13925937cc50b0c75641a46c6e2cbeb24dfdf0bccf3b03d7262c800e3"
+      }
+    },
+    {
+      "name": "normalized_fragment_has_single_scoped_observation",
+      "passed": true,
+      "detail": {
+        "scenario_id": "invalid_credential_pre_output",
+        "phase": "pre_output",
+        "status_code": 401,
+        "error_code": "invalid_token",
+        "error_scope": "key",
+        "partial_output": false,
+        "terminal_event": true,
+        "usage_observed": false,
+        "decision": {
+          "class": "invalid_key",
+          "allow_original_replay": true,
+          "allow_key_rotation": true,
+          "allow_semantic_continuation": false,
+          "require_input": false
+        }
+      }
+    },
+    {
+      "name": "durable_fragment_round_trip_preserves_identity",
+      "passed": true,
+      "detail": {
+        "hash_stable": true,
+        "load_error": "",
+        "save_error": ""
+      }
+    },
+    {
+      "name": "exact_real_response_authorizes_invalid_key_rotation",
+      "passed": true,
+      "detail": {
+        "trusted": true,
+        "class": "invalid_key",
+        "allow_original_replay": true,
+        "allow_key_rotation": true,
+        "allow_semantic_continuation": false,
+        "require_input": false,
+        "require_revalidation": false,
+        "evidence_id": "aerolink-invalid-key-2026-07-07",
+        "evidence_sha256": "794a62c6d40ba1eb6fb47a8526ea95c4ce7768bb129b59f3a8c0b36886ddc2b4",
+        "reason": "exact real-provider capture fragment match"
+      }
+    },
+    {
+      "name": "response_body_mismatch_fails_closed",
+      "passed": true,
+      "detail": {
+        "trusted": false,
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true,
+        "require_revalidation": false,
+        "reason": "provider identity matched but exact captured response did not"
+      }
+    },
+    {
+      "name": "endpoint_mismatch_fails_closed",
+      "passed": true,
+      "detail": {
+        "trusted": false,
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true,
+        "require_revalidation": false,
+        "reason": "no exact real-provider capture fragment"
+      }
+    },
+    {
+      "name": "model_version_mismatch_fails_closed",
+      "passed": true,
+      "detail": {
+        "trusted": false,
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true,
+        "require_revalidation": false,
+        "reason": "no exact real-provider capture fragment"
+      }
+    },
+    {
+      "name": "expired_fragment_requires_revalidation",
+      "passed": true,
+      "detail": {
+        "trusted": false,
+        "class": "ambiguous",
+        "allow_original_replay": false,
+        "allow_key_rotation": false,
+        "allow_semantic_continuation": false,
+        "require_input": true,
+        "require_revalidation": true,
+        "reason": "exact capture fragment expired; revalidation required"
+      }
+    },
+    {
+      "name": "tampered_fragment_rejected",
+      "passed": true,
+      "detail": "provider conformance evidence hash mismatch"
+    },
+    {
+      "name": "limitations_preserved_and_no_other_provider_semantics_claimed",
+      "passed": true,
+      "detail": [
+        "This capture proves only the current invalid-credential response for the exact Aerolink endpoint/model request shape.",
+        "It uses an intentionally invalid key and does not spend user API credit.",
+        "It does not prove exhaustion, rate-limit, busy/outage, streaming, cache, billing, or retry semantics."
+      ]
+    },
+    {
+      "name": "normalized_source_evidence_contains_no_user_path_or_real_key",
+      "passed": true,
+      "detail": {
+        "real_api_key_used": false,
+        "user_path_present": false
+      }
+    }
+  ],
+  "raw_capture_sha256": "b27b21c13925937cc50b0c75641a46c6e2cbeb24dfdf0bccf3b03d7262c800e3",
+  "evidence_fragment_id": "aerolink-invalid-key-2026-07-07",
+  "evidence_fragment_sha256": "794a62c6d40ba1eb6fb47a8526ea95c4ce7768bb129b59f3a8c0b36886ddc2b4",
+  "trusted_behavior": "exact pre-output Aerolink 401 response with the captured body hash is invalid_key; replacement-key selection and replay are allowed only for that exact evidence match",
+  "limitations": [
+    "This capture proves only the current invalid-credential response for the exact Aerolink endpoint/model request shape.",
+    "It uses an intentionally invalid key and does not spend user API credit.",
+    "It does not prove exhaustion, rate-limit, busy/outage, streaming, cache, billing, or retry semantics."
+  ],
+  "next_gate": "Continue real-provider evidence capture for exhaustion, key-specific rate limit, provider-wide busy/outage, ambiguous transport, streaming interruption, and cache/billing semantics before promoting Aerolink to a full trusted provider profile."
+}

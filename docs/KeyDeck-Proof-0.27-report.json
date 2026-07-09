@@ -1,0 +1,78 @@
+{
+  "proof": "0.27-canonical-project-brain-context-inspection-reconstructed",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "canonical_revision_binds_exact_project_session_source_fingerprint_and_verified_packet",
+      "passed": true,
+      "detail": {
+        "packet": "packet-05d832d53c37df61612d",
+        "revision": "61c3b663aafda1f3d00a40199a605ece684d1bc9053df975f5b807a792ee8eaa"
+      }
+    },
+    {
+      "name": "context_inspection_accounts_for_included_structural_source_and_omitted_evidence",
+      "passed": true,
+      "detail": {
+        "included": 2,
+        "omitted": 1
+      }
+    },
+    {
+      "name": "inspection_identity_is_deterministic_for_exact_packet_and_fingerprint",
+      "passed": true,
+      "detail": "cb2d61b7b39658da8dd33676c66e7e9d559892998ba729b71f1dbab0eebe84f5"
+    },
+    {
+      "name": "identical_project_brain_revision_reuses_without_duplicate_append",
+      "passed": true,
+      "detail": {
+        "count": 1
+      }
+    },
+    {
+      "name": "restart_replays_exact_revision_and_hash_chain",
+      "passed": true,
+      "detail": "61c3b663aafda1f3d00a40199a605ece684d1bc9053df975f5b807a792ee8eaa"
+    },
+    {
+      "name": "source_change_makes_old_context_stale_before_new_revision_persistence",
+      "passed": true,
+      "detail": {
+        "error": "project brain context is stale",
+        "new": "c1cd4549322df9c4ea1f8d76f3d7f94918f45c1cc89c9766b1a50e97169daa94",
+        "old": "f348ca4e377524e4eeac9c2aeaf090e8ec135d1f0463fa3e80576a49f341ec78"
+      }
+    },
+    {
+      "name": "forbidden_exact_secret_is_rejected_before_durable_brain_write",
+      "passed": true,
+      "detail": "project brain input contains forbidden exact value"
+    },
+    {
+      "name": "context_validation_rejects_brain_revision_not_matching_exact_packet_inspection",
+      "passed": true,
+      "detail": "project brain durable state failed integrity validation"
+    },
+    {
+      "name": "tampered_context_artifact_is_blocked_before_project_brain_use",
+      "passed": true,
+      "detail": "context packet artifact failed integrity verification"
+    },
+    {
+      "name": "proof_receipt_binds_brain_context_inspection_and_packet_artifacts_without_secret",
+      "passed": true,
+      "detail": {
+        "brain_bound": true,
+        "context_bound": true,
+        "receipt": "receipt-11f3d90592dc95667dda"
+      }
+    }
+  ],
+  "packet_id": "packet-05d832d53c37df61612d",
+  "inspection_sha256": "cb2d61b7b39658da8dd33676c66e7e9d559892998ba729b71f1dbab0eebe84f5",
+  "brain_revision_sha256": "61c3b663aafda1f3d00a40199a605ece684d1bc9053df975f5b807a792ee8eaa",
+  "receipt_id": "receipt-2c32e1c290613a296c29",
+  "next_gate": "Proof 0.28 — Production Handoff Package Assembly"
+}

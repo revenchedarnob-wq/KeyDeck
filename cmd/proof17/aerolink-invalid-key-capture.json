@@ -1,0 +1,49 @@
+{
+  "proof_component": "aerolink-real-invalid-key-capture",
+  "schema_version": 1,
+  "captured_at_utc": "2026-07-07T12:55:34.1470103Z",
+  "passed": true,
+  "target": {
+    "provider": "Aerolink",
+    "api_base": "https://capi.aerolink.lat",
+    "endpoint": "/v1/messages",
+    "api_format": "Anthropic Messages",
+    "anthropic_version": "2023-06-01",
+    "model": "claude-opus-4-8"
+  },
+  "request": {
+    "method": "POST",
+    "request_count": 1,
+    "retry_count": 0,
+    "max_tokens": 1,
+    "key_kind": "intentionally_invalid_fixture",
+    "real_api_key_used": false,
+    "body_sha256": "f4c230cdca73fcdbab1878b67bcf297011d7f1c19195af41fada91f9881f3c51"
+  },
+  "response": {
+    "status_code": 401,
+    "reason_phrase": "Unauthorized",
+    "headers": [
+      "Content-Length: 41",
+      "Content-Type: application/json",
+      "Date: Tue, 07 Jul 2026 12:55:13 GMT",
+      "req-arrive-time: 1783428912848",
+      "req-cost-time: 185",
+      "resp-start-time: 1783428913034",
+      "Server: istio-envoy",
+      "x-envoy-upstream-service-time: 184"
+    ],
+    "body_utf8": "{\"error\":\"Unauthorized - Invalid token\"}\n",
+    "body_sha256": "6fb94d69ebe670927f7223646cff659217301ac3173998e1875842fa1584bf76"
+  },
+  "transport": {
+    "elapsed_ms": 456,
+    "timeout_seconds": 20,
+    "automatic_retries": 0
+  },
+  "limitations": [
+    "This capture proves only the current invalid-credential response for the exact Aerolink endpoint/model request shape.",
+    "It uses an intentionally invalid key and does not spend user API credit.",
+    "It does not prove exhaustion, rate-limit, busy/outage, streaming, cache, billing, or retry semantics."
+  ]
+}

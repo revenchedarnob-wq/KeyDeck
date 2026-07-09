@@ -1,0 +1,7 @@
+tokens:
+  warningThreshold: 350
+  fallbackLimit: 500
+  limits:
+    defaults:
+      "SKILL.md": 300
+      "*.md": 800

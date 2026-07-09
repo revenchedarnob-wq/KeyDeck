@@ -1,0 +1,8 @@
+id: validate-milestone
+name: Validate KeyDeck proof milestone
+inputs:
+  prompt: "Validate this KeyDeck proof milestone against explicit acceptance evidence."
+expected:
+  should_trigger: true
+  output_contains:
+    - "acceptance evidence"

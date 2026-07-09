@@ -1,0 +1,119 @@
+{
+  "confirmed_output": "API inspection confirmed the protected file. The next step is to create the cross-engine artifact. Additional verification requires a second engine. ",
+  "events": [
+    {
+      "at": "2026-07-06T16:54:42.734281805Z",
+      "kind": "request_attempt",
+      "key_id": "key-1",
+      "attempt": 1
+    },
+    {
+      "at": "2026-07-06T16:54:42.737373108Z",
+      "kind": "output_committed",
+      "key_id": "key-1",
+      "detail": "API inspection confirmed the protected file. "
+    },
+    {
+      "at": "2026-07-06T16:54:42.737474891Z",
+      "kind": "key_state_changed",
+      "key_id": "key-1",
+      "failure_class": "key_exhausted",
+      "detail": "explicit mid-stream exhaustion; semantic continuation allowed"
+    },
+    {
+      "at": "2026-07-06T16:54:42.737530375Z",
+      "kind": "continuation_started",
+      "key_id": "key-2",
+      "detail": "confirmed=45 unstable=17"
+    },
+    {
+      "at": "2026-07-06T16:54:42.737530525Z",
+      "kind": "request_attempt",
+      "key_id": "key-2",
+      "attempt": 2
+    },
+    {
+      "at": "2026-07-06T16:54:42.738074793Z",
+      "kind": "output_committed",
+      "key_id": "key-2",
+      "detail": "The next step is to create the cross-engine artifact. "
+    },
+    {
+      "at": "2026-07-06T16:54:42.738134913Z",
+      "kind": "key_state_changed",
+      "key_id": "key-2",
+      "failure_class": "key_exhausted",
+      "detail": "explicit mid-stream exhaustion; semantic continuation allowed"
+    },
+    {
+      "at": "2026-07-06T16:54:42.738161913Z",
+      "kind": "continuation_started",
+      "key_id": "key-3",
+      "detail": "confirmed=99 unstable=33"
+    },
+    {
+      "at": "2026-07-06T16:54:42.738162044Z",
+      "kind": "request_attempt",
+      "key_id": "key-3",
+      "attempt": 3
+    },
+    {
+      "at": "2026-07-06T16:54:42.738433196Z",
+      "kind": "output_committed",
+      "key_id": "key-3",
+      "detail": "Additional verification requires a second engine. "
+    },
+    {
+      "at": "2026-07-06T16:54:42.738479781Z",
+      "kind": "key_state_changed",
+      "key_id": "key-3",
+      "failure_class": "key_exhausted",
+      "detail": "explicit mid-stream exhaustion; semantic continuation allowed"
+    }
+  ],
+  "fallback_error": "",
+  "final_state": {
+    "version": 1,
+    "session_id": "session-proof-07",
+    "project_root": "/tmp/keydeck-proof-07-3286815089",
+    "goal": "Prove cross-engine mid-answer continuation",
+    "active_engine": "codex",
+    "transcript": [
+      {
+        "at": "2026-07-06T16:54:42.733892194Z",
+        "role": "user",
+        "text": "Continue this one task across API exhaustion and another engine."
+      },
+      {
+        "at": "2026-07-06T16:54:42.738955631Z",
+        "role": "assistant",
+        "engine": "codex",
+        "text": "API inspection confirmed the protected file. The next step is to create the cross-engine artifact. Additional verification requires a second engine.\n\nCodex continued from the next logical step and completed the task."
+      }
+    ],
+    "decisions": [],
+    "completed_actions": [],
+    "pending_tasks": [],
+    "relevant_files": [],
+    "updated_at": "2026-07-06T16:54:42.738493101Z"
+  },
+  "final_visible_text": "API inspection confirmed the protected file. The next step is to create the cross-engine artifact. Additional verification requires a second engine.\n\nCodex continued from the next logical step and completed the task.",
+  "passed": true,
+  "primary_error": "all keys unavailable",
+  "proof": "0.7-cross-engine-mid-answer-continuation-policy",
+  "stream_requests": [
+    {
+      "Key": "secret-1",
+      "Body": "eyJjaGVja3BvaW50IjoiIiwiY29tcGxldGVkX2FjdGlvbnMiOm51bGwsImRlY2lzaW9ucyI6bnVsbCwiZnJvbV9lbmdpbmUiOiJhcGktcG9vbCIsImdvYWwiOiJQcm92ZSBjcm9zcy1lbmdpbmUgbWlkLWFuc3dlciBjb250aW51YXRpb24iLCJoYW5kb2ZmX3JlYXNvbiI6InN0YXJ0IHN0cmVhbWVkIEFQSSByZXNwb25zZSIsInBlbmRpbmdfdGFza3MiOm51bGwsInJlbGV2YW50X2ZpbGVzIjpudWxsLCJzZXNzaW9uX2lkIjoic2Vzc2lvbi1wcm9vZi0wNyIsInRyYW5zY3JpcHQiOlt7ImF0IjoiMjAyNi0wNy0wNlQxNjo1NDo0Mi43MzM4OTIxOTRaIiwicm9sZSI6InVzZXIiLCJ0ZXh0IjoiQ29udGludWUgdGhpcyBvbmUgdGFzayBhY3Jvc3MgQVBJIGV4aGF1c3Rpb24gYW5kIGFub3RoZXIgZW5naW5lLiJ9XSwidXNlcl9wcm9tcHQiOiJDb250aW51ZSB0aGlzIG9uZSB0YXNrIGFjcm9zcyBBUEkgZXhoYXVzdGlvbiBhbmQgYW5vdGhlciBlbmdpbmUuIn0="
+    },
+    {
+      "Key": "secret-2",
+      "Body": "eyJjb250aW51YXRpb24iOnsib3JpZ2luYWxfcmVxdWVzdCI6eyJjaGVja3BvaW50IjoiIiwiY29tcGxldGVkX2FjdGlvbnMiOm51bGwsImRlY2lzaW9ucyI6bnVsbCwiZnJvbV9lbmdpbmUiOiJhcGktcG9vbCIsImdvYWwiOiJQcm92ZSBjcm9zcy1lbmdpbmUgbWlkLWFuc3dlciBjb250aW51YXRpb24iLCJoYW5kb2ZmX3JlYXNvbiI6InN0YXJ0IHN0cmVhbWVkIEFQSSByZXNwb25zZSIsInBlbmRpbmdfdGFza3MiOm51bGwsInJlbGV2YW50X2ZpbGVzIjpudWxsLCJzZXNzaW9uX2lkIjoic2Vzc2lvbi1wcm9vZi0wNyIsInRyYW5zY3JpcHQiOlt7ImF0IjoiMjAyNi0wNy0wNlQxNjo1NDo0Mi43MzM4OTIxOTRaIiwicm9sZSI6InVzZXIiLCJ0ZXh0IjoiQ29udGludWUgdGhpcyBvbmUgdGFzayBhY3Jvc3MgQVBJIGV4aGF1c3Rpb24gYW5kIGFub3RoZXIgZW5naW5lLiJ9XSwidXNlcl9wcm9tcHQiOiJDb250aW51ZSB0aGlzIG9uZSB0YXNrIGFjcm9zcyBBUEkgZXhoYXVzdGlvbiBhbmQgYW5vdGhlciBlbmdpbmUuIn0sImNvbmZpcm1lZF9vdXRwdXQiOiJBUEkgaW5zcGVjdGlvbiBjb25maXJtZWQgdGhlIHByb3RlY3RlZCBmaWxlLiAiLCJ1bnN0YWJsZV9mcmFnbWVudCI6IlRoZSBuZXh0IHN0ZXAgaXMgIiwiaW5zdHJ1Y3Rpb24iOiJDb250aW51ZSB0aGUgc2FtZSBhbnN3ZXIgZnJvbSB0aGUgbGFzdCBjb25maXJtZWQgYm91bmRhcnkuIFVzZSB0aGUgdW5zdGFibGUgZnJhZ21lbnQgb25seSBhcyBkaXJlY3Rpb25hbCBjb250ZXh0LiBEbyBub3QgcmVwZWF0IGNvbmZpcm1lZCBvdXRwdXQuIn19"
+    },
+    {
+      "Key": "secret-3",
+      "Body": "eyJjb250aW51YXRpb24iOnsib3JpZ2luYWxfcmVxdWVzdCI6eyJjaGVja3BvaW50IjoiIiwiY29tcGxldGVkX2FjdGlvbnMiOm51bGwsImRlY2lzaW9ucyI6bnVsbCwiZnJvbV9lbmdpbmUiOiJhcGktcG9vbCIsImdvYWwiOiJQcm92ZSBjcm9zcy1lbmdpbmUgbWlkLWFuc3dlciBjb250aW51YXRpb24iLCJoYW5kb2ZmX3JlYXNvbiI6InN0YXJ0IHN0cmVhbWVkIEFQSSByZXNwb25zZSIsInBlbmRpbmdfdGFza3MiOm51bGwsInJlbGV2YW50X2ZpbGVzIjpudWxsLCJzZXNzaW9uX2lkIjoic2Vzc2lvbi1wcm9vZi0wNyIsInRyYW5zY3JpcHQiOlt7ImF0IjoiMjAyNi0wNy0wNlQxNjo1NDo0Mi43MzM4OTIxOTRaIiwicm9sZSI6InVzZXIiLCJ0ZXh0IjoiQ29udGludWUgdGhpcyBvbmUgdGFzayBhY3Jvc3MgQVBJIGV4aGF1c3Rpb24gYW5kIGFub3RoZXIgZW5naW5lLiJ9XSwidXNlcl9wcm9tcHQiOiJDb250aW51ZSB0aGlzIG9uZSB0YXNrIGFjcm9zcyBBUEkgZXhoYXVzdGlvbiBhbmQgYW5vdGhlciBlbmdpbmUuIn0sImNvbmZpcm1lZF9vdXRwdXQiOiJBUEkgaW5zcGVjdGlvbiBjb25maXJtZWQgdGhlIHByb3RlY3RlZCBmaWxlLiBUaGUgbmV4dCBzdGVwIGlzIHRvIGNyZWF0ZSB0aGUgY3Jvc3MtZW5naW5lIGFydGlmYWN0LiAiLCJ1bnN0YWJsZV9mcmFnbWVudCI6IkFkZGl0aW9uYWwgdmVyaWZpY2F0aW9uIHJlcXVpcmVzICIsImluc3RydWN0aW9uIjoiQ29udGludWUgdGhlIHNhbWUgYW5zd2VyIGZyb20gdGhlIGxhc3QgY29uZmlybWVkIGJvdW5kYXJ5LiBVc2UgdGhlIHVuc3RhYmxlIGZyYWdtZW50IG9ubHkgYXMgZGlyZWN0aW9uYWwgY29udGV4dC4gRG8gbm90IHJlcGVhdCBjb25maXJtZWQgb3V0cHV0LiJ9fQ=="
+    }
+  ],
+  "unstable_fragment": "Final recommendation "
+}

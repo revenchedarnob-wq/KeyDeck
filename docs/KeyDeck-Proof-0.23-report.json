@@ -1,0 +1,93 @@
+{
+  "proof": "0.23-production-mcp-registration-discovery-contracts",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "immutable_registration_created_once_and_deduplicated",
+      "passed": true,
+      "detail": {
+        "created_once": true,
+        "server_id": "mcp-2249d10f545df5e1a371589e"
+      }
+    },
+    {
+      "name": "canonical_server_id_survives_runtime_change_but_conflicting_runtime_is_rejected",
+      "passed": true,
+      "detail": {
+        "error": "MCP server registration conflicts with immutable record",
+        "runtime_hash_changed": true,
+        "same_server_id": true
+      }
+    },
+    {
+      "name": "real_third_party_discovery_persisted_with_exact_identity_runtime_and_schema_digest",
+      "passed": true,
+      "detail": {
+        "cached": false,
+        "calls": 1,
+        "error": "",
+        "schema_sha256": "31b3d4e6042e08e91514e42eaddab25ec963664e63dd87081c25577cc48f185f",
+        "tool_count": 14
+      }
+    },
+    {
+      "name": "restart_reuses_persisted_discovery_without_server_invocation",
+      "passed": true,
+      "detail": {
+        "cached": true,
+        "calls": 0,
+        "error": "",
+        "schema_same": true
+      }
+    },
+    {
+      "name": "runtime_configuration_drift_rejected_before_discovery_invocation",
+      "passed": true,
+      "detail": {
+        "calls": 0,
+        "error": "MCP runtime contract drift detected"
+      }
+    },
+    {
+      "name": "capability_schema_drift_rejected_without_replacing_trusted_cache",
+      "passed": true,
+      "detail": {
+        "cache_unchanged": true,
+        "calls": 1,
+        "error": "MCP capability/schema drift detected"
+      }
+    },
+    {
+      "name": "permission_proposal_grants_nothing_until_explicit_approval",
+      "passed": true,
+      "detail": {
+        "all_default_denied": true,
+        "approved_read": true,
+        "approved_tool_count": 1,
+        "error": "",
+        "proposal_tools": 14,
+        "write_denied": true
+      }
+    },
+    {
+      "name": "restart_safe_registry_and_proof_receipt_bind_server_id_and_schema_digest",
+      "passed": true,
+      "detail": {
+        "created_once": true,
+        "error": "",
+        "progress_complete": true,
+        "receipt_id": "receipt-48b03627260b87c3d77e",
+        "registry_sha256": "14ad7aebf598b265b57629e7b35b41b9ffd5b3130c71eab01a3cde436f2b27c4"
+      }
+    }
+  ],
+  "server_id": "mcp-2249d10f545df5e1a371589e",
+  "identity_sha256": "2249d10f545df5e1a371589efb2da91030a0eb6a3b8f866c29e33f5679ca76a6",
+  "runtime_sha256": "f5e3fafdf42658bb1f65f96018a68df2a0bfd4d5a771ce8c48a6b66cbd27cbc6",
+  "schema_sha256": "31b3d4e6042e08e91514e42eaddab25ec963664e63dd87081c25577cc48f185f",
+  "registry_sha256": "14ad7aebf598b265b57629e7b35b41b9ffd5b3130c71eab01a3cde436f2b27c4",
+  "tool_count": 14,
+  "receipt_id": "receipt-48b03627260b87c3d77e",
+  "next_gate": "Proof 0.24 — bind registered/discovered MCP servers to durable local runtime bindings and a user-visible server manager, then connect pinned codebase-memory-mcp when immutable executable retrieval is available."
+}

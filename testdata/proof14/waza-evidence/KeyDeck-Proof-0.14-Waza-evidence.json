@@ -1,0 +1,36 @@
+{
+  "proof_component": "microsoft-waza-real-offline-prototype",
+  "source_evidence_sha256": "595c381fe97c063e633aafe45f029702a91d10162d65df0faa0041255e849baf",
+  "tool": {
+    "name": "Microsoft Waza",
+    "version": "0.38.0",
+    "binary_sha256": "ff7fe521d4f876de29d018a00fe282746109d8b788a6e9a9f288dbd8a3470364",
+    "checksum_verified": true
+  },
+  "mode": "real pinned Windows x64 binary; mock executor; no paid model or API key",
+  "passed": true,
+  "checks": {
+    "version_verified": true,
+    "skill_check": true,
+    "spec_coverage_gate": true,
+    "token_count": true,
+    "token_budget_gate": true,
+    "deterministic_mock_eval": true,
+    "regression_gate": true,
+    "snapshot_count": 20,
+    "snapshot_replays_passed": true,
+    "adversarial_catalog_available": true
+  },
+  "measurements": {
+    "task_count": 4,
+    "trials_per_task": 5,
+    "intended_trial_count": 20,
+    "positive_trigger_tasks": 2,
+    "negative_trigger_tasks": 2
+  },
+  "limitations": [
+    "This proof uses Waza mock execution to isolate skill/evaluation infrastructure from model quality and billing.",
+    "It does not prove live multi-model quality; real-model comparison remains a later optional development evaluation.",
+    "The runner downloads only the exact pinned Microsoft v0.38.0 Windows x64 binary and verifies the official SHA-256 before execution."
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "account": {
+    "account": {
+      "type": "chatgpt",
+      "email": "proof@example.invalid",
+      "planType": "plus"
+    },
+    "requiresOpenaiAuth": true
+  },
+  "external_server": {
+    "thread_id": "thr_keydeck_proof05",
+    "start_calls": 1,
+    "resume_calls": 1,
+    "turn_calls": 2,
+    "last_prompt": "You are continuing one KeyDeck-owned project session. KeyDeck, not Codex, is the canonical state owner.\n\nHandoff passport:\n{\n  \"checkpoint\": \"\",\n  \"completed_actions\": [\n    {\n      \"at\": \"2026-07-06T15:24:05.099028782Z\",\n      \"summary\": \"Codex updated file: codex-proof.txt\",\n      \"source\": \"codex\"\n    }\n  ],\n  \"decisions\": [\n    {\n      \"at\": \"2026-07-06T15:24:05.097344637Z\",\n      \"summary\": \"Do not replay ambiguous upstream outcomes.\",\n      \"source\": \"api-pool\"\n    }\n  ],\n  \"from_engine\": \"codex\",\n  \"goal\": \"Prove one KeyDeck session can hand off to Codex and resume after restart\",\n  \"handoff_reason\": \"resume after restart\",\n  \"pending_tasks\": [\n    \"Update retry classifier\"\n  ],\n  \"relevant_files\": [\n    \"gateway.go\",\n    \"codex-proof.txt\"\n  ],\n  \"session_id\": \"session-proof-05\"\n}\n\nCurrent user request:\nReopen the same Codex work after KeyDeck restart\n\nRules:\n- Inspect the current project state before acting.\n- Do not repeat completed actions.\n- Treat ambiguous prior tool actions as unsafe to replay.\n- Keep work scoped to the project root.\n- Return a concise completion summary for KeyDeck."
+  },
+  "final_state": {
+    "version": 1,
+    "session_id": "session-proof-05",
+    "project_root": "/tmp/keydeck-proof05-project-1587396492",
+    "goal": "Prove one KeyDeck session can hand off to Codex and resume after restart",
+    "active_engine": "api-pool",
+    "transcript": [
+      {
+        "at": "2026-07-06T15:24:05.097328713Z",
+        "role": "user",
+        "text": "Inspect the disposable project"
+      },
+      {
+        "at": "2026-07-06T15:24:05.097338377Z",
+        "role": "assistant",
+        "engine": "api-pool",
+        "text": "The retry classifier is the next safe task."
+      },
+      {
+        "at": "2026-07-06T15:24:05.098316453Z",
+        "role": "user",
+        "text": "Continue and update the disposable project"
+      },
+      {
+        "at": "2026-07-06T15:24:05.099028331Z",
+        "role": "assistant",
+        "engine": "codex",
+        "text": "Codex continued from the KeyDeck passport and updated the disposable project."
+      },
+      {
+        "at": "2026-07-06T15:24:05.099831597Z",
+        "role": "user",
+        "text": "Reopen the same Codex work after KeyDeck restart"
+      },
+      {
+        "at": "2026-07-06T15:24:05.100411637Z",
+        "role": "assistant",
+        "engine": "codex",
+        "text": "Codex continued from the KeyDeck passport and updated the disposable project."
+      },
+      {
+        "at": "2026-07-06T15:24:05.100414631Z",
+        "role": "user",
+        "text": "Review the Codex work"
+      },
+      {
+        "at": "2026-07-06T15:24:05.100477606Z",
+        "role": "assistant",
+        "engine": "api-pool",
+        "text": "I can see the Codex file change and continue from the same canonical session."
+      }
+    ],
+    "decisions": [
+      {
+        "at": "2026-07-06T15:24:05.097344637Z",
+        "summary": "Do not replay ambiguous upstream outcomes.",
+        "source": "api-pool"
+      }
+    ],
+    "completed_actions": [
+      {
+        "at": "2026-07-06T15:24:05.099028782Z",
+        "summary": "Codex updated file: codex-proof.txt",
+        "source": "codex"
+      },
+      {
+        "at": "2026-07-06T15:24:05.100411907Z",
+        "summary": "Codex updated file: codex-proof.txt",
+        "source": "codex"
+      }
+    ],
+    "pending_tasks": [
+      "Update retry classifier"
+    ],
+    "relevant_files": [
+      "gateway.go",
+      "codex-proof.txt"
+    ],
+    "engine_bindings": {
+      "codex": {
+        "engine": "codex",
+        "external_thread_id": "thr_keydeck_proof05",
+        "updated_at": "2026-07-06T15:24:05.100413059Z"
+      }
+    },
+    "updated_at": "2026-07-06T15:24:05.099035311Z"
+  },
+  "first_codex_run": {
+    "passport": {
+      "session_id": "session-proof-05",
+      "project_root": "/tmp/keydeck-proof05-project-1587396492",
+      "goal": "Prove one KeyDeck session can hand off to Codex and resume after restart",
+      "from_engine": "api-pool",
+      "to_engine": "codex",
+      "handoff_reason": "manual engine switch",
+      "transcript": [
+        {
+          "at": "2026-07-06T15:24:05.097328713Z",
+          "role": "user",
+          "text": "Inspect the disposable project"
+        },
+        {
+          "at": "2026-07-06T15:24:05.097338377Z",
+          "role": "assistant",
+          "engine": "api-pool",
+          "text": "The retry classifier is the next safe task."
+        },
+        {
+          "at": "2026-07-06T15:24:05.098316453Z",
+          "role": "user",
+          "text": "Continue and update the disposable project"
+        }
+      ],
+      "decisions": [
+        {
+          "at": "2026-07-06T15:24:05.097344637Z",
+          "summary": "Do not replay ambiguous upstream outcomes.",
+          "source": "api-pool"
+        }
+      ],
+      "completed_actions": null,
+      "pending_tasks": [
+        "Update retry classifier"
+      ],
+      "relevant_files": [
+        "gateway.go"
+      ]
+    },
+    "result": {
+      "Text": "Codex continued from the KeyDeck passport and updated the disposable project.",
+      "Decisions": null,
+      "CompletedActions": [
+        "Codex updated file: codex-proof.txt"
+      ],
+      "PendingTasks": null,
+      "RelevantFiles": [
+        "codex-proof.txt"
+      ],
+      "Checkpoint": ""
+    }
+  },
+  "passed": true,
+  "persisted_binding": {
+    "engine": "codex",
+    "external_thread_id": "thr_keydeck_proof05",
+    "updated_at": "2026-07-06T15:24:05.100413059Z"
+  },
+  "proof": "0.5-codex-app-server-session-binding",
+  "restart_resume": {
+    "passport": {
+      "session_id": "session-proof-05",
+      "project_root": "/tmp/keydeck-proof05-project-1587396492",
+      "goal": "Prove one KeyDeck session can hand off to Codex and resume after restart",
+      "from_engine": "codex",
+      "to_engine": "codex",
+      "handoff_reason": "resume after restart",
+      "transcript": [
+        {
+          "at": "2026-07-06T15:24:05.097328713Z",
+          "role": "user",
+          "text": "Inspect the disposable project"
+        },
+        {
+          "at": "2026-07-06T15:24:05.097338377Z",
+          "role": "assistant",
+          "engine": "api-pool",
+          "text": "The retry classifier is the next safe task."
+        },
+        {
+          "at": "2026-07-06T15:24:05.098316453Z",
+          "role": "user",
+          "text": "Continue and update the disposable project"
+        },
+        {
+          "at": "2026-07-06T15:24:05.099028331Z",
+          "role": "assistant",
+          "engine": "codex",
+          "text": "Codex continued from the KeyDeck passport and updated the disposable project."
+        },
+        {
+          "at": "2026-07-06T15:24:05.099831597Z",
+          "role": "user",
+          "text": "Reopen the same Codex work after KeyDeck restart"
+        }
+      ],
+      "decisions": [
+        {
+          "at": "2026-07-06T15:24:05.097344637Z",
+          "summary": "Do not replay ambiguous upstream outcomes.",
+          "source": "api-pool"
+        }
+      ],
+      "completed_actions": [
+        {
+          "at": "2026-07-06T15:24:05.099028782Z",
+          "summary": "Codex updated file: codex-proof.txt",
+          "source": "codex"
+        }
+      ],
+      "pending_tasks": [
+        "Update retry classifier"
+      ],
+      "relevant_files": [
+        "gateway.go",
+        "codex-proof.txt"
+      ]
+    },
+    "result": {
+      "Text": "Codex continued from the KeyDeck passport and updated the disposable project.",
+      "Decisions": null,
+      "CompletedActions": [
+        "Codex updated file: codex-proof.txt"
+      ],
+      "PendingTasks": null,
+      "RelevantFiles": [
+        "codex-proof.txt"
+      ],
+      "Checkpoint": ""
+    }
+  },
+  "scope": "Protocol/session proof uses a deterministic fake Codex App Server. Real ChatGPT Plus login and real Codex execution require the user's Windows PC.",
+  "switch_back": {
+    "passport": {
+      "session_id": "session-proof-05",
+      "project_root": "/tmp/keydeck-proof05-project-1587396492",
+      "goal": "Prove one KeyDeck session can hand off to Codex and resume after restart",
+      "from_engine": "codex",
+      "to_engine": "api-pool",
+      "handoff_reason": "switch back to API",
+      "transcript": [
+        {
+          "at": "2026-07-06T15:24:05.097328713Z",
+          "role": "user",
+          "text": "Inspect the disposable project"
+        },
+        {
+          "at": "2026-07-06T15:24:05.097338377Z",
+          "role": "assistant",
+          "engine": "api-pool",
+          "text": "The retry classifier is the next safe task."
+        },
+        {
+          "at": "2026-07-06T15:24:05.098316453Z",
+          "role": "user",
+          "text": "Continue and update the disposable project"
+        },
+        {
+          "at": "2026-07-06T15:24:05.099028331Z",
+          "role": "assistant",
+          "engine": "codex",
+          "text": "Codex continued from the KeyDeck passport and updated the disposable project."
+        },
+        {
+          "at": "2026-07-06T15:24:05.099831597Z",
+          "role": "user",
+          "text": "Reopen the same Codex work after KeyDeck restart"
+        },
+        {
+          "at": "2026-07-06T15:24:05.100411637Z",
+          "role": "assistant",
+          "engine": "codex",
+          "text": "Codex continued from the KeyDeck passport and updated the disposable project."
+        },
+        {
+          "at": "2026-07-06T15:24:05.100414631Z",
+          "role": "user",
+          "text": "Review the Codex work"
+        }
+      ],
+      "decisions": [
+        {
+          "at": "2026-07-06T15:24:05.097344637Z",
+          "summary": "Do not replay ambiguous upstream outcomes.",
+          "source": "api-pool"
+        }
+      ],
+      "completed_actions": [
+        {
+          "at": "2026-07-06T15:24:05.099028782Z",
+          "summary": "Codex updated file: codex-proof.txt",
+          "source": "codex"
+        },
+        {
+          "at": "2026-07-06T15:24:05.100411907Z",
+          "summary": "Codex updated file: codex-proof.txt",
+          "source": "codex"
+        }
+      ],
+      "pending_tasks": [
+        "Update retry classifier"
+      ],
+      "relevant_files": [
+        "gateway.go",
+        "codex-proof.txt"
+      ]
+    },
+    "result": {
+      "Text": "I can see the Codex file change and continue from the same canonical session.",
+      "Decisions": null,
+      "CompletedActions": null,
+      "PendingTasks": null,
+      "RelevantFiles": null,
+      "Checkpoint": ""
+    }
+  }
+}

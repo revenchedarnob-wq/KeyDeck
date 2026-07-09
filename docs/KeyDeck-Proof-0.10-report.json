@@ -1,0 +1,90 @@
+{
+  "proof": "0.10-provider-optimizer-conformance",
+  "passed": true,
+  "claims": [
+    "Optimization OFF preserves request bytes exactly and never invokes an optimizer",
+    "Optimization ON activates only for exact provider/version evidence marked verified with correctness and measured benefit",
+    "provider-specific safe key rotation requires exact dated evidence",
+    "unknown 429 behavior remains ambiguous and preserves backup keys",
+    "provider-wide busy preserves backup keys",
+    "ambiguous 502 outcomes are neither replayed nor rotated",
+    "cost-thrash protection blocks before a backup key can be consumed"
+  ],
+  "scenarios": [
+    {
+      "name": "optimization_off_byte_preserving",
+      "passed": true,
+      "detail": {
+        "activation": {
+          "active": false,
+          "reason": "optimization off: provider-native request bytes preserved"
+        },
+        "bytes_equal": true,
+        "transform_called": false
+      }
+    },
+    {
+      "name": "verified_optimizer_exact_gate",
+      "passed": true,
+      "detail": {
+        "mismatched_activation": {
+          "active": false,
+          "reason": "exact verified optimizer evidence not available"
+        },
+        "mismatched_error": "optimizer is not verified for the exact provider version",
+        "verified_activation": {
+          "active": true,
+          "reason": "verified optimizer activated",
+          "evidence_id": "proof-0.10-optimizer-fixture"
+        }
+      }
+    },
+    {
+      "name": "exact_provider_rule_safe_rotation",
+      "passed": true,
+      "detail": {
+        "backup_calls": 1,
+        "error": "",
+        "primary_calls": 1,
+        "selected_key": "key-2"
+      }
+    },
+    {
+      "name": "unknown_429_stays_ambiguous",
+      "passed": true,
+      "detail": {
+        "backup_calls": 0,
+        "error": "ambiguous provider failure; automatic replay is forbidden",
+        "primary_calls": 1
+      }
+    },
+    {
+      "name": "provider_busy_preserves_backups",
+      "passed": true,
+      "detail": {
+        "backup_calls": 0,
+        "error": "provider is globally busy",
+        "primary_calls": 1
+      }
+    },
+    {
+      "name": "ambiguous_502_no_replay_or_rotation",
+      "passed": true,
+      "detail": {
+        "backup_calls": 0,
+        "error": "ambiguous provider failure; automatic replay is forbidden",
+        "primary_calls": 1
+      }
+    },
+    {
+      "name": "cost_thrash_blocks_before_backup",
+      "passed": true,
+      "detail": {
+        "backup_calls": 0,
+        "primary_calls": 2,
+        "setup_error": "",
+        "third_error": "cost safety blocked further API spending: consecutive cache misses: count=2 last_write=120000 last_read=0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "proof": "0.34 production candidate collection coordinator integrated reconstructed line v0.3.0",
+  "status": "PASS",
+  "integration_status": "integrated_into_reconstructed_keydeck_source",
+  "scenarios": [
+    {
+      "name": "current_state_validation_precedes_persistence",
+      "passed": true,
+      "detail": "stale input rejected with zero persisted bytes"
+    },
+    {
+      "name": "exact_route_runtime_engine_binding_collected",
+      "passed": true,
+      "detail": "candidate persisted only after current-state validation"
+    },
+    {
+      "name": "duplicate_execution_result_reused_without_new_candidate",
+      "passed": true,
+      "detail": "same execution/result identity reused"
+    },
+    {
+      "name": "conflicting_execution_result_identity_rejected",
+      "passed": true,
+      "detail": "conflicting binding cannot overwrite collected identity"
+    },
+    {
+      "name": "restart_after_collection_reuses_exact_candidate",
+      "passed": true,
+      "detail": "durable store replay prevents duplicate collection before scope commit"
+    },
+    {
+      "name": "direct_raw_engine_result_recovery_forbidden",
+      "passed": true,
+      "detail": "raw engine results cannot bypass collection/reconciliation"
+    },
+    {
+      "name": "canonical_commit_requires_reconciliation_assessment",
+      "passed": true,
+      "detail": "commit blocked before assessment"
+    },
+    {
+      "name": "all_candidates_reach_reconciler",
+      "passed": true,
+      "detail": "reconciler received all three unique candidates"
+    },
+    {
+      "name": "majority_vote_never_establishes_truth",
+      "passed": true,
+      "detail": "2 matching candidates versus 1 conflict remains disagreement"
+    },
+    {
+      "name": "unresolved_disagreement_cannot_mutate_canonical_state",
+      "passed": true,
+      "detail": "Recovery Coordinator not called for unresolved disagreement"
+    },
+    {
+      "name": "explicit_reviewer_resolution_contract_emitted",
+      "passed": true,
+      "detail": "UI-neutral review contract contains exact assessment and candidate set"
+    },
+    {
+      "name": "reviewer_resolution_requires_decisive_evidence",
+      "passed": true,
+      "detail": "evidence-free reviewer choice rejected"
+    },
+    {
+      "name": "evidence_backed_reviewer_resolution_persisted",
+      "passed": true,
+      "detail": "resolution binds assessment, selected candidate, reviewer and decisive evidence"
+    },
+    {
+      "name": "only_resolved_selected_candidate_enters_recovery_coordinator",
+      "passed": true,
+      "detail": "resolved candidate envelope entered exact-once recovery"
+    },
+    {
+      "name": "restart_after_resolution_reuses_canonical_commit",
+      "passed": true,
+      "detail": "completed commit reused without duplicate canonical mutation"
+    },
+    {
+      "name": "committed_scope_is_immutable_after_canonical_commit",
+      "passed": true,
+      "detail": "late collection is rejected and durable bytes remain unchanged"
+    },
+    {
+      "name": "receipt_binds_collection_candidate_set_assessment_resolution_runtime_and_commit",
+      "passed": true,
+      "detail": "receipt evidence spans collection through canonical commit"
+    },
+    {
+      "name": "stale_assessment_cannot_emit_receipt_evidence",
+      "passed": true,
+      "detail": "receipt generation fails closed until the current candidate set is reassessed"
+    },
+    {
+      "name": "late_candidate_invalidates_stale_assessment_before_commit",
+      "passed": true,
+      "detail": "candidate-set hash must be current before canonical commit"
+    },
+    {
+      "name": "append_only_collection_store_rejects_removed_or_reordered_events",
+      "passed": true,
+      "detail": "sequence and previous-event hash chain verified on replay"
+    },
+    {
+      "name": "concurrent_duplicate_collection_converges_to_one_candidate",
+      "passed": true,
+      "detail": "32 concurrent duplicate collections returned one candidate identity"
+    },
+    {
+      "name": "concurrent_commit_calls_converge_to_one_recovery_commit",
+      "passed": true,
+      "detail": "32 concurrent commit calls reused one Recovery Coordinator commit"
+    },
+    {
+      "name": "collect_and_commit_share_one_lifecycle_barrier",
+      "passed": true,
+      "detail": "a collection racing canonical commit cannot cross the commit window"
+    },
+    {
+      "name": "semantic_replay_rejects_unknown_event_kind_after_rehash",
+      "passed": true,
+      "detail": "hash-chain recomputation cannot make an unknown durable event semantic valid"
+    },
+    {
+      "name": "semantic_replay_rederives_candidate_identity_after_rehash",
+      "passed": true,
+      "detail": "durable candidate identity is independently recomputed on replay"
+    },
+    {
+      "name": "recovery_commit_event_binds_exact_assessment_and_resolution",
+      "passed": true,
+      "detail": "rehashing cannot detach canonical commit from its exact assessment/reviewer resolution"
+    },
+    {
+      "name": "result_payload_digest_mismatch_rejected_before_validation_and_persistence",
+      "passed": true,
+      "detail": "persisted result payload bytes require an exact independent SHA-256 binding"
+    },
+    {
+      "name": "semantic_replay_rejects_result_payload_tamper_after_full_rehash",
+      "passed": true,
+      "detail": "event-chain recomputation cannot detach persisted payload bytes from their exact digest"
+    },
+    {
+      "name": "durable_recovery_preparation_freezes_scope_until_exact_commit_reconciliation",
+      "passed": true,
+      "detail": "once external recovery is prepared, collection and reconciliation mutation cannot change the exact operation"
+    },
+    {
+      "name": "ambiguous_post_commit_failure_restarts_with_exact_prepared_recovery_operation",
+      "passed": true,
+      "detail": "restart reuses the exact durable recovery operation through the existing exact-once Recovery Coordinator boundary"
+    },
+    {
+      "name": "semantic_replay_rejects_forged_recovery_operation_after_full_rehash",
+      "passed": true,
+      "detail": "replay reconstructs the exact resolved input and independently verifies the prepared recovery operation"
+    },
+    {
+      "name": "recovery_commit_event_binds_exact_durable_preparation",
+      "passed": true,
+      "detail": "canonical commit evidence cannot be detached from the exact prepared recovery operation"
+    }
+  ],
+  "passed": 32,
+  "total": 32,
+  "stable_identities": {
+    "assessment_id": "assessment-0efd016e20a62dbcb0d7",
+    "candidate_id": "candidate-3b62c30fa4e4b661b037",
+    "commit_id": "commit-0f9ce6a6134485831d32",
+    "resolution_id": "resolution-1724091d5a4161ed5ef8"
+  },
+  "limitations": [
+    "The historical lost post-v0.21 source archives were not recovered byte-for-byte; this line was reconstructed from the exact immutable v0.21.0 / Proof 0.24 source and re-proven forward.",
+    "Proof 0.34 core hardening is combined with the real KeyDeck task/handoff/routing/runtime/recovery adapter integration proven by reconstructed Proofs 0.31-0.33."
+  ]
+}

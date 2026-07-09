@@ -1,0 +1,103 @@
+{
+  "proof": "0.22-immutable-third-party-local-mcp-server",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "immutable_third_party_package_identity_matches_pinned_tarball",
+      "passed": true,
+      "detail": {
+        "installed_version": "2026.7.4",
+        "integrity_matches": true,
+        "package": "@modelcontextprotocol/server-filesystem",
+        "package_json_sha256": "310ffda5344bd143a96354bc5aa83a25109b020d44b17e3e77365845dddb8126",
+        "package_lock_sha256": "e367ec6701c275457847b8692b55edb5aa2fecde8b01cd5a2966935f35f59e29",
+        "server_entrypoint_sha256": "79cbfe681d9c31b5268036be5740c613f6082a6ac106eb8c091b6eaf35e91573",
+        "tarball_sha256": "7ced44bb52a64349e12217a8d90d349b9d941a0560b3f0e3df05aeee8ed4da54",
+        "version": "2026.7.4"
+      }
+    },
+    {
+      "name": "real_third_party_initialize_list_and_read_call_succeeds",
+      "passed": true,
+      "detail": {
+        "adapter_calls": 1,
+        "contains_fixture_keyword": true,
+        "error": ""
+      }
+    },
+    {
+      "name": "permission_denial_prevents_third_party_process_invocation",
+      "passed": true,
+      "detail": {
+        "adapter_calls_delta": 0,
+        "error": "MCP tool is not allowed by KeyDeck permissions"
+      }
+    },
+    {
+      "name": "schema_denial_prevents_third_party_process_invocation",
+      "passed": true,
+      "detail": {
+        "adapter_calls_delta": 0,
+        "error": "MCP tool arguments do not satisfy KeyDeck schema policy: field \"path\" must be string"
+      }
+    },
+    {
+      "name": "completed_third_party_read_reused_after_restart_without_server_replay",
+      "passed": true,
+      "detail": {
+        "adapter_calls_delta": 0,
+        "error": "",
+        "reused": true
+      }
+    },
+    {
+      "name": "ambiguous_nonrepeatable_third_party_write_remains_blocked_after_restart",
+      "passed": true,
+      "detail": {
+        "adapter_calls": 1,
+        "file_exists_once": true,
+        "file_sha256": "34ebc435b34ed0ba6fc1ba33c61f561e7702176c7b98e66f0e1150bd202688e2",
+        "first_error": "unexpected EOF",
+        "second_error": "tool operation outcome is ambiguous; replay is forbidden"
+      }
+    },
+    {
+      "name": "secret_broker_configured_without_raw_secret_persistence",
+      "passed": true,
+      "detail": {
+        "leaks": null,
+        "plans": 0,
+        "resolutions": 0
+      }
+    },
+    {
+      "name": "timeline_and_receipt_bind_exact_third_party_package_identity",
+      "passed": true,
+      "detail": {
+        "canonical_source_ref": "npm:@modelcontextprotocol/server-filesystem@2026.7.4",
+        "created_once": true,
+        "error": "",
+        "progress_complete": true,
+        "raw_secret_absent": true,
+        "tool_events": 7
+      }
+    }
+  ],
+  "server_identity": {
+    "name": "Official MCP Filesystem reference server",
+    "version": "2026.7.4",
+    "registry": "npm",
+    "package": "@modelcontextprotocol/server-filesystem",
+    "package_integrity": "sha512-JwEaH4dRRzwcNMwX8WJVCJyXfFxXjFKdgwHxjQhFLhi02kszgyyj611LV9puBLDO1IiDQSCjfKFSPaemegnvwg==",
+    "package_sha256": "7ced44bb52a64349e12217a8d90d349b9d941a0560b3f0e3df05aeee8ed4da54",
+    "entry_point": "dist/index.js"
+  },
+  "server_identity_sha256": "2249d10f545df5e1a371589efb2da91030a0eb6a3b8f866c29e33f5679ca76a6",
+  "package_sha256": "7ced44bb52a64349e12217a8d90d349b9d941a0560b3f0e3df05aeee8ed4da54",
+  "package_lock_sha256": "e367ec6701c275457847b8692b55edb5aa2fecde8b01cd5a2966935f35f59e29",
+  "fixture_sha256": "94d606993a9b207930e0c925f4e43e1afe4ba185a7ae66cba738918ee73cca60",
+  "ambiguous_file_sha256": "34ebc435b34ed0ba6fc1ba33c61f561e7702176c7b98e66f0e1150bd202688e2",
+  "receipt_id": "receipt-1dc3237b2c4abe678a2b",
+  "next_gate": "Proof 0.23 — productionize third-party MCP discovery/configuration and connect the pinned codebase-memory-mcp context server when immutable executable retrieval is available without weakening identity verification."
+}

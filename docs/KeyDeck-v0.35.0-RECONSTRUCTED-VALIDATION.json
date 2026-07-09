@@ -1,0 +1,203 @@
+{
+  "evidence_boundary": {
+    "exact_ancestor_sha256": "ab9d8909cd5169f0b01fcfb727f246533dfb854c1ea4b3f2efe6182c48e7d6d6",
+    "exact_physical_ancestor": "v0.21.0 / Proof 0.24",
+    "post_v0_21_claim": "reconstructed and re-proven; no byte-identical historical recovery claim"
+  },
+  "gates": {
+    "clean_source_full_tests": true,
+    "clean_source_full_vet": true,
+    "clean_source_proof_0_35_through_0_38_exact_replay": true,
+    "deterministic_continuation_zip": true,
+    "deterministic_source_zip": true,
+    "deterministic_windows_proof_zip": true,
+    "exact_pinned_mcp_replay_0_22_through_0_25": true,
+    "focused_race_checks": true,
+    "full_go_test": true,
+    "full_go_vet": true,
+    "independent_windows_reproducibility": true,
+    "proof_0_38_five_byte_identical_runs": true,
+    "proof_0_9_through_0_38_regression": true,
+    "release_package_assembly": true,
+    "source_and_binary_leak_scans": true,
+    "supervisor_desktop_tests_20_repeated_runs": true,
+    "windows_pe32_plus_x86_64": true
+  },
+  "package_rehearsal": {
+    "all_rebuilt_byte_for_byte": true,
+    "continuation_zip_sha256": "7ff2360e28e4d1e2ed16b1cb2c28a511371fd09facad66dbd774c0516036da86",
+    "nested_manifests_verified": true,
+    "source_zip_sha256": "8d602e49f2c3ce4708f8ba321325deccee785add835e13f91d76400a1ac0999f",
+    "windows_proof_zip_sha256": "98d7b6a33154c6516c8ae16c75505824b6f12b300cfcd9166192d3942186f0de"
+  },
+  "product_boundary": {
+    "automatic_secret_safe_visual_bootstrap_claimed": false,
+    "reason": "unsafe OS opener command-line path removed; next gate must provide secret-safe bootstrap"
+  },
+  "proof_0_38": {
+    "report_identity_note": "new deterministic identity after proof harness reconstruction; behavior re-proven",
+    "report_sha256": "8b41a896bdd74deb7ec252ff5b73f3bef00bf29dfdc2db3c6df1468f650bf09c",
+    "scenarios": "21/21",
+    "status": "PASS"
+  },
+  "proofs": {
+    "10": {
+      "passed": true,
+      "report_sha256": "6d3796f7d41ef8dcb69dc798dfc29a3c63570e4d3a366572f31b2de3e223a405",
+      "scenario_count": 7
+    },
+    "11": {
+      "passed": true,
+      "report_sha256": "a95b6873bd834e1393419cce9c05a5c73442a55ce5d37a729df03f21aaf9f450",
+      "scenario_count": 5
+    },
+    "12": {
+      "passed": true,
+      "report_sha256": "d84179b81a6c01367abfa923da0a279dd473eb80b36a033a13ae2aa9bb717a14",
+      "scenario_count": 7
+    },
+    "13": {
+      "passed": true,
+      "report_sha256": "5420a1e48c3d451b540a838522f4b4d14c72ea6f3fc356fd9498c6429daf7b57",
+      "scenario_count": 11
+    },
+    "14": {
+      "passed": true,
+      "report_sha256": "ded8246f5248bbc3484f43bdeffae3d988ca0e8b2e29edc28f538369e151e6e5",
+      "scenario_count": 0
+    },
+    "15": {
+      "passed": true,
+      "report_sha256": "5de02aabd17f1798f4f86f052a1319542c627c1e5867009c3327bf89c30d52ed",
+      "scenario_count": 15
+    },
+    "16": {
+      "passed": true,
+      "report_sha256": "56ee1ac53c6218391ee92faf77b781786fd5b84907c63d0f105651bb207e8506",
+      "scenario_count": 17
+    },
+    "17": {
+      "passed": true,
+      "report_sha256": "b61212604234fc8b442d427569e6956af7431b788b946053310aefb863928940",
+      "scenario_count": 22
+    },
+    "18": {
+      "passed": true,
+      "report_sha256": "530820417a0f74f840b55a1df826ec05181a4f38f0325d3c4d5d39ff2650674d",
+      "scenario_count": 28
+    },
+    "19": {
+      "passed": true,
+      "report_sha256": "bc2df17d0dee46795d0fe2e630ea396cef0092c476a87f1adfe31d263c7275ea",
+      "scenario_count": 7
+    },
+    "20": {
+      "passed": true,
+      "report_sha256": "58373be1239c9ee7ef35c38abf1ad05c1227a86210c33baa21f6e1c752b57af4",
+      "scenario_count": 7
+    },
+    "21": {
+      "passed": true,
+      "report_sha256": "281d2e9c3f151fc40d4e126b7bf82612ea393718af5dea9dfb508463f153057c",
+      "scenario_count": 8
+    },
+    "22": {
+      "passed": true,
+      "report_sha256": "d4bc4eb657b4de7459c65e83868d84677c61e39fb9f0dc393234f761a67b94b6",
+      "scenario_count": 8
+    },
+    "23": {
+      "passed": true,
+      "report_sha256": "bd4ec6af3aa16b6c632a06491dfad741c5a52288907369f117e5c39eb11a6b09",
+      "scenario_count": 8
+    },
+    "24": {
+      "passed": true,
+      "report_sha256": "f377a458df7058c8f07bd72fe495249109fee8cc4e1cd7138efefdef2a051970",
+      "scenario_count": 10
+    },
+    "25": {
+      "passed": true,
+      "report_sha256": "046874ebfa92205fb4782f397ffda5f4446998d06ac24ab201687144c8e88ecc",
+      "scenario_count": 10
+    },
+    "26": {
+      "passed": true,
+      "report_sha256": "450018434d3eb70820559f18f39099135adf6b8baa234becc41411381ac23dab",
+      "scenario_count": 10
+    },
+    "27": {
+      "passed": true,
+      "report_sha256": "99e55ec95c5965e7e5656561bcf5addadce972b1ef5dcce9a9d544d906962a2d",
+      "scenario_count": 10
+    },
+    "28": {
+      "passed": true,
+      "report_sha256": "63efcfe857123566b73b345d2cdb8d03c61a6814e85142bc0ebd3e98a80fad02",
+      "scenario_count": 10
+    },
+    "29": {
+      "passed": true,
+      "report_sha256": "2a2f38ffe2f119e003360209162336a3181684ff855e9241d82fc06103b2a243",
+      "scenario_count": 10
+    },
+    "30": {
+      "passed": true,
+      "report_sha256": "3713e64582c74ee4422c8d38804a8f721f936838892d03e202ec313d75c859f2",
+      "scenario_count": 10
+    },
+    "31": {
+      "passed": true,
+      "report_sha256": "a7618ce0edb795fef5675da16000b1b06657ad598df62f966d59062af1600dd7",
+      "scenario_count": 14
+    },
+    "32": {
+      "passed": true,
+      "report_sha256": "f137a40fc391f0eac3e78505ac650f202a651718a7cb66b03c7bfec86e4ddd97",
+      "scenario_count": 12
+    },
+    "33": {
+      "passed": true,
+      "report_sha256": "aa56465acdb625c4f8bc29198d63cdb1a61479a72a1eae594dc4219f1e881e5d",
+      "scenario_count": 12
+    },
+    "34": {
+      "passed": true,
+      "report_sha256": "7da5641479fb294405403a1caf8252ed1402247d1756fb53b44869b94abab533",
+      "scenario_count": 32
+    },
+    "35": {
+      "passed": true,
+      "report_sha256": "ad37766a0d14fa55e143479690903238b9b9b127597b11449f4b4a322cfde8c3",
+      "scenario_count": 16
+    },
+    "36": {
+      "passed": true,
+      "report_sha256": "84f30eaeb341f507ba23ae32d4618524e356b4cc08f5d7200f976df61f6f0847",
+      "scenario_count": 20
+    },
+    "37": {
+      "passed": true,
+      "report_sha256": "11a5e19e747ab323b958eb6d8ceacd04f5f4a63b022a2bfe74a52cd568732424",
+      "scenario_count": 21
+    },
+    "38": {
+      "passed": true,
+      "report_sha256": "8b41a896bdd74deb7ec252ff5b73f3bef00bf29dfdc2db3c6df1468f650bf09c",
+      "scenario_count": 21
+    },
+    "9": {
+      "passed": true,
+      "report_sha256": "d198768cb23d22009514d6284ac1256f750bd38f26bbfcdcdd932abe7a5ac47f",
+      "scenario_count": 4
+    }
+  },
+  "release": "v0.35.0-RECONSTRUCTED",
+  "windows_binaries": {
+    "KeyDeck-Proof-0.38.exe": "221d0b724340ff44f643b7f7681042a6057ac26f1f2d6426933ad0c3b63de5d2",
+    "keydeck-core.exe": "b5c51fddb3178ad5656f972b98110d83483b249f67918f73371cd349dc8546f4",
+    "keydeck-desktop-shell.exe": "1ab193fa48b1eaa7b703fa0227f9d7e97870e86e10930a469316daa521804abb",
+    "keydeck-desktop-ui.exe": "5094188a1745a632ae170c9a799aedf879193b058192cdedce05b9692bd6d6b4",
+    "keydeck-desktop.exe": "9da6beb27dc5450aa7a30f0ea7c316605b0af9848bb55fb3919145a37ace9d36"
+  }
+}

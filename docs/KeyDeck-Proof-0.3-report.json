@@ -1,0 +1,34 @@
+{
+  "ambiguous_operation_after_restart": "tool operation outcome is ambiguous; replay is forbidden",
+  "ambiguous_operation_first_decision": {
+    "kind": "execute"
+  },
+  "completed_operation_after_restart": {
+    "kind": "return_previous",
+    "result": "deleted generated.tmp"
+  },
+  "completed_operation_first_decision": {
+    "kind": "execute"
+  },
+  "journal_state": {
+    "op-charge-1": {
+      "at": "2026-07-06T15:00:36.64111091Z",
+      "operation_id": "op-charge-1",
+      "tool": "charge_card",
+      "args_hash": "4d4bbe59c6aad22442cde199a6a8a5f034405fcd78fb5a81c24ef249de1c45f1",
+      "replay_policy": "forbidden",
+      "state": "started"
+    },
+    "op-delete-1": {
+      "at": "2026-07-06T15:00:36.640746595Z",
+      "operation_id": "op-delete-1",
+      "tool": "delete_files",
+      "args_hash": "3ad6dffa108c2a02d3f0928683909b487d23727b56a448bc83ce7e66e1fba1d6",
+      "replay_policy": "forbidden",
+      "state": "completed",
+      "result": "deleted generated.tmp"
+    }
+  },
+  "passed": true,
+  "proof": "0.3-tool-journal-replay-safety"
+}

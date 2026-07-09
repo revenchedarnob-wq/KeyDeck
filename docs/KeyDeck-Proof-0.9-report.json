@@ -1,0 +1,276 @@
+{
+  "claims": [
+    "completed non-repeatable tool actions are reconciled after crash without replay",
+    "ambiguous non-repeatable actions block automatic recovery",
+    "idempotent interrupted actions may retry",
+    "progress percentage is derived only from acceptance checks",
+    "task completion survives restart"
+  ],
+  "passed": true,
+  "proof": "0.9-durable-task-contract-progress-proof",
+  "scenarios": [
+    {
+      "name": "completed_tool_crash_window",
+      "passed": true,
+      "detail": {
+        "decision": {
+          "kind": "return_previous",
+          "result": "deleted generated.tmp"
+        },
+        "state": {
+          "version": 1,
+          "task_id": "task-proof09",
+          "session_id": "session-proof09",
+          "status": "working",
+          "contract": {
+            "goal": "finish a durable KeyDeck task safely",
+            "required_outcomes": [
+              "safe crash recovery",
+              "evidence-based progress"
+            ],
+            "forbidden_scope": [
+              "blind replay",
+              "model-guessed completion percentage"
+            ],
+            "checks": [
+              {
+                "id": "safe-recovery",
+                "description": "Recovery does not replay completed or ambiguous destructive work",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              {
+                "id": "idempotent-retry",
+                "description": "Interrupted idempotent work can retry",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              {
+                "id": "progress-proof",
+                "description": "Progress comes from acceptance evidence",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              {
+                "id": "restart-proof",
+                "description": "Completion survives restart",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "steps": {
+            "delete": {
+              "id": "delete",
+              "operation_id": "op-delete",
+              "tool": "delete_files",
+              "status": "completed",
+              "result": "deleted generated.tmp",
+              "updated_at": "2026-07-07T01:08:46.024582835Z"
+            }
+          },
+          "created_at": "2026-07-07T01:08:46.023904405Z",
+          "updated_at": "2026-07-07T01:08:46.024582835Z",
+          "last_sequence": 3
+        }
+      }
+    },
+    {
+      "name": "ambiguous_nonrepeatable_crash",
+      "passed": true,
+      "detail": {
+        "error": "tool operation outcome is ambiguous; replay is forbidden",
+        "state": {
+          "version": 1,
+          "task_id": "task-proof09",
+          "session_id": "session-proof09",
+          "status": "input_required",
+          "contract": {
+            "goal": "finish a durable KeyDeck task safely",
+            "required_outcomes": [
+              "safe crash recovery",
+              "evidence-based progress"
+            ],
+            "forbidden_scope": [
+              "blind replay",
+              "model-guessed completion percentage"
+            ],
+            "checks": [
+              {
+                "id": "safe-recovery",
+                "description": "Recovery does not replay completed or ambiguous destructive work",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              {
+                "id": "idempotent-retry",
+                "description": "Interrupted idempotent work can retry",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              {
+                "id": "progress-proof",
+                "description": "Progress comes from acceptance evidence",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              {
+                "id": "restart-proof",
+                "description": "Completion survives restart",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "steps": {
+            "charge": {
+              "id": "charge",
+              "operation_id": "op-charge",
+              "tool": "charge_card",
+              "status": "ambiguous",
+              "error": "tool operation outcome is ambiguous; replay is forbidden",
+              "updated_at": "2026-07-07T01:08:46.025306646Z"
+            }
+          },
+          "needs_input": "tool operation outcome is ambiguous; replay is forbidden",
+          "created_at": "2026-07-07T01:08:46.024795078Z",
+          "updated_at": "2026-07-07T01:08:46.025306646Z",
+          "last_sequence": 3
+        }
+      }
+    },
+    {
+      "name": "idempotent_retry_after_crash",
+      "passed": true,
+      "detail": {
+        "decision": {
+          "kind": "execute"
+        },
+        "state": {
+          "version": 1,
+          "task_id": "task-proof09",
+          "session_id": "session-proof09",
+          "status": "working",
+          "contract": {
+            "goal": "finish a durable KeyDeck task safely",
+            "required_outcomes": [
+              "safe crash recovery",
+              "evidence-based progress"
+            ],
+            "forbidden_scope": [
+              "blind replay",
+              "model-guessed completion percentage"
+            ],
+            "checks": [
+              {
+                "id": "safe-recovery",
+                "description": "Recovery does not replay completed or ambiguous destructive work",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              {
+                "id": "idempotent-retry",
+                "description": "Interrupted idempotent work can retry",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              {
+                "id": "progress-proof",
+                "description": "Progress comes from acceptance evidence",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              },
+              {
+                "id": "restart-proof",
+                "description": "Completion survives restart",
+                "status": "pending",
+                "updated_at": "0001-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "steps": {
+            "read": {
+              "id": "read",
+              "operation_id": "op-read",
+              "tool": "read_file",
+              "status": "started",
+              "updated_at": "2026-07-07T01:08:46.025838099Z"
+            }
+          },
+          "created_at": "2026-07-07T01:08:46.025658304Z",
+          "updated_at": "2026-07-07T01:08:46.026197479Z",
+          "last_sequence": 3
+        }
+      }
+    },
+    {
+      "name": "acceptance_based_progress",
+      "passed": true,
+      "detail": {
+        "final_progress": {
+          "passed_checks": 4,
+          "total_checks": 4,
+          "percent": 100,
+          "complete": true
+        },
+        "final_state": {
+          "version": 1,
+          "task_id": "task-proof09",
+          "session_id": "session-proof09",
+          "status": "completed",
+          "contract": {
+            "goal": "finish a durable KeyDeck task safely",
+            "required_outcomes": [
+              "safe crash recovery",
+              "evidence-based progress"
+            ],
+            "forbidden_scope": [
+              "blind replay",
+              "model-guessed completion percentage"
+            ],
+            "checks": [
+              {
+                "id": "safe-recovery",
+                "description": "Recovery does not replay completed or ambiguous destructive work",
+                "status": "passed",
+                "evidence": "completed and ambiguous recovery scenarios passed",
+                "updated_at": "2026-07-07T01:08:46.026453586Z"
+              },
+              {
+                "id": "idempotent-retry",
+                "description": "Interrupted idempotent work can retry",
+                "status": "passed",
+                "evidence": "idempotent retry scenario passed",
+                "updated_at": "2026-07-07T01:08:46.026527716Z"
+              },
+              {
+                "id": "progress-proof",
+                "description": "Progress comes from acceptance evidence",
+                "status": "passed",
+                "evidence": "2 of 4 checks measured as 50 percent before this check",
+                "updated_at": "2026-07-07T01:08:46.026607804Z"
+              },
+              {
+                "id": "restart-proof",
+                "description": "Completion survives restart",
+                "status": "passed",
+                "evidence": "event log replayed after restart",
+                "updated_at": "2026-07-07T01:08:46.026702248Z"
+              }
+            ]
+          },
+          "steps": {},
+          "created_at": "2026-07-07T01:08:46.026348742Z",
+          "updated_at": "2026-07-07T01:08:46.026702248Z",
+          "last_sequence": 5
+        },
+        "mid_progress": {
+          "passed_checks": 2,
+          "total_checks": 4,
+          "percent": 50,
+          "complete": false
+        }
+      }
+    }
+  ]
+}

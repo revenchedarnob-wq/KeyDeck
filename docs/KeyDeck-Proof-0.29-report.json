@@ -1,0 +1,89 @@
+{
+  "proof": "0.29-handoff-persistence-replay-safe-execution-restart-reconciliation-reconstructed",
+  "status": "passed",
+  "passed": true,
+  "scenarios": [
+    {
+      "name": "append_only_handoff_store_replays_exact_package_after_restart",
+      "passed": true,
+      "detail": {
+        "package": "handoff-4c263c7ccec692639e74"
+      }
+    },
+    {
+      "name": "current_state_is_validated_before_execute_or_resume",
+      "passed": true,
+      "detail": "handoff package task state is stale"
+    },
+    {
+      "name": "one_execution_id_is_bound_to_one_exact_package",
+      "passed": true,
+      "detail": "exec-6967459e60d728b6bbc3"
+    },
+    {
+      "name": "crash_after_package_persistence_before_engine_start_restarts_with_one_safe_start",
+      "passed": true,
+      "detail": {
+        "starts": 1
+      }
+    },
+    {
+      "name": "durable_resumable_binding_becomes_resume_required_after_restart_without_start_replay",
+      "passed": true,
+      "detail": {
+        "resumes": 1,
+        "starts": 1
+      }
+    },
+    {
+      "name": "completed_runtime_result_reuses_after_restart_without_duplicate_engine_start",
+      "passed": true,
+      "detail": {
+        "result": "runtime-result-exec-8c05561002390bb3618f",
+        "starts": 1
+      }
+    },
+    {
+      "name": "result_persisted_before_canonical_commit_reconciles_exactly_once_through_recovery_coordinator",
+      "passed": true,
+      "detail": {
+        "first_decisions": 1,
+        "messages": 1,
+        "second_decisions": 0
+      }
+    },
+    {
+      "name": "stale_or_tampered_packages_are_rejected_before_engine_execution",
+      "passed": true,
+      "detail": {
+        "stale": "handoff package context packet is stale",
+        "tamper": "invalid handoff package"
+      }
+    },
+    {
+      "name": "cancellation_persists_and_blocks_later_execute_or_resume",
+      "passed": true,
+      "detail": {
+        "error": "handoff package is cancelled"
+      }
+    },
+    {
+      "name": "proof_receipt_binds_package_store_runtime_result_and_canonical_commit_evidence",
+      "passed": true,
+      "detail": {
+        "bound": {
+          "canonical session state": true,
+          "engine result ledger": true,
+          "handoff package store": true,
+          "runtime execution ledger": true
+        },
+        "receipt": "receipt-90802b56c37dad2d842b"
+      }
+    }
+  ],
+  "package_id": "handoff-22a7a9e4ac0f98af1a8b",
+  "execution_id": "exec-8c05561002390bb3618f",
+  "canonical_result_id": "runtime-result-exec-8c05561002390bb3618f",
+  "receipt_id": "receipt-90802b56c37dad2d842b",
+  "next_gate": "Proof 0.30 — Deterministic Route Selection and Route-Bound Continuation"
+}
