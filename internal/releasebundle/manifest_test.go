@@ -108,7 +108,7 @@ func TestParseAndVerifyRejectsInvalidIdentityAndFileMetadata(t *testing.T) {
 		func() Manifest { m := validManifest(); m.ReleaseSequence = 0; return m }(),
 		func() Manifest { m := validManifest(); m.SourceCommit = "not-a-commit"; return m }(),
 		func() Manifest { m := validManifest(); m.SigningKeyID = "different-key"; return m }(),
-		func() Manifest { m := validManifest(); m.Files[0].SHA256 = strings.ToUpper(m.Files[0].SHA256); return m }(),
+		func() Manifest { m := validManifest(); m.Files[0].SHA256 = strings.Repeat("A", 64); return m }(),
 		func() Manifest { m := validManifest(); m.Files[0].Size = 0; return m }(),
 		func() Manifest { m := validManifest(); m.Files[0].Path = "bin/keydeck-bootstrap.dll"; return m }(),
 	}
