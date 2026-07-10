@@ -18,6 +18,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	goruntime "runtime"
 	"strings"
 	"sync"
 	"time"
@@ -69,6 +70,13 @@ type uiReadyFrame struct {
 	SupervisorInstanceID string `json:"supervisor_instance_id"`
 }
 
+func platformExecutableName(base string) string {
+	if goruntime.GOOS == "windows" {
+		return base + ".exe"
+	}
+	return base
+}
+
 func Open(cfg Config) (*Supervisor, error) {
 	normalized, layout, err := normalizeConfig(cfg)
 	if err != nil {
@@ -102,11 +110,11 @@ func Open(cfg Config) (*Supervisor, error) {
 	if err := os.MkdirAll(execDir, 0o700); err != nil {
 		return nil, err
 	}
-	coreExec, err := prepareVerifiedExecutable(normalized.CorePath, execDir, "keydeck-core", normalized.ExpectedCoreSHA256)
+	coreExec, err := prepareVerifiedExecutable(normalized.CorePath, execDir, platformExecutableName("keydeck-core"), normalized.ExpectedCoreSHA256)
 	if err != nil {
 		return nil, err
 	}
-	uiExec, err := prepareVerifiedExecutable(normalized.RendererPath, execDir, "keydeck-desktop-ui", normalized.ExpectedRendererSHA256)
+	uiExec, err := prepareVerifiedExecutable(normalized.RendererPath, execDir, platformExecutableName("keydeck-desktop-ui"), normalized.ExpectedRendererSHA256)
 	if err != nil {
 		return nil, err
 	}

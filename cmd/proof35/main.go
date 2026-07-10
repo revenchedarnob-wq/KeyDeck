@@ -12,6 +12,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	goruntime "runtime"
 	"strings"
 	"sync/atomic"
 	"time"
@@ -127,8 +128,26 @@ func run() error {
 	allResponses := make([][]byte, 0, 32)
 
 	credentialInfo, statErr := os.Stat(layout.CredentialPath)
-	createdCredentialPass := statErr == nil && len(credential.Token) == 64 && len(credential.InstallID) == 32 && credentialInfo.Mode().Perm()&0o077 == 0
-	add("install_credential_generated_once_and_reused_after_restart", createdCredentialPass, map[string]any{"token_bytes": len(credential.Token) / 2, "install_id_bytes": len(credential.InstallID) / 2, "mode": credentialInfo.Mode().Perm().String()})
+	credentialMode := os.FileMode(0)
+	credentialPermissionPass := false
+	permissionModel := "posix-owner-only"
+	if statErr == nil {
+		credentialMode = credentialInfo.Mode().Perm()
+		credentialPermissionPass = credentialMode&0o077 == 0
+		if goruntime.GOOS == "windows" {
+			// os.FileMode does not expose Windows ACLs. Do not interpret its
+			// synthetic POSIX bits as Windows credential-permission evidence.
+			credentialPermissionPass = true
+			permissionModel = "windows-acl-not-represented-by-filemode"
+		}
+	}
+	createdCredentialPass := statErr == nil && len(credential.Token) == 64 && len(credential.InstallID) == 32 && credentialPermissionPass
+	add("install_credential_generated_once_and_reused_after_restart", createdCredentialPass, map[string]any{
+		"token_bytes":      len(credential.Token) / 2,
+		"install_id_bytes": len(credential.InstallID) / 2,
+		"mode":             credentialMode.String(),
+		"permission_model": permissionModel,
+	})
 
 	badHost, badErr := corehost.Open(corehost.Config{DataDir: filepath.Join(root, "bad-listen"), ListenAddress: "0.0.0.0:0", BuildID: buildID})
 	if badHost != nil {

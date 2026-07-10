@@ -1,0 +1,28 @@
+name: release-artifact
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release/version label
+        required: true
+        default: v0.35.0-RECONSTRUCTED
+  push:
+    tags:
+      - 'v*'
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Build release package
+        shell: pwsh
+        run: ./scripts/release/release.ps1 -Version '${{ github.event.inputs.version || github.ref_name }}'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: keydeck-release-artifacts
+          path: _out/release

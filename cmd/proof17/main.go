@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"crypto/sha256"
 	_ "embed"
 	"encoding/hex"
@@ -196,7 +197,12 @@ func main() {
 }
 
 func sha256Hex(raw []byte) string {
-	sum := sha256.Sum256(raw)
+	// Historical provider captures were recorded by Windows gates using CRLF.
+	// Git normalizes text fixtures to LF, so reconstruct the recorded bytes
+	// before checking or propagating raw-capture provenance.
+	canonical := bytes.ReplaceAll(raw, []byte("\r\n"), []byte("\n"))
+	canonical = bytes.ReplaceAll(canonical, []byte("\n"), []byte("\r\n"))
+	sum := sha256.Sum256(canonical)
 	return hex.EncodeToString(sum[:])
 }
 

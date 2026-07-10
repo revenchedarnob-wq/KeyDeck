@@ -8,6 +8,7 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"sync"
 	"testing"
@@ -37,8 +38,12 @@ func TestCredentialCreatedOnceAndReused(t *testing.T) {
 		t.Fatalf("reuse mismatch: created=%v err=%v", created, err)
 	}
 	info, err := os.Stat(path)
-	if err != nil || info.Mode().Perm()&0o077 != 0 {
-		t.Fatalf("credential permissions: mode=%v err=%v", info.Mode().Perm(), err)
+	if err != nil {
+		t.Fatalf("credential stat: %v", err)
+	}
+	// FileMode permission bits do not represent Windows ACLs.
+	if runtime.GOOS != "windows" && info.Mode().Perm()&0o077 != 0 {
+		t.Fatalf("credential permissions: mode=%v", info.Mode().Perm())
 	}
 }
 

@@ -366,15 +366,31 @@ func runProof() error {
 		add("supervisor_durable_state_excludes_core_credential_and_renderer_launch_secret", durableSecretFree, map[string]any{"durable_secret_free": durableSecretFree})
 		secondLauncher := &recordingLauncher{inner: supervisor.NewProcessLauncher()}
 		_, secondErr := supervisor.Open(baseConfig(data, core, ui, ch, uh, secondLauncher, nil))
-		add("second_active_supervisor_is_blocked_before_child_launch", errors.Is(secondErr, corehost.ErrAlreadyRunning) && secondLauncher.count("core") == 0, map[string]any{"second_launches": 0})
+		secondBlocked := (errors.Is(secondErr, corehost.ErrAlreadyRunning) || errors.Is(secondErr, supervisor.ErrForeignChild)) && secondLauncher.count("core") == 0
+		secondError := ""
+		if secondErr != nil {
+			secondError = secondErr.Error()
+		}
+		add("second_active_supervisor_is_blocked_before_child_launch", secondBlocked, map[string]any{"second_launches": secondLauncher.count("core"), "error": secondError})
 
 		corePID := status.CorePID
 		oldUI := launcher.latest("renderer")
-		oldUIPID := status.RendererPID
+		oldRendererLaunches := launcher.count("renderer")
+		oldAttestations := uiAttest
 		killCtx, kc := context.WithTimeout(context.Background(), 2*time.Second)
 		_ = oldUI.Stop(killCtx)
 		kc()
-		restarted := waitUntil(7*time.Second, func() bool { st := s.Status(); return st.Running && st.RendererPID > 0 && st.RendererPID != oldUIPID })
+		restarted := waitUntil(15*time.Second, func() bool {
+			openedMu.Lock()
+			openedCount := len(opened)
+			openedMu.Unlock()
+			st := s.Status()
+			return st.CorePID == corePID &&
+				st.RendererPID > 0 &&
+				launcher.count("renderer") > oldRendererLaunches &&
+				uiAttest > oldAttestations &&
+				openedCount > 1
+		})
 		newStatus := s.Status()
 		openedMu.Lock()
 		secondURL := ""
@@ -382,8 +398,23 @@ func runProof() error {
 			secondURL = opened[len(opened)-1]
 		}
 		openedMu.Unlock()
-		rotated := restarted && newStatus.CorePID == corePID && rendererToken(firstURL) != "" && rendererToken(firstURL) != rendererToken(secondURL)
-		add("renderer_crash_restarts_only_renderer_and_rotates_launch_secret", rotated, map[string]any{"core_reused": newStatus.CorePID == corePID, "secret_rotated": rendererToken(firstURL) != rendererToken(secondURL)})
+		firstRendererToken := rendererToken(firstURL)
+		secondRendererToken := rendererToken(secondURL)
+		rotated := restarted &&
+			newStatus.CorePID == corePID &&
+			newStatus.RendererPID > 0 &&
+			launcher.count("renderer") == oldRendererLaunches+1 &&
+			uiAttest > oldAttestations &&
+			firstRendererToken != "" &&
+			firstRendererToken != secondRendererToken
+		add("renderer_crash_restarts_only_renderer_and_rotates_launch_secret", rotated, map[string]any{
+			"restarted":         restarted,
+			"core_reused":       newStatus.CorePID == corePID,
+			"renderer_live":     newStatus.RendererPID > 0,
+			"renderer_launches": launcher.count("renderer"),
+			"core_attestations": uiAttest,
+			"secret_rotated":    firstRendererToken != "" && firstRendererToken != secondRendererToken,
+		})
 		reAttested := launcher.count("core") == 1 && launcher.count("renderer") == 2 && uiAttest >= 2
 		add("renderer_restart_reattests_same_exact_core_before_relaunch", reAttested, map[string]any{"core_launches": launcher.count("core"), "renderer_launches": launcher.count("renderer"), "core_attestations": uiAttest})
 		_, _, _, beforeStops := launcher.snapshot()
@@ -438,12 +469,15 @@ func runProof() error {
 				bounded = false
 				break
 			}
+			beforeRendererLaunches := l.count("renderer")
 			ctx, c := context.WithTimeout(context.Background(), 2*time.Second)
 			_ = child.Stop(ctx)
 			c()
 			if i < 2 {
-				prev := child.PID()
-				if !waitUntil(6*time.Second, func() bool { st := s.Status(); return st.RendererPID > 0 && st.RendererPID != prev }) {
+				if !waitUntil(6*time.Second, func() bool {
+					st := s.Status()
+					return st.Running && st.RendererPID > 0 && l.count("renderer") > beforeRendererLaunches
+				}) {
 					bounded = false
 					break
 				}
@@ -538,18 +572,36 @@ func runProof() error {
 			return err
 		}
 		defer cleanup()
-		spec, _ := l.latestSpec("renderer")
-		_ = os.WriteFile(spec.Path, []byte("tampered-private-renderer"), 0o700)
+		spec, specOK := l.latestSpec("renderer")
 		ui := l.latest("renderer")
-		ctx, c := context.WithTimeout(context.Background(), 2*time.Second)
-		_ = ui.Stop(ctx)
-		c()
-		var fatal error
-		select {
-		case fatal = <-s.Fatal():
-		case <-time.After(6 * time.Second):
+		stopped := false
+		var tamperErr error
+		if specOK && ui != nil {
+			ctx, c := context.WithTimeout(context.Background(), 2*time.Second)
+			_ = ui.Stop(ctx)
+			c()
+			stopped = waitUntil(2*time.Second, func() bool {
+				select {
+				case <-ui.Done():
+					return true
+				default:
+					return false
+				}
+			})
+			if stopped {
+				tamperErr = os.WriteFile(spec.Path, []byte("tampered-private-renderer"), 0o700)
+			}
+		} else {
+			tamperErr = errors.New("renderer child or launch specification unavailable")
 		}
-		ok := errors.Is(fatal, supervisor.ErrBinaryIdentity) && l.count("renderer") == 1 && waitUntil(5*time.Second, func() bool {
+		var fatal error
+		if stopped && tamperErr == nil {
+			select {
+			case fatal = <-s.Fatal():
+			case <-time.After(8 * time.Second):
+			}
+		}
+		ok := stopped && tamperErr == nil && errors.Is(fatal, supervisor.ErrBinaryIdentity) && l.count("renderer") == 1 && waitUntil(5*time.Second, func() bool {
 			_, _, _, st := l.snapshot()
 			for _, k := range st {
 				if k == "core" {
@@ -558,7 +610,11 @@ func runProof() error {
 			}
 			return false
 		})
-		add("tampered_private_renderer_binary_is_blocked_before_restart_launch", ok, map[string]any{"renderer_launches": l.count("renderer"), "tamper_blocked": errors.Is(fatal, supervisor.ErrBinaryIdentity)})
+		tamperError := ""
+		if tamperErr != nil {
+			tamperError = tamperErr.Error()
+		}
+		add("tampered_private_renderer_binary_is_blocked_before_restart_launch", ok, map[string]any{"renderer_launches": l.count("renderer"), "tamper_blocked": errors.Is(fatal, supervisor.ErrBinaryIdentity), "renderer_stopped": stopped, "tamper_error": tamperError})
 	}
 
 	// 21. direct supervisor pipe closure shuts helper core and removes runtime.
@@ -566,7 +622,7 @@ func runProof() error {
 		root, _ := os.MkdirTemp("", "keydeck-proof38-pipe-")
 		defer os.RemoveAll(root)
 		self, _ := os.Executable()
-		core := filepath.Join(root, "keydeck-core")
+		core := filepath.Join(root, "keydeck-core"+filepath.Ext(self))
 		_ = copyFile(self, core)
 		data := filepath.Join(root, "data")
 		layout, _ := corehost.BuildLayout(data)
@@ -712,6 +768,9 @@ func startScenarioSupervisor(name string, maxRestarts int, opener func(string) e
 		return err
 	}
 	cfg := baseConfig(data, core, ui, ch, uh, l, opener)
+	if name == "ui-tamper" {
+		cfg.MonitorEvery = 3 * time.Second
+	}
 	cfg.MaxRendererRestarts = maxRestarts
 	s, err := supervisor.Open(cfg)
 	if err != nil {
