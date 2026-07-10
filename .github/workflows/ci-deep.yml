@@ -1,5 +1,6 @@
 name: ci-deep
 on:
+  pull_request:
   workflow_dispatch:
   schedule:
     - cron: '17 3 * * 0'

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"crypto/sha256"
 	_ "embed"
 	"encoding/hex"
@@ -47,7 +48,11 @@ func main() {
 		out.Scenarios = append(out.Scenarios, scenario{Name: name, Passed: passed, Detail: detail})
 	}
 
-	rawSum := sha256.Sum256(rawCapture)
+	// The original Windows capture used CRLF. Git stores text fixtures with LF,
+	// so reconstruct the recorded byte form before checking historical provenance.
+	canonicalRawCapture := bytes.ReplaceAll(rawCapture, []byte("\r\n"), []byte("\n"))
+	canonicalRawCapture = bytes.ReplaceAll(canonicalRawCapture, []byte("\n"), []byte("\r\n"))
+	rawSum := sha256.Sum256(canonicalRawCapture)
 	rawSHA := hex.EncodeToString(rawSum[:])
 	out.RawCaptureSHA256 = rawSHA
 	add("raw_capture_sha256_matches_windows_gate", strings.EqualFold(rawSHA, expectedRawCaptureSHA), rawSHA)
